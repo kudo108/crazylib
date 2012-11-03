@@ -20,10 +20,10 @@
           <div class="nav-collapse collapse" style="height: 0px; ">
             <ul class="nav">
               <li class="">
-                <a href="#">Home</a>
+                <a href="/">Home</a>
               </li>
               <li class="">
-                <a href="#">Books</a>
+                <a href="/books/view">Books</a>
               </li>
               <li class="">
                 <a href="#">Services</a>
@@ -31,27 +31,29 @@
               <li class="">
                 <a href="#">Help</a>
               </li>
-              <li class="active">
+              <li >
                 <a href="#">Abouts</a>
               </li>
             </ul>
           </div>
           <div class="nav pull-right">
               <li class="">
-                <a href="#">Users</a>
+                <a href="#">Login</a>
+                
+              </li>
+              <li class="">
+                <a href="#">Register</a>
               </li>
           </div>  
         </div>
       </div>
     </div>
     <!---End navi-->
-    <!--vv-->
-         
-    <!--E-->
-    
-    
-    
-  <!--<%= yield %>-->
-
+    <!--Content-->
+    <div class="container-fluid">
+      <div class="row-fluid">
+      <%= yield %>
+      </div>
+    </div>
 </body>
 </html>
