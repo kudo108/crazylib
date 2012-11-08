@@ -1,7 +1,12 @@
 CrazyLib::Application.routes.draw do
+  resources :books
+
   get "books/view"
 
   get "home/index"
+
+  get "books/list_all_book"
+
   root :to=>"home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
