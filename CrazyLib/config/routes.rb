@@ -2,6 +2,7 @@ CrazyLib::Application.routes.draw do
   resources :books
 
   get "books/view"
+  get "books/viewbyid"
 
   get "home/index"
 

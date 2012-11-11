@@ -1,0 +1,22 @@
+.books-content{
+	padding:10px;
+	background-color:rgba(255,255,255,0.8);
+	margin-bottom:15px;
+	border-radius: 10px;
+}
+.books-one-content{
+	padding:10px;
+	background-color:rgba(255,255,255,0.8);
+	margin-bottom:15px;
+	border-radius: 10px;
+}
+.thumbnails li{
+	max-height:500px;
+	background-color:white;
+}
+.books-one-details{
+	padding:10px;
+	background-color:rgba(255,255,255,0.8);
+	margin-bottom:15px;
+	border-radius: 10px;
+}
