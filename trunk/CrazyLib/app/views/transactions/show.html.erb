@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Book:</b>
+  <%= @transaction.book_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @transaction.user_id %>
+</p>
+
+<p>
+  <b>Day borrow:</b>
+  <%= @transaction.day_borrow %>
+</p>
+
+<p>
+  <b>Day return:</b>
+  <%= @transaction.day_return %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @transaction.date %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @transaction.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>
