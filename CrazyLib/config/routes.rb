@@ -1,11 +1,11 @@
 CrazyLib::Application.routes.draw do
+  devise_for :users
+
   resources :transactions
 
   resources :books
 
   resources :usergroups
-
-  resources :users
 
   get "books/view"
   get "books/viewbyid"
