@@ -16,7 +16,7 @@ CrazyLib::Application.routes.draw do
   get "books/list_all_book"
   
   #search
-  get "books/search/index"
+  get "books/search"
   #static page
   match '/about' => 'pages#about'
   match '/contact' => 'pages#contact'
