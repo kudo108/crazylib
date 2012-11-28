@@ -85,8 +85,8 @@ class BooksController < ApplicationController
   end
   def search
   #store all the projects that match the name searched
-  @projects = Project.where("name LIKE ? ", "%#{params[:project]}%")  
+  #@projects = Project.where("name LIKE ? ", "%#{params[:project]}%")  
   #store all the clients that match the name searched    
-  @clients = Client.where("name LIKE ? ", "%#{params[:client]}%")
+  #@clients = Client.where("name LIKE ? ", "%#{params[:client]}%")
   end
 end
