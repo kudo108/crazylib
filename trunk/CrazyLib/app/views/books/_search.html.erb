@@ -1,5 +1,7 @@
+<div class="offset6">
 <%= form_tag books_search_index_path, method: :get do %>
+<%= select_tag "books", "<option value='1'>Tên sách</option><option>2</option><option>3</option><option>4</option><option>david</option>".html_safe,:style=>"width:25%" %>
   <%= text_field_tag :project, params[:project] %>
-  <%= text_field_tag :client, params[:client] %>
-  <%= submit_tag "Search", name: nil %>
+  <%= submit_tag "Search", name: nil ,:class=>"btn"%>
 <% end %>
+</div>

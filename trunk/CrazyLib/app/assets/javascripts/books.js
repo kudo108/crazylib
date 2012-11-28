@@ -5,4 +5,4 @@ function moveCloud(){
 	$("body").css("background-position-x",px);
 	setTimeout(moveCloud,100);
 }
-//setTimeout(moveCloud,100)
+setTimeout(moveCloud,100)
