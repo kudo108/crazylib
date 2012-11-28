@@ -9,6 +9,22 @@
 <body>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
+	
+	<% flash.each do |name, msg| %>
+
+ 	<!--  # New code (allow for flash elements to be arrays) -->
+  		<% if msg.class == Array %>
+    		<% msg.each do |message| %>
+      			<%= content_tag :div, message, :id => "flash_#{name}" %>
+    		<% end %>
+  		<% else %>
+
+	<!--     # old code -->
+    		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+
+  		<% end %> 
+<!--   		#don't forget the extra end -->
+	<% end %>
       <!--begin navi-->
      <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -45,13 +61,21 @@
             </ul>
           </div>
           <div class="nav pull-right">
+          	<% if (!user_signed_in?)%>
               <li class="">
-                <a href="<%= new_user_session_path %>">Login</a>
-                
+                <%= link_to "Log in", new_user_session_path %>
               </li>
+              
               <li class="">
-                <a href="<%= new_user_registration_path %>">Register</a>
+                <%= link_to "Register", new_user_registration_path %>
               </li>
+            <%else%>
+              <li class="">
+                <%=link_to "Log out", destroy_user_session_path, :method => :delete %> 
+              </li>
+            <%end%>
+            <li><%= link_to "Vietnamese",:controller => 'locale', :action => 'set', :id => 'vi' %> </li>
+            <li><%= link_to "French",:controller => 'locale', :action => 'set', :id => 'fr' %> </li>
           </div> 
         </div>
       </div>
