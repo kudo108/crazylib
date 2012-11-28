@@ -3,7 +3,7 @@ CrazyLib::Application.routes.draw do
 
   resources :transactions
 
-  resources :books
+  #resources :books
 
   resources :usergroups
 
@@ -13,6 +13,12 @@ CrazyLib::Application.routes.draw do
   get "home/index"
 
   get "books/list_all_book"
+  
+  #search
+  get "books/search/index"
+  #static page
+  match '/about' => 'pages#about'
+  match '/contact' => 'pages#contact'
 
   root :to=>"home#index"
   # The priority is based upon order of creation:
