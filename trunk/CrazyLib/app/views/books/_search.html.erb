@@ -1,0 +1,5 @@
+<%= form_tag books_search_index_path, method: :get do %>
+  <%= text_field_tag :project, params[:project] %>
+  <%= text_field_tag :client, params[:client] %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
