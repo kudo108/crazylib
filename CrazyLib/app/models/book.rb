@@ -3,12 +3,28 @@ class Book < ActiveRecord::Base
     if search
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
     else
-      #find(:all)
+    #find(:all)
     end
   end
-  
-  def self.search(search_project, search_client) 
-  return scoped unless search_project.present? || search_client.present?
-  where(['project_name LIKE ? AND client LIKE ?', "%#{search_project}%", "%#{search_client}%"])
-end
+
+  def self.search(filter,keyword)
+    puts "searching"
+    if keyword
+      case filter
+      when 0 #all
+        find(:all)
+      when 1 #title
+        find(:all, :conditions => ['title LIKE ?', "%#{keyword}%"])
+      when 2 #author
+        find(:all, :conditions => ['author LIKE ?', "%#{keyword}%"])
+      when 3 #desciption
+        find(:all, :conditions => ['description LIKE ?', "%#{keyword}%"])
+      else 
+        find(:all)
+      end
+      
+    else
+      find(:all)
+    end
+  end
 end

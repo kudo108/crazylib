@@ -80,13 +80,16 @@ class BooksController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def searchByTitle
-  @books = Book.searchByTitle params[:search]
-  end
+
+  #def searchByTitle
+   # @books = Book.searchByTitle params[:search]
+  #end
+
   def search
-  #store all the projects that match the name searched
-  #@projects = Project.where("name LIKE ? ", "%#{params[:project]}%")  
-  #store all the clients that match the name searched    
-  #@clients = Client.where("name LIKE ? ", "%#{params[:client]}%")
+    if params[:keyword]
+      @books = Book.search(params[:filter] ,params[:keyword])
+    else
+      @book = Book.find(:all)
+    end
   end
 end
