@@ -15,6 +15,14 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
+  #Moi them vo
+  # # tell the I18n library where to find your translations
+  # I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
+#    
+  # # set default locale to something other than :en
+  # I18n.default_locale = :en
+  
+  
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for

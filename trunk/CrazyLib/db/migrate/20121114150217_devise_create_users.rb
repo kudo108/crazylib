@@ -24,6 +24,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
 	  t.datetime :register_date
 	  t.date     :end_date
 	  t.integer  :group
+	  t.string   :student_id,  :null => false
+	  t.string   :class_name,  :null => false
+	  t.string   :home_address,:null => false
+	  t.integer  :phone_number,:null => false
+	  t.string   :locale,      :null => false, :default =>"en"
 
       ## Confirmable
       # t.string   :confirmation_token

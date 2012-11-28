@@ -1,5 +1,7 @@
 CrazyLib::Application.routes.draw do
 
+  devise_for :add_column_to_users
+
   devise_for :users
 
   resources :transactions
@@ -20,6 +22,7 @@ CrazyLib::Application.routes.draw do
   #static page
   match '/about' => 'pages#about'
   match '/contact' => 'pages#contact'
+  match 'locale/set(/:id)'=>'locale#set'
   match '/faq' => 'pages#faq'
   match 'rule' => 'pages#rule'
 
