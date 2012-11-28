@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114150217) do
+ActiveRecord::Schema.define(:version => 20121128042957) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -54,10 +54,6 @@ ActiveRecord::Schema.define(:version => 20121114150217) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "nickname"
-    t.datetime "register_date"
-    t.date     "end_date"
-    t.integer  "group"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
