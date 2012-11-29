@@ -33,77 +33,92 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
+
 					<button type="button" class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
 					<a class="brand" href="/">Crazy Lib</a>
-					<div class="nav-collapse collapse" style="height: 0px; ">
-						<ul class="nav">
+					<div class="controls controls-row">
+						<div class="nav-collapse collapse" style="height: 0px; ">
+							<ul class="nav">
+								<li class="">
+									<a href="/">Home</a>
+								</li>
+								<li class="">
+									<a href="/books/">Books</a>
+								</li>
+								<li class="">
+									<a href="/books/search">Search</a>
+								</li>
+								<li class="">
+									<a href="/faq">FAQ</a>
+								</li>
+								<li class="">
+									<a href="/rule">Rule</a>
+								</li>
+								<li >
+									<a href="/contact">Contact</a>
+								</li>
+								<li >
+									<a href="/about">Abouts</a>
+								</li>
+							</ul>
+						</div>
+						<div class="nav pull-right">
+							<% if (!user_signed_in?)%>
 							<li class="">
-								<a href="/">Home</a>
+								<%= link_to "Log in", new_user_session_path %>
 							</li>
-							<li class="">
-								<a href="/books/">Books</a>
-							</li>
-							<li class="">
-								<a href="/books/search">Search</a>
-							</li>
-							<li class="">
-								<a href="/faq">FAQ</a>
-							</li>
-							<li class="">
-								<a href="/rule">Rule</a>
-							</li>
-							<li >
-								<a href="/contact">Contact</a>
-							</li>
-							<li >
-								<a href="/about">Abouts</a>
-							</li>
-						</ul>
-					</div>
-					<div class="nav pull-right">
-						<% if (!user_signed_in?)%>
-						<li class="">
-							<%= link_to "Log in", new_user_session_path %>
-						</li>
 
-						<li class="">
-							<%= link_to "Register", new_user_registration_path %>
-						</li>
-						<%else%>
-						<li class="">
-							<%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-						</li>
-						<%end%>
-						<li>
-							<a href="/linkTiengViet"><img style="width: 30px; height: 20px" src="/assets/flag_vn.gif" alt="Vietnamese" /></a>
-						</li>
-						<li>
-							<a href="/linkTiengAnh"><img style="width: 30px; height: 20px" src="/assets/flag_en.gif" alt="English" /></a>
-						</li>
+							<li class="">
+								<%= link_to "Register", new_user_registration_path %>
+							</li>
+							<%else%>
+							<li class="">
+								<%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+							</li>
+							<%end%>
+							<li>
+								<a href="/linkTiengViet"><img style="width: 30px; height: 20px" src="/assets/flag_vn.gif" alt="Vietnamese" /></a>
+							</li>
+							<li>
+								<a href="/linkTiengAnh"><img style="width: 30px; height: 20px" src="/assets/flag_en.gif" alt="English" /></a>
+							</li>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!---End navi-->
+		<!-- background -->
+		<link href="http://fonts.googleapis.com/css?family=Baumans&subset=latin" rel="stylesheet" type="text/css">
+		<style type="text/css">
+			body {
+				font-family: Baumans, sanserif;
+				background: #f8f5ee url("../assets/bg.jpg") repeat-x;
+				background-position: 1px 0px;
+			}
+		</style>
+		<div style="height:50px;"></div>
+
+		<!-- end background -->
 		<!-- container -->
-		<!--Content-->
 		<div class="container-fluid">
+			<!--Content-->
 			<div class="row-fluid">
 				<%= yield %>
 			</div>
+			<!-- end content-->
 		</div>
 		<!-- End Container -->
 		<!--footer-->
-		<div class="navbar-inner">
-			<div class ="container">
-				<div class="text-info">
-					Copyright CrazyLib@CrazyTeam.
-				</div>
+		<center>
+			<div class="text-info">
+				<br/>
+				Copyright CrazyLib@CrazyTeam.
 			</div>
-		</div>
+		</center>
 	</body>
 </html>
