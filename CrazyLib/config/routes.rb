@@ -5,7 +5,7 @@ CrazyLib::Application.routes.draw do
   devise_for :add_column_to_users
 
   devise_for :users
-
+  resources :users, :only => [:show]
   resources :transactions
 
   #resources :books
