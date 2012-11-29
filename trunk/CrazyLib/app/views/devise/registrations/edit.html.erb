@@ -15,6 +15,18 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
+  <div><%= f.label :student_id %><br />
+  <%= f.text_field :student_id %></div>
+
+  <div><%= f.label :class_name %><br />
+  <%= f.text_field :class_name %></div>
+
+  <div><%= f.label :home_address %><br />
+  <%= f.text_field :home_address %></div>
+
+  <div><%= f.label :phone_number %><br />
+  <%= f.text_field :phone_number %></div>
+
   <div><%= f.submit "Update" %></div>
 <% end %>
 
