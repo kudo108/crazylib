@@ -24,11 +24,12 @@ CrazyLib::Application.routes.draw do
   #static page
   match '/about' => 'pages#about'
   match '/contact' => 'pages#contact'
-  match 'locale/set(/:id)'=>'locale#set'
+  
   match '/faq' => 'pages#faq'
   match 'rule' => 'pages#rule'
 
   root :to=>"home#index"
+  # match 'locale/set(/:id)'=>'locale#set'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
