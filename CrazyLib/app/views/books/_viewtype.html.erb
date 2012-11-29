@@ -1,0 +1,35 @@
+	<!--one type of book-->
+	<div class="books-content">
+	<div class="row-fluid">
+		<%@sciences = Books.find(:all,:conditions=>{:topic=>params[:type]})%>
+		  <h3 class="pull-left ">
+			<div class="btn-group"><a class="btn" href="viewbytype?type=1">Sách khoa học</a></div>
+		  </h3>
+	</div>
+	<div class="row-fluid" id="science-content">
+				<%i = 0;%>
+				<% @sciences.each do |science| %>
+				<%if(i%4==0)%>
+				<ul class="thumbnails">
+				<%end%>
+				<li class="span3" >
+				<div class="thumbnail">
+				  <a href="viewbyid?id=<%= science.bookId%>&type=1" ><img src="../assets/<%= science.url%>" alt=""></a>
+				  <div class="caption">
+					<!--<h3 style="font-size:20px;"> <%= science.title%></h3>-->
+					<p>
+						<%=  truncate(science.content,:length=>80)%>
+					</p>
+				  </div>
+				</div>
+				</li>
+				<%if(i%4==3)%>
+				</ul>
+				<%end%>
+				<%i=i+1%>
+				
+				<% end %>
+	</div>
+	</div>
+	<!--end-->
+	
