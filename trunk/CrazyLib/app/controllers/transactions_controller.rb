@@ -40,7 +40,11 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    @transaction = Transaction.new(params[:transaction])
+    if(user_signed_in?)
+      if(params[:transaction])
+      end
+    end
+   # @transaction = Transaction.new(params[:transaction])
 
     respond_to do |format|
       if @transaction.save

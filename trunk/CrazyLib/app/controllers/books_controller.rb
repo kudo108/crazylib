@@ -8,14 +8,14 @@ class BooksController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @books }
     end
-    @sciences = Books.find(:all,:limit=>8,:conditions=>{:topic=>1});
+    @sciences = Book.find(:all,:limit=>8,:conditions=>{:topic=>1});
     respond_to do |format|
       format.html # view.html
       format.json { render json: @sciences }
     end
   end
   def view
-	@sciences = Books.find(:all,:limit=>8,:conditions=>{:topic=>1});
+	@sciences = Book.find(:all,:limit=>8,:conditions=>{:topic=>1});
     respond_to do |format|
       format.html # view.html
       format.json { render json: @sciences }
@@ -37,7 +37,7 @@ class BooksController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @book }
     end
-    @book = Books.find(:all,:conditions=>{:bookId=>params[:id]});
+    @book = Book.find(:all,:conditions=>{:bookId=>params[:id]});
     respond_to do|format|
       format.html
     end

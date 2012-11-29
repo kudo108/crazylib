@@ -1,6 +1,12 @@
+ <% if @books%>
+ <div class="text-info">
+ 	Found <%=@books.length%> results.
+ </div>
   <ul>
     <% @books.each do |book| %>
   <li><%= link_to book.title, 
     :action => 'show', :id => book.id  %></li>
   <% end %>
   </ul>
+  <% else %>
+<% end%>
