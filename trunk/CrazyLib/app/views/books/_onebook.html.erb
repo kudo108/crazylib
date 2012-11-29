@@ -1,61 +1,53 @@
 <link href="http://fonts.googleapis.com/css?family=Berkshire Swash&subset=latin" rel="stylesheet" type="text/css">
-<div class="books-one-content">
-	<div class="row-fluid">
-	<a href="#"><img src="../assets/prev.png" alt="" class="pull-left" style="margin-top:25px"></img></a>
-	<div class="slides" style="margin-left:135px">
-	<li class="span2">
-		<a href="#" class="thumbnail">
-			<img src="../assets/260x180.jpg" alt=""></img>
-		</a>
-	</li>
-	<li class="span2">
-		<a href="#" class="thumbnail">
-			<img src="../assets/260x180.jpg" alt=""></img>
-		</a>
-	</li>
-	<li class="span2">
-		<a href="#" class="thumbnail">
-			<img src="../assets/260x180.jpg" alt=""></img>
-		</a>
-	</li>
-	<li class="span2">
-		<a href="#" class="thumbnail">
-			<img src="../assets/260x180.jpg" alt=""></img>
-		</a>
-	</li>
-	<li class="span2">
-		<a href="#" class="thumbnail">
-			<img src="../assets/260x180.jpg" alt=""></img>
-		</a>
-	</li>
-	</div>
-	<a href="#"><img src="../assets/next.png" alt="" class="pull-right" style="margin-top:25px"></img></a>
+<div class="slideshow">
+	<%@slides = Books.find(:all,:conditions=>{:topic=>params[:type]});%>
+	<%@book =  Books.find(:all,:conditions=>{:bookId=>params[:id]});%>
+	<div class="slidesContainer">
+		<div>
+		<%i=0;%>
+		<%@slides.each do |slide|%>
+			<%if(i%6==0)%>
+			<div class="slide" >
+			<%end%>
+			<li class="span2">
+			<a href="viewbyid?id=<%=slide.bookId%>&type=<%=slide.topic%>" class="thumbnail" style="margin-bottom:5px;">
+				<img src="../assets/<%=slide.url%>" alt=""></img>
+			</a>
+			</li>
+			<%if(i%6==5)%>
+			</div>
+			<%end%>
+			<%i=i+1%>
+		<%end%>
+		</div>
+		</div>
 	</div>
 </div>
 <div class="books-one-details">
 	<div class="row-fluid" style="font-family:Berkshire Swash;">
 		<li class="span3">
-		<a href="#" class="thumbnail">
-			<img src="../assets/260x180.jpg" alt=""></img>
+		<a class="thumbnail">
+			<img src="../assets/<%= @book[0].url%>" alt=""></img>
 		</a>
 		</li>
 		<li class="span6" >
-		<span style="font-size:20px" class="label label-success">Duong cong hoan hao</span>
+		<span style="font-size:20px" class="label label-success"><%= @book[0].title%></span>
 			<hr>
-			<span class="label ">Mã số </span> <span class="label label-important" style="margin-left:10px;cursor:pointer">Default</span><br/>
-			<span class="label ">Tác giả </span> <span class="label label-info"style="margin-left:10px;cursor:pointer">Default</span><br/>
-			<span class="label ">Nhà xuất bản </span> <span class="label label-info" style="margin-left:10px;cursor:pointer">Default</span><br/>
-			<span class="label ">Số trang </span> <span class="label label-info" style="margin-left:10px;cursor:pointer">Default</span><br/>
-			<span class="label ">Loại sách </span> <span class="label label-info" style="margin-left:10px;cursor:pointer">Default</span><br/>
-			<span class="label ">Rating </span> <span class="label label-info" style="margin-left:10px;cursor:pointer">Default</span><br/>
+			<span class="label ">Mã số </span> <span class="label label-important" style="margin-left:10px;cursor:pointer"><%= @book[0].bookId%></span><br/>
+			<span class="label ">Tác giả </span> <span class="label label-info"style="margin-left:10px;cursor:pointer"><%= @book[0].author%></span><br/>
+			<span class="label ">Nhà xuất bản </span> <span class="label label-info" style="margin-left:10px;cursor:pointer"><%=@book[0].publisher%></span><br/>
+			<span class="label ">Số trang </span> <span class="label label-info" style="margin-left:10px;cursor:pointer"><%=@book[0].numberOfPage%></span><br/>
+			<span class="label ">Loại sách </span> <span class="label label-info" style="margin-left:10px;cursor:pointer"><%=truncate(@book[0].bookId,:length=>7)%></span><br/>
+			<span class="label ">Rating </span> <span class="label label-info" style="margin-left:10px;cursor:pointer"><%=@book[0].rating%></span><br/>
 			
 		</li>
 		<li class="span3">
-		<span class="label label-inverse">Số lượng sách</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">10</span></br>
-		<span class="label label-inverse">Yêu cầu </span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">8</span></br>
-		<span class="label label-inverse">Không đáp ứng </span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">0</span></br>
-		<span class="label label-inverse">Vị trí xếp giá</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">10e</span></br>
-		<span class="label label-inverse">Ký hiệu xếp giá</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">3cf9</span></br>
+		<br/><br/>
+		<span class="label label-inverse">Số lượng sách</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer"><%=@book[0].numberOfBooks%></span></br>
+		<span class="label label-inverse">Yêu cầu </span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer"><%=@book[0].numberRequest%></span></br>
+		<span class="label label-inverse">Không đáp ứng </span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer"><%=@book[0].numberNotAccept%></span></br>
+		<span class="label label-inverse">Vị trí xếp giá</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer"><%=@book[0].location%></span></br>
+		<span class="label label-inverse">Ký hiệu xếp giá</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer"><%=@book[0].signLocation%></span></br>
 		<br/>
 		<button class="btn btn-mini" type="button"><span class="icon-refresh"> </span> Đặt sách</button>
 		<button class="btn btn-mini" type="button"><span class="icon-eye-open"> </span> Xem sau</button>
@@ -67,13 +59,7 @@
 	<div class="span6">
 		<strong>Tóm Tắt Nội Dung</strong>
 		<hr>
-		Deb Perelman loves to cook. She isn’t a chef or a restaurant owner—she’s never even waitressed. Cooking in her tiny Manhattan kitchen was, at least at first, for special occasions—and, too often, an unnecessarily daunting venture. Deb found herself overwhelmed by the number of recipes available to her. Have you ever searched for the perfect birthday cake on Google? You’ll get more than three million results. Where do you start? What if you pick a recipe that’s downright bad?
-
-		So Deb founded her award-winning blog, Smitten Kitchen, on the premise that cooking should be a pleasure, and that the results of your labor can—and should—be delicious . . .  every time. Deb is a firm believer that there are no bad cooks, just bad recipes. She has dedicated herself to creating and finding the best of the best and adapting the recipes for the everyday cook. 
-
-		And now, with the same warmth, candor, and can-do spirit her blog is known for, Deb presents her first cookbook: more than 100 recipes—almost entirely new, plus a few favorites from the site—all gorgeously illustrated with hundreds of her beautiful color photographs.
-
-		The Smitten Kitchen Cookbook is all about approachable, uncompromised home cooking. Here you’ll find better uses for your favorite vegetables: asparagus blanketing a pizza; ratatouille dressing up a sandwich; cauliflower masquerading as pesto. These are recipes you’ll bookmark and use so often they become your own, recipes you’ll slip to a friend who wants to impress her new in-laws, and recipes with simple ingredients that yield amazing results in a minimum amount of time. Deb tells you her favorite summer cocktail; how to lose your fear of cooking for a crowd; and the essential items you need for your own kitchen. From salads and slaws that make perfect side dishes (or a full meal) to savory tarts and galettes; from Mushroom Bourguignon to Chocolate Hazelnut Crepe Cake, Deb knows just the thing for a Tuesday night, or your most special occasion.
+		<%=@book[0].content%>
 		</div>
 	<div class="span6">
 		<strong>Comments</strong>
@@ -99,3 +85,40 @@
 	</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+	var slides = $('.slide');
+	var slideWidth = 950;
+	var numberOfSlides = slides.length;
+	var currentPosition = Math.round(Math.random(0)*(numberOfSlides-1));
+	slides.wrapAll('<div id="slideInner"></div>');
+	$('#slideInner').css('width',slideWidth*numberOfSlides);
+	$('.slideshow')
+			 .prepend('<span class="control" id="leftControl"></span>')
+			 .append('<span class="control" id="rightControl"></span>')
+	manageControls(currentPosition);
+	$('#slideInner').css('margin-left',slideWidth*(-currentPosition));
+	$('.control')
+			.bind('click',function(){
+				currentPosition = ($(this).attr('id')=='rightControl')
+						? currentPosition+1 : currentPosition-1;
+
+			manageControls(currentPosition);
+			$('#slideInner').animate(
+					{
+						'margin-left':slideWidth*(-currentPosition)
+					}
+			)
+	 });
+	
+	
+	function manageControls(position){
+		// Hide left arrow if position is first slide
+		if(position==0){ $('#leftControl').hide() }
+		else{ $('#leftControl').show() }
+		// Hide right arrow if position is last slide
+		if(position==numberOfSlides-1){ $('#rightControl').hide() }
+		else{ $('#rightControl').show() }
+	}
+	});
+</script>

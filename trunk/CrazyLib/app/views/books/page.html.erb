@@ -1,0 +1,21 @@
+<%@pages = Books.find(:all,:limit=>8,:offset=>(Integer(params[:page])-1)*8,:conditions=>{:topic=>params[:id]});%>
+	<%i = 0;%>
+	<% @pages.each do |page| %>
+	<%if(i%4==0)%>
+	<ul class="thumbnails">
+	<%end%>
+		<li class="span3" >
+			<div class="thumbnail">
+			<a href="viewbyid?id=<%= page.bookId%>&type=1" ><img src="../assets/<%= page.url%>" alt=""></a>
+			<div class="caption">
+			<p>
+				<%=  truncate(page.content,:length=>80)%>
+			</p>
+			</div>
+			</div>
+		</li>
+	<%if(i%4==3)%>
+	</ul>
+	<%end%>
+	<%i=i+1%>			
+	<% end %>
