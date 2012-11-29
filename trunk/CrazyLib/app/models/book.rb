@@ -1,4 +1,5 @@
 class Book < ActiveRecord::Base
+  
   def self.searchByTitle(search)
     if search
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
