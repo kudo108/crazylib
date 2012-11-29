@@ -1,9 +1,17 @@
 <div class="offset6">
-<%= form_tag books_search_path, method: :get do %>
-<%= select_tag "filter",
-"<option value='0'>All</option><option value='1'>Title</option><option value='2'>Author</option><option value='3'>Description</option>".html_safe,:style=>"width:25%" %>
-  <%= text_field_tag :keyword, params[:keyword] %>
-  <%= submit_tag "Search", :name=> nil ,:class=>"btn"%>
-<% end %>
+	<div class="form-search">
+		<%= form_tag books_search_path, method: :get do %>
+		<div class="input-append controls controls-row">
+			<div class="search-query span2">
+				<%= select_tag "filter",
+				"<option value='0'>All</option><option value='1'>Title</option><option value='2'>Author</option><option value='3'>Description</option>".html_safe,:style=>"width:25%" %>
+				<%= text_field_tag :keyword, params[:keyword] %>
+			</div>
+			<div class="btn">
+				<%= submit_tag "Search", :name=> nil ,:class=>"btn"%>
+			</div>
+		</div>
+	</div>
+	<% end %>
 </div>
 <%=render 'search_results'%>
