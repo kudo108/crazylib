@@ -4,12 +4,48 @@
 	margin-bottom:15px;
 	border-radius: 10px;
 }
-.books-one-content{
+.slideshow{
 	padding:10px;
 	background-color:rgba(255,255,255,0.8);
 	margin-bottom:15px;
 	border-radius: 10px;
+	height:145px;
+	position:relative;
+	
 }
+.slideshow .slidesContainer{
+	height:145px;
+	width:950px;
+	margin:0 auto;
+	overflow:hidden;
+	position:relative;
+}
+.slideshow .slidesContainer .slide{
+	height:145px;
+	width:950px;
+	margin:0 auto;
+	float:left;
+}
+.control{
+	display: block;
+	width: 39px;
+	height: 145px;
+	text-indent: 0px;
+	position: absolute;
+	cursor: pointer;
+}
+#leftControl{
+	top: 50px;
+	left: 0;
+	background:url(../assets/prev.png) no-repeat 0 0;
+}
+#rightControl{
+	top: 50px;
+	right: -10px;
+	background:url(../assets/next.png) no-repeat 0 0;
+}
+
+
 .thumbnails li{
 	max-height:500px;
 	background-color:white;
