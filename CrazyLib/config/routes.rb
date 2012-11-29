@@ -11,14 +11,13 @@ CrazyLib::Application.routes.draw do
   #resources :books
 
   resources :usergroups
-
+  get "books/index"
   get "books/view"
   get "books/viewbyid"
   get "books/search"
   get "home/index"
-
   get "books/list_all_book"
-  
+  match "books/"=>"books#index"
   #search
   get "books/search"
   #static page
