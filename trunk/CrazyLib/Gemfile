@@ -20,6 +20,8 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  gem 'jquery-ui-rails'
 end
 
 gem 'jquery-rails'
@@ -61,3 +63,7 @@ group :production do
 end
 
 gem 'simplecov', :require => false, :group => :test
+
+gem 'haml'
+gem 'haml-rails'
+

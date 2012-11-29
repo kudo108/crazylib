@@ -34276,3 +34276,2384 @@ Migrating to DeviseCreateUsers (20121114150217)
   [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
   [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
   [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-29 10:19:11 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (15.8ms)
+Compiled dataTables/jquery.dataTables.css  (149ms)  (pid 56742)
+Compiled application.css  (221ms)  (pid 56742)
+Compiled dataTables/jquery.dataTables.js  (3ms)  (pid 56742)
+Compiled application.js  (218ms)  (pid 56742)
+Completed 200 OK in 1418ms (Views: 1417.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /dataTables/jquery.dataTables.css - 200 OK (15ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /scaffolds.css - 304 Not Modified (29ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /books.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (48ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /transactions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /usergroups.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /jquery.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /vbooks.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /books.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /dataTables/jquery.dataTables.js - 200 OK (142ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /application.css - 200 OK (17ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:19:13 +0700
+Served asset /transactions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:19:14 +0700
+Served asset /usergroups.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:19:14 +0700
+Served asset /application.js - 200 OK (23ms)
+
+
+Started GET "/locale/set/fr" for 127.0.0.1 at 2012-11-29 10:19:22 +0700
+Processing by LocaleController#set as HTML
+  Parameters: {"id"=>"fr"}
+[Devise] Could not find devise mapping for path "/locale/set/fr".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    match "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+   
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 500 Internal Server Error in 1ms
+
+AbstractController::ActionNotFound (Could not find devise mapping for path "/locale/set/fr".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    match "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+   
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  devise (2.1.2) app/controllers/devise_controller.rb:88:in `unknown_action!'
+  devise (2.1.2) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:407:in `_run__1934824181748621540__process_action__2798969706100109047__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.1) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.1) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.1) lib/action_controller/metal/params_wrapper.rb:205:in `process_action'
+  activerecord (3.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.1) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.1) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.1) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.1) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.1) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:66:in `call'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:66:in `dispatch'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:30:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:589:in `call'
+  warden (1.2.1) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.1) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:443:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `_run__3554207668208433501__call__1222298239112390119__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:34:13 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.1ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+Completed 500 Internal Server Error in 130ms
+
+ActionView::MissingTemplate (Missing template admin/show_transactions, application/show_transactions with {:locale=>[:vi], :formats=>[:html], :handlers=>[:erb, :builder, :coffee]}. Searched in:
+  * "/Users/eastagile/crazylib/CrazyLib/app/views"
+  * "/Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/devise-2.1.2/app/views"
+):
+  actionpack (3.2.1) lib/action_view/path_set.rb:58:in `find'
+  actionpack (3.2.1) lib/action_view/lookup_context.rb:109:in `find'
+  actionpack (3.2.1) lib/action_view/renderer/abstract_renderer.rb:3:in `find_template'
+  actionpack (3.2.1) lib/action_view/renderer/template_renderer.rb:28:in `determine_template'
+  actionpack (3.2.1) lib/action_view/renderer/template_renderer.rb:10:in `render'
+  actionpack (3.2.1) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.1) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.1) lib/abstract_controller/rendering.rb:109:in `_render_template'
+  actionpack (3.2.1) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.1) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.1) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.1) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.1) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.1) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (3.2.1) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.1) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.2.1) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.1) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:425:in `_run__1069269739591209918__process_action__2922133472755736110__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.1) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.1) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.1) lib/action_controller/metal/params_wrapper.rb:205:in `process_action'
+  activerecord (3.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.1) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.1) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.1) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.1) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.1) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:66:in `call'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:66:in `dispatch'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:30:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:589:in `call'
+  warden (1.2.1) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.1) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:443:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `_run__3554207668208433501__call__1222298239112390119__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:34:26 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+Completed 500 Internal Server Error in 4ms
+
+ActionView::MissingTemplate (Missing template admin/show_transactions, application/show_transactions with {:locale=>[:vi], :formats=>[:html], :handlers=>[:erb, :builder, :coffee]}. Searched in:
+  * "/Users/eastagile/crazylib/CrazyLib/app/views"
+  * "/Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/devise-2.1.2/app/views"
+):
+  actionpack (3.2.1) lib/action_view/path_set.rb:58:in `find'
+  actionpack (3.2.1) lib/action_view/lookup_context.rb:109:in `find'
+  actionpack (3.2.1) lib/action_view/renderer/abstract_renderer.rb:3:in `find_template'
+  actionpack (3.2.1) lib/action_view/renderer/template_renderer.rb:28:in `determine_template'
+  actionpack (3.2.1) lib/action_view/renderer/template_renderer.rb:10:in `render'
+  actionpack (3.2.1) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.1) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.1) lib/abstract_controller/rendering.rb:109:in `_render_template'
+  actionpack (3.2.1) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.1) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.1) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.1) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.1) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.1) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (3.2.1) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.1) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.2.1) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.1) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:425:in `_run__1069269739591209918__process_action__2922133472755736110__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.1) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.1) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.1) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.1) lib/action_controller/metal/params_wrapper.rb:205:in `process_action'
+  activerecord (3.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.1) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.1) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.1) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.1) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.1) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:66:in `call'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:66:in `dispatch'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:30:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:589:in `call'
+  warden (1.2.1) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.1) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:443:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `_run__3554207668208433501__call__1222298239112390119__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:14 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.5ms)
+Compiled admin.css  (22ms)  (pid 56742)
+Compiled application.css  (82ms)  (pid 56742)
+Compiled admin.js  (1126ms)  (pid 56742)
+Compiled application.js  (1174ms)  (pid 56742)
+Completed 200 OK in 2191ms (Views: 2189.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:16 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:16 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:16 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 108ms (Views: 106.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 25ms (Views: 22.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 103ms (Views: 98.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 94ms (Views: 92.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.3ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.3ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Served asset /admin.css - 200 OK (2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 88ms (Views: 87.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:17 +0700
+Served asset /application.css - 200 OK (12ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /application.css - 200 OK (36ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /dataTables/jquery.dataTables.css - 200 OK (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /books.css - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /bootstrap-responsive.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /admin.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /transactions.css - 200 OK (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /usergroups.css - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /bootstrap.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /vbooks.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /dataTables/jquery.dataTables.js - 200 OK (0ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.3ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 35ms (Views: 33.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /admin.js - 200 OK (35ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /books.js - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /bootstrap.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /home.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /bootstrap.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /dataTables/jquery.dataTables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /dataTables/jquery.dataTables.js - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /bootstrap.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /admin.js - 200 OK (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /books.js - 200 OK (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /home.js - 200 OK (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /transactions.js - 200 OK (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /usergroups.js - 200 OK (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /application.js - 200 OK (30ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.3ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 93ms (Views: 92.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.3ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /dataTables/jquery.dataTables.css - 200 OK (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /admin.css - 200 OK (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /books.css - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /bootstrap-responsive.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /transactions.css - 200 OK (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /vbooks.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:18 +0700
+Served asset /usergroups.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:19 +0700
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:19 +0700
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:35:19 +0700
+Served asset /bootstrap.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:35:19 +0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:36:02 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.1ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 298ms (Views: 250.3ms | ActiveRecord: 26.4ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:36:02 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 47ms (Views: 45.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:02 +0700
+Served asset /dataTables/jquery.dataTables.css - 304 Not Modified (26ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:02 +0700
+Served asset /admin.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:02 +0700
+Served asset /books.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:02 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:36:02 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 29ms (Views: 24.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (91ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 32ms (Views: 30.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.4ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /application.css - 200 OK (12ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /books.css - 200 OK (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /admin.css - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /bootstrap.min.css - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /bootstrap-responsive.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /vbooks.css - 200 OK (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /dataTables/jquery.dataTables.css - 200 OK (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /transactions.css - 200 OK (2ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /usergroups.css - 200 OK (5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /scaffolds.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /dataTables/jquery.dataTables.js - 200 OK (14ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /jquery.js - 200 OK (12ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /admin.js - 200 OK (1ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /books.js - 200 OK (4ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /home.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /bootstrap.min.js - 200 OK (2ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /transactions.js - 200 OK (4ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /usergroups.js - 200 OK (8ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:36:03 +0700
+Served asset /application.js - 200 OK (75ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:38:00 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.haml within layouts/application (2.4ms)
+Completed 200 OK in 212ms (Views: 210.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /books.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /dataTables/jquery.dataTables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /books.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:01 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /dataTables/jquery.dataTables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /transactions.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /usergroups.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:29 +0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /dataTables/jquery.dataTables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:40 +0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /dataTables/jquery.dataTables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /home.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:38:42 +0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:40:18 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.haml within layouts/application (3.9ms)
+Compiled admin.js  (608ms)  (pid 57099)
+Compiled application.js  (59ms)  (pid 57099)
+Completed 200 OK in 1232ms (Views: 1230.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /dataTables/jquery.dataTables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /admin.js - 200 OK (3ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /application.js - 304 Not Modified (52ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:40:19 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.3ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.3ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /books.js - 200 OK (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /home.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /application.js - 200 OK (8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /books.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /bootstrap.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /dataTables/jquery.dataTables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /usergroups.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/sort_asc.png" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /dataTables/sort_asc.png - 200 OK (50ms)
+
+
+Started GET "/assets/dataTables/forward_disabled.png" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /dataTables/forward_disabled.png - 200 OK (12ms)
+
+
+Started GET "/assets/dataTables/sort_both.png" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /dataTables/sort_both.png - 200 OK (10ms)
+
+
+Started GET "/assets/dataTables/back_disabled.png" for 127.0.0.1 at 2012-11-29 10:40:20 +0700
+Served asset /dataTables/back_disabled.png - 200 OK (46ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:40:56 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.haml within layouts/application (0.2ms)
+Compiled admin.js  (291ms)  (pid 57099)
+Compiled application.js  (11ms)  (pid 57099)
+Completed 200 OK in 682ms (Views: 680.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /dataTables/jquery.dataTables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /admin.js - 200 OK (2ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:40:57 +0700
+Served asset /application.js - 304 Not Modified (17ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.4ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 53ms (Views: 49.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /application.css - 304 Not Modified (101ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /books.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /dataTables/jquery.dataTables.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /transactions.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /usergroups.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /home.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:41:00 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:42:44 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.haml within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 448ms
+
+ActionView::Template::Error (couldn't find file 'jquery.ui.core'
+  (in /Users/eastagile/crazylib/CrazyLib/app/assets/stylesheets/application.css:12)):
+    2: <html>
+    3: <head>
+    4:   <title>CrazyLib</title>
+    5:   <%= stylesheet_link_tag    "application", :media => "all" %>
+    6:   <%= javascript_include_tag "application" %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___4493320307853507064_70342422415600'
+
+
+  Rendered /Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (6.8ms)
+  Rendered /Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.7ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:43:50 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.1ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.haml within layouts/application (2.7ms)
+Compiled jquery.ui.core.css  (1ms)  (pid 57278)
+Compiled jquery.ui.theme.css  (10ms)  (pid 57278)
+Compiled dataTables/src/demo_table_jui.css  (0ms)  (pid 57278)
+Compiled application.css  (154ms)  (pid 57278)
+Compiled admin.js  (477ms)  (pid 57278)
+Compiled application.js  (11ms)  (pid 57278)
+Completed 200 OK in 1019ms (Views: 969.6ms | ActiveRecord: 25.7ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:43:51 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.3ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /jquery.ui.theme.css - 200 OK (9ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /transactions.js - 200 OK (2ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /books.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /dataTables/src/demo_table_jui.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /jquery.ui.core.css - 200 OK (7ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /application.css - 200 OK (21ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /transactions.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /usergroups.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /vbooks.css - 304 Not Modified (69ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /jquery.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (38ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /admin.js - 200 OK (2ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /books.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /usergroups.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /application.js - 304 Not Modified (34ms)
+
+
+Started GET "/assets/dataTables/back_disabled.jpg" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /dataTables/back_disabled.jpg - 404 Not Found (8ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/dataTables/back_disabled.jpg"):
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/dataTables/forward_disabled.jpg" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /dataTables/forward_disabled.jpg - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/dataTables/forward_disabled.jpg"):
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/dataTables/sort_asc.png" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /dataTables/sort_asc.png - 304 Not Modified (17ms)
+
+
+Started GET "/assets/dataTables/sort_both.png" for 127.0.0.1 at 2012-11-29 10:43:52 +0700
+Served asset /dataTables/sort_both.png - 304 Not Modified (35ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:44:24 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered admin/show_transactions.html.haml within layouts/application (268.1ms)
+Completed 200 OK in 287ms (Views: 285.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /usergroups.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/dataTables/forward_enabled.jpg" for 127.0.0.1 at 2012-11-29 10:44:25 +0700
+Served asset /dataTables/forward_enabled.jpg - 404 Not Found (22ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/dataTables/forward_enabled.jpg"):
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/dataTables/back_enabled.jpg" for 127.0.0.1 at 2012-11-29 10:44:32 +0700
+Served asset /dataTables/back_enabled.jpg - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/dataTables/back_enabled.jpg"):
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/eastagile/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/eastagile/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/dataTables/sort_desc.png" for 127.0.0.1 at 2012-11-29 10:44:40 +0700
+Served asset /dataTables/sort_desc.png - 200 OK (13ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:45:44 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered admin/show_transactions.html.haml within layouts/application (0.2ms)
+Compiled admin.js  (413ms)  (pid 57278)
+Compiled application.js  (88ms)  (pid 57278)
+Completed 200 OK in 1829ms (Views: 1827.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:46 +0700
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:46 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:46 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:46 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:46 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:46 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:46 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:46 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:46 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:46 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:46 +0700
+Served asset /transactions.css - 304 Not Modified (123ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /admin.js - 200 OK (20ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /application.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/jquery-ui/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /jquery-ui/ui-bg_glass_75_e6e6e6_1x400.png - 200 OK (90ms)
+
+
+Started GET "/assets/jquery-ui/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /jquery-ui/ui-bg_highlight-soft_75_cccccc_1x100.png - 200 OK (73ms)
+
+
+Started GET "/assets/jquery-ui/ui-icons_888888_256x240.png" for 127.0.0.1 at 2012-11-29 10:45:47 +0700
+Served asset /jquery-ui/ui-icons_888888_256x240.png - 200 OK (12ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:50:37 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.3ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered collection (0.0ms)
+  Rendered admin/show_transactions.html.haml within layouts/application (44.1ms)
+Completed 200 OK in 175ms (Views: 172.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:37 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:37 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:37 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:37 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /application.css - 304 Not Modified (33ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /home.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:38 +0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  Rendered collection (0.0ms)
+  Rendered admin/show_transactions.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /usergroups.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:39 +0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/admin/show_transactions" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Processing by AdminController#show_transactions as HTML
+  [1m[36mTransaction Load (0.2ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered collection (0.0ms)
+  Rendered admin/show_transactions.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 53ms (Views: 51.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-29 10:50:59 +0700
+Served asset /application.css - 304 Not Modified (1ms)

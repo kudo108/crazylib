@@ -1,5 +1,7 @@
 CrazyLib::Application.routes.draw do
 
+  get "admin/show_transactions"
+
   devise_for :add_column_to_users
 
   devise_for :users
