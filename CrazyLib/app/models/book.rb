@@ -27,4 +27,5 @@ class Book < ActiveRecord::Base
       find(:all)
     end
   end
+  
 end
