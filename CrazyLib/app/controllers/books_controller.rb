@@ -3,25 +3,12 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @books }
-    end
     @sciences = Book.find(:all,:limit=>8,:conditions=>{:topic=>1});
     respond_to do |format|
       format.html # view.html
       format.json { render json: @sciences }
     end
   end
-  def view
-	@sciences = Book.find(:all,:limit=>8,:conditions=>{:topic=>1});
-    respond_to do |format|
-      format.html # view.html
-      format.json { render json: @sciences }
-    end
-  end
-  #
   def viewbyid
   end
   #
