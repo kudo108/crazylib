@@ -171,4 +171,12 @@ class TransactionsController < ApplicationController
     #  format.json { head :no_content }
     #end
   end
+  def userhistory
+    if(params[:userid]) #view by userid
+    @transactions = Transaction.find(:all, :conditions => {:user_id=>params[:userid]})
+    else 
+      if ()
+      end
+    end
+  end
 end
