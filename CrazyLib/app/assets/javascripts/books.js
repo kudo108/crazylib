@@ -8,63 +8,68 @@ function moveCloud(){
 //setTimeout(moveCloud,100)
 //page-----------------------------------------------
 $(document).ready(function(){
-	var toogle_science = 0;
-	$('#science li a').bind("click",function(event){
-		event.preventDefault();
-		var page = $(this).text();
-		var active = 0;
-		var sciences = $('#science li a');
-		//check button active
-		for(var i=0;i<sciences.length;i++){
-			if($('#science li:nth-child('+i+')').attr('class')=="active") active = i-1;
+			function paging(topic){
+			var toogle_science = 0;
+			$('#auto-'+topic+' li a').bind("click",function(event){
+				event.preventDefault();
+				var page = $(this).text();
+				var active = 0;
+				var sciences = $('#auto-'+topic+' li a');
+				//check button active
+				for(var i=0;i<sciences.length;i++){
+					if($('#auto-'+topic+' li:nth-child('+i+')').attr('class')=="active") active = i-1;
+					}
+				//when click button, that isn't Next or prev  	
+				if(page!="Prev"&&page!="Next"){
+					$('#auto-'+topic+' li:nth-child('+(active+1)+')').attr('class','');
+					$('#auto-'+topic+' li:nth-child('+(parseInt(page)+1)+')').attr('class','active');
+					$('#auto-'+topic+'-'+active).fadeOut();
+					$('#auto-'+topic+'-'+page).fadeIn();
+				}
+				//whien click prev button
+				if(page=="Prev"){
+				if(active >1 ){
+					$('#auto-'+topic+' li:nth-child('+(active+1)+')').attr('class','');
+					$('#auto-'+topic+' li:nth-child('+active+')').attr('class','active');
+					$('#auto-'+topic+'-'+ active).fadeOut();
+					$('#auto-'+topic+'-'+(active-1)).fadeIn();
+				}
+				}
+				if(page=="Next"){
+					if(active<sciences.length-2){
+						$('#auto-'+topic+' li:nth-child('+(active+2)+')').attr('class','active');
+						$('#auto-'+topic+' li:nth-child('+(active+1)+')').attr('class','');
+						$('#auto-'+topic+'-'+ active).fadeOut();
+						$('#auto-'+topic+'-'+(active+1)).fadeIn();
+					}
+				}
+			})
+			//view all book of one topic
+			$("#all-auto-"+topic+"").bind("click",function(event){
+				event.preventDefault();
+				
+				if(toogle_science%2==0)
+				{
+				$('.books-content').fadeOut();
+				$('#lauto-'+topic+'-books').fadeIn();
+				$('[id^="auto-'+topic+'-"]').fadeOut();
+				$('[id^="auto-'+topic+'-"]').fadeIn();
+				
+				}
+				else
+				{
+				$('.books-content').fadeIn();
+				$('[id^="auto-'+topic+'-"]').fadeOut();
+				$('#auto-'+topic+'-1').fadeIn();
+				}
+				toogle_science++;
+			})
 			}
-		//when click button, that isn't Next or prev  	
-		if(page!="Prev"&&page!="Next"){
-			$('#science li:nth-child('+(active+1)+')').attr('class','');
-			$('#science li:nth-child('+(parseInt(page)+1)+')').attr('class','active');
-			$('#science-'+active).fadeOut();
-			$('#science-'+page).fadeIn();
-		}
-		//whien click prev button
-		if(page=="Prev"){
-		if(active >1 ){
-			$('#science li:nth-child('+(active+1)+')').attr('class','');
-			$('#science li:nth-child('+active+')').attr('class','active');
-			$('#science-'+ active).fadeOut();
-			$('#science-'+(active-1)).fadeIn();
-		}
-		}
-		if(page=="Next"){
-			if(active<sciences.length-2){
-				$('#science li:nth-child('+(active+2)+')').attr('class','active');
-				$('#science li:nth-child('+(active+1)+')').attr('class','');
-				$('#science-'+ active).fadeOut();
-				$('#science-'+(active+1)).fadeIn();
-			}
-		}
-	})
-	//view all book of one topic
-	$("#all-sciences").bind("click",function(event){
-		event.preventDefault();
-		var sciences = $('#science li a');
-		if(toogle_science%2==0)
-		{
-		$('.books-content').fadeOut();
-		$('#sciences-books').fadeIn();
-		$('[id^="science-"]').fadeOut();
-		$('[id^="science-"]').fadeIn();
-		
-		}
-		else
-		{
-		$('.books-content').fadeIn();
-		$('[id^="science-"]').fadeOut();
-		$('#science-1').fadeIn();
-		}
-		toogle_science++;
-	})
-	
-	
+	var topics = $(".topic").length;
+	for(var i=0;i<topics;i++){
+		topic = $('.topic:eq('+i+')').text();
+		paging(topic);
+	}
 })
 
 
