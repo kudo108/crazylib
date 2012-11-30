@@ -2,9 +2,10 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    topic = Book.select(:topic).uniq;
+    @book = Array.new;
+    @books = Book.find(:all,:order=>"topic")
     @sciences = Book.find(:all,:conditions=>{:topic=>1});
-    
     respond_to do |format|
       format.html # view.html
       format.json { render json: @sciences }
