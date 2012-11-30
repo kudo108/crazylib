@@ -1,13 +1,16 @@
+<%@books.each do |book|%>
 <!--one type of book-->
-<div class="books-content" id="sciences-books">
+<i class="hide topic"><%=book[0].topic%></i>
+<div class="books-content" id="lauto-<%=book[0].topic%>-books">
 	<div class="row-fluid">
 		<div class="pagination">
 			<h3 class="pull-left ">
 			<div class="btn-group">
-				<a class="btn" id="all-sciences"href="#"><%= @sciences[0].bookTopic(1)%></a>
+				
+				<a class="btn" id="all-auto-<%=book[0].topic%>"href="#"><%=book[0].bookTopic(book[0].topic.to_i)%></a>
 			</div></h3>
-			<% l = (@sciences.length/9)+1;%>
-			<ul id="science" class="pull-right">
+			<% l = (book.length/9)+1;%>
+			<ul id="auto-<%=book[0].topic%>" class="pull-right">
 				<li>
 					<a href="#" id="sc-prev">Prev</a>
 				</li>
@@ -30,12 +33,12 @@
 		</div>
 	</div>
 	<% i = 0;%>
-	<% @sciences.each do |science| %>
+	<% book.each do |b| %>
 	<% if i%8==0%>
 		<% if i == 0%>
-		<div class="row-fluid science-content" id="science-1">
+		<div class="row-fluid auto-content" id="auto-<%=b.topic%>-1">
 		<% else %>
-		<div class="row-fluid science-content hide" id="science-<%=(i/8)+1%>">
+		<div class="row-fluid auto-content hide" id="auto-<%=b.topic%>-<%=(i/8)+1%>">
 		<% end %>	
 	<%end%>
 		<%if(i%4==0)%>
@@ -43,14 +46,14 @@
 		<%end%>
 			<li class="span3" >
 				<div class="thumbnail">
-					<a href="view?topic=<%=science.topic%>&id=<%= science.id%>" ><img src="../assets/<%= science.image_url%>" alt=""></a>
+					<a href="view?topic=<%=b.topic%>&id=<%= b.id%>" ><img src="../assets/<%= b.image_url%>" alt=""></a>
 					<div class="caption">
-						<!--<h3 style="font-size:20px;"> <%= science.title%></h3>-->
+						
 						<h6 class="text-error">
-							<%=truncate(science.title,:length=>50)%>
+							<%=truncate(b.title,:length=>50)%>
 						</h6>
 						<p>
-							<%= truncate(science.brief_content,:length=>80)%>
+							<%= truncate(b.brief_content,:length=>80)%>
 						</p>
 					</div>
 				</div>
@@ -58,12 +61,13 @@
 			<%if(i%4==3)%>
 		</ul>
 		<%end%>		
-	<%if i%8==7||i==(@sciences.length-1) %>
+	<%if i%8==7||i==(book.length-1) %>
 	</div>
 	<%end%>
 	<% i=i+1%>
 	<% end %>
 </div>
+<%end%>
 <!--end-->
 <!--one type of book-->
 
