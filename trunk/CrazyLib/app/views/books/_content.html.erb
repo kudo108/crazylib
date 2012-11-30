@@ -1,10 +1,10 @@
 <!--one type of book-->
-<div class="books-content">
+<div class="books-content" id="sciences-books">
 	<div class="row-fluid">
 		<div class="pagination">
 			<h3 class="pull-left ">
 			<div class="btn-group">
-				<a class="btn" id="all-sciences"href="#">Sách khoa học</a>
+				<a class="btn" id="all-sciences"href="#">Science Books</a>
 			</div></h3>
 			<% l = (@sciences.length/9)+1;%>
 			<ul id="science" class="pull-right">
@@ -43,7 +43,7 @@
 		<%end%>
 			<li class="span3" >
 				<div class="thumbnail">
-					<a href="viewbyid?id=<%= science.id%>&type=1" ><img src="../assets/<%= science.image_url%>" alt=""></a>
+					<a href="view?topic=<%=science.topic%>&id=<%= science.id%>" ><img src="../assets/<%= science.image_url%>" alt=""></a>
 					<div class="caption">
 						<!--<h3 style="font-size:20px;"> <%= science.title%></h3>-->
 						<h6 class="text-error">

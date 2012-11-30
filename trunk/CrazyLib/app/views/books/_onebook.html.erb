@@ -1,7 +1,7 @@
 <link href="http://fonts.googleapis.com/css?family=Berkshire Swash&subset=latin" rel="stylesheet" type="text/css">
 <div class="slideshow">
-	<%@slides = Books.find(:all,:conditions=>{:topic=>params[:type]});%>
-	<%@book =  Books.find(:all,:conditions=>{:bookId=>params[:id]});%>
+	<%@slides = Book.find(:all,:conditions=>{:topic=>params[:topic]});%>
+	<%@book =  Book.find(:all,:conditions=>{:id=>params[:id]});%>
 	<div class="slidesContainer">
 		<div>
 		<%i=0;%>
@@ -10,8 +10,8 @@
 			<div class="slide" >
 			<%end%>
 			<li class="span2">
-			<a href="viewbyid?id=<%=slide.bookId%>&type=<%=slide.topic%>" class="thumbnail" style="margin-bottom:5px;">
-				<img src="../assets/<%=slide.url%>" alt=""></img>
+			<a href="view?topic=<%=slide.topic%>&id=<%=slide.id%>" class="thumbnail" style="margin-bottom:5px;">
+				<img src="../assets/<%=slide.image_url%>" alt=""></img>
 			</a>
 			</li>
 			<%if(i%6==5)%>
@@ -27,27 +27,27 @@
 	<div class="row-fluid" style="font-family:Berkshire Swash;">
 		<li class="span3">
 		<a class="thumbnail">
-			<img src="../assets/<%= @book[0].url%>" alt=""></img>
+			<img src="../assets/<%= @book[0].image_url%>" alt=""></img>
 		</a>
 		</li>
 		<li class="span6" >
 		<span style="font-size:20px" class="label label-success"><%= @book[0].title%></span>
 			<hr>
-			<span class="label ">Mã số </span> <span class="label label-important" style="margin-left:10px;cursor:pointer"><%= @book[0].bookId%></span><br/>
+			<span class="label ">Mã số </span> <span class="label label-important" style="margin-left:10px;cursor:pointer"><%= @book[0].id%></span><br/>
 			<span class="label ">Tác giả </span> <span class="label label-info"style="margin-left:10px;cursor:pointer"><%= @book[0].author%></span><br/>
 			<span class="label ">Nhà xuất bản </span> <span class="label label-info" style="margin-left:10px;cursor:pointer"><%=@book[0].publisher%></span><br/>
-			<span class="label ">Số trang </span> <span class="label label-info" style="margin-left:10px;cursor:pointer"><%=@book[0].numberOfPage%></span><br/>
-			<span class="label ">Loại sách </span> <span class="label label-info" style="margin-left:10px;cursor:pointer"><%=truncate(@book[0].bookId,:length=>7)%></span><br/>
-			<span class="label ">Rating </span> <span class="label label-info" style="margin-left:10px;cursor:pointer"><%=@book[0].rating%></span><br/>
+			<span class="label ">Số trang </span> <span class="label label-info" style="margin-left:10px;cursor:pointer"><%=@book[0].total_page%></span><br/>
+			<span class="label ">Loại sách </span> <span class="label label-info" style="margin-left:10px;cursor:pointer"><%=@book[0].id%></span><br/>
+			<span class="label ">Rating </span> <span class="label label-info" style="margin-left:10px;cursor:pointer">5.0(static)</span><br/>
 			
 		</li>
 		<li class="span3">
 		<br/><br/>
-		<span class="label label-inverse">Số lượng sách</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer"><%=@book[0].numberOfBooks%></span></br>
-		<span class="label label-inverse">Yêu cầu </span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer"><%=@book[0].numberRequest%></span></br>
-		<span class="label label-inverse">Không đáp ứng </span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer"><%=@book[0].numberNotAccept%></span></br>
-		<span class="label label-inverse">Vị trí xếp giá</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer"><%=@book[0].location%></span></br>
-		<span class="label label-inverse">Ký hiệu xếp giá</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer"><%=@book[0].signLocation%></span></br>
+		<span class="label label-inverse">Số lượng sách</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer"><%=@book[0].quantity%></span></br>
+		<span class="label label-inverse">Yêu cầu </span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">6(static)</span></br>
+		<span class="label label-inverse">Không đáp ứng </span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">7(static)</span></br>
+		<span class="label label-inverse">Vị trí xếp giá</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">8(static)</span></br>
+		<span class="label label-inverse">Ký hiệu xếp giá</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">9(static)</span></br>
 		<br/>
 		<button class="btn btn-mini" type="button"><span class="icon-refresh"> </span> Đặt sách</button>
 		<button class="btn btn-mini" type="button"><span class="icon-eye-open"> </span> Xem sau</button>
@@ -59,7 +59,7 @@
 	<div class="span6">
 		<strong>Tóm Tắt Nội Dung</strong>
 		<hr>
-		<%=@book[0].content%>
+		<%=@book[0].brief_content%>
 		</div>
 	<div class="span6">
 		<strong>Comments</strong>

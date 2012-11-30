@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     end
   end
   
-  def viewbyid
+  def view
   end
   #
   def viewbytype
