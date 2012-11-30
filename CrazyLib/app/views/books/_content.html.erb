@@ -4,12 +4,12 @@
 		<div class="pagination">
 			<h3 class="pull-left ">
 			<div class="btn-group">
-				<a class="btn" href="viewbytype?type=1">Sách khoa học</a>
+				<a class="btn" id="all-sciences"href="#">Sách khoa học</a>
 			</div></h3>
 			<% l = (@sciences.length/9)+1;%>
 			<ul id="science" class="pull-right">
 				<li>
-					<a href="#" id="science-prev">Prev</a>
+					<a href="#" id="sc-prev">Prev</a>
 				</li>
 				<%(1..l).each do |i|%>
 				<%if(i==1)%>
@@ -24,7 +24,7 @@
 				<%end%>
 				<%end%>
 				<li>
-					<a href="#" id="science-next">Next</a>
+					<a href="#" id="sc-next">Next</a>
 				</li>
 			</ul>
 		</div>
