@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  
+  self.inheritance_column = :user_type
   def self.searchByTitle(search)
     if search
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
