@@ -1,0 +1,17 @@
+defaults: &defaults
+ address: "smtp.gmail.com"
+ port: 587
+ domain: "example.com"
+ authentication: "plain"
+ enable_starttls_auto: true
+ user_name: "crazylib.hcmut@gmail.com"
+ password: "password000"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

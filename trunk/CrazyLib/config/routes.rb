@@ -1,6 +1,7 @@
 CrazyLib::Application.routes.draw do
 
-  get "admin/show_transactions"
+  match "admin/show_transactions" => 'admin#show_transactions'
+  match "admin/send_email" => 'admin#send_email'
 
   devise_for :add_column_to_users
 
