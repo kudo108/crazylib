@@ -23,7 +23,6 @@ CrazyLib::Application.routes.draw do
   #static page
   match '/about' => 'pages#about'
   match '/contact' => 'pages#contact'
-  
   match '/faq' => 'pages#faq'
   match 'rule' => 'pages#rule'
 

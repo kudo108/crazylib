@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates :phone_number, :presence => true
   
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :student_id, :class_name, :home_address, :phone_number
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :student_id, :class_name, :home_address, :phone_number, :books_borrow
   
   
 end
