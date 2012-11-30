@@ -75,13 +75,22 @@
 				</br>
 			</table>
 			<br/>
+			<% if (user_signed_in?)%>
+			<% if !current_user.is_borrowed(@book[0].id )%>
 			<a href="/transactions/new?id=<%= @book[0].id%>">
 			<button class="btn btn-mini" type="button">
 				<span class="icon-refresh"> </span> Đặt sách
 			</button> </a>
+			<% else %>
+			<a href="/transactions/destroy?bookid=<%= @book[0].id%>">
+			<button class="btn btn-mini" type="button">
+				<span class="icon-refresh"> </span> Huỷ đặt sách
+			</button> </a>
+			<% end %>
 			<button class="btn btn-mini" type="button">
 				<span class="icon-eye-open"> </span> Xem sau
 			</button>
+			<% end %>
 		</li>
 	</div>
 </div>

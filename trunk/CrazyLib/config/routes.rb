@@ -7,8 +7,9 @@ CrazyLib::Application.routes.draw do
 
   devise_for :users
   resources :users, :only => [:show]
-  resources :transactions
-
+  #resources :transactions
+  get "transactions/destroy"
+  get "transactions/new"
   #resources :books
 
   resources :usergroups

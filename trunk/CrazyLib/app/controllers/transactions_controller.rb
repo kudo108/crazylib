@@ -47,20 +47,26 @@ class TransactionsController < ApplicationController
       if(!current_user.books_borrow)
         current_user.update_attributes(:books_borrow => 0)
       end
-      if(current_user.books_borrow > 3 )# FIX ME if use admin control
-        #borrow enough books, can't borrow anymore
+      if(!current_user.can_borrow_more )# FIX ME if use admin control
+        logger.debug "borrow enough books, can't borrow anymore"
         redirect_to "/books/view?topic=#{book.type}&id=#{book.id}";
       return;
       end
-      #check old transaction
-      old_transactions = Transaction.find(:all, :conditions => {:book_id=>book.id, :user_id=>current_user.id})
-      old_transactions.each do |old_transaction|
-        if(old_transaction.status == 1)#borrow but haven't return
-          redirect_to "/books/view?topic=#{book.type}&id=#{book.id}";
-        #FIX ME, redirect to already borrow page
+      #check old transaction new
+      if (current_user.is_borrowed(book.id))
+        logger.debug "already borrow"
+        redirect_to "/books/view?topic=#{book.type}&id=#{book.id}";
         return;
-        end
       end
+      #check old transaction old
+      #old_transactions = Transaction.find(:all, :conditions => {:book_id=>book.id, :user_id=>current_user.id})
+      #old_transactions.each do |old_transaction|
+      #   if(old_transaction.status == 1)#borrow but haven't return
+      #     redirect_to "/books/view?topic=#{book.type}&id=#{book.id}";
+      #FIX ME, redirect to already borrow page
+      #    return;
+      #    end
+      # end
       if (book.current_quantity > 0)
         @transaction = Transaction.new();
         @transaction.book_id    = book.id;
@@ -87,10 +93,10 @@ class TransactionsController < ApplicationController
     end
     redirect_to "/";
     return;
-    respond_to do |format|
+  #  respond_to do |format|
     #format.html # new.html.erb
-      format.json { render json: @transaction }
-    end
+    #  format.json { render json: @transaction }
+  #  end
   end
 
   # GET /transactions/1/edit
@@ -132,12 +138,37 @@ class TransactionsController < ApplicationController
   # DELETE /transactions/1
   # DELETE /transactions/1.json
   def destroy
-    @transaction = Transaction.find(params[:id])
-    @transaction.destroy
-
-    respond_to do |format|
-      format.html { redirect_to transactions_url }
-      format.json { head :no_content }
+    logger.debug "destroy transaction"
+    logger.debug params
+    if(!user_signed_in?)
+      respond_to do |format|
+        format.html { redirect_to new_user_session_path, notice: 'You must login first.' }
+      end
+    return;
     end
+    @transaction = Transaction.find(:first, :conditions => {:book_id=>params[:bookid], :user_id=>current_user.id})
+    if(!@transaction)
+      logger.debug "transaction not found"
+      return;
+    end
+    #increase current book
+    book = Book.find(:first, :conditions=>{:id=>@transaction.book_id})
+    if (!book)
+      logger.debug "book not found"
+      return;
+    end
+    book.update_attributes(:current_quantity=>book.current_quantity+1)
+    #decrease user borrow books number
+    current_user.update_attributes(:books_borrow=>current_user.books_borrow-1)
+    #destroy transaction
+    @transaction.destroy
+    respond_to do |format|
+      format.html { redirect_to "/books/view?topic=#{book.type}&id=#{book.id}"; }
+    end
+    return;
+   # respond_to do |format|
+    #  format.html { redirect_to transactions_url }
+    #  format.json { head :no_content }
+    #end
   end
 end
