@@ -4,11 +4,13 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @sciences = Book.find(:all,:limit=>8,:conditions=>{:topic=>1});
+    
     respond_to do |format|
       format.html # view.html
       format.json { render json: @sciences }
     end
   end
+  
   def viewbyid
   end
   #
