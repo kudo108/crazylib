@@ -1,55 +1,58 @@
-<p id="notice">
-	<%= notice %>
-</p>
-<table class="table table-bordered table-hover " border="0">
-	<thead>
-		<th class=" label-success span3"> Thông tin thành viên </th>
-		<th class=" label-success span9"></th>
-	</thead>
-	<% if @user%>
-	<tr>
-		<td class="label"> Nickname: </td>
-		<td class="text"> <%= @user.nickname%></td>
-	</tr>
-	<tr>
-		<td class="label"> Email: </td>
-		<td class="text"> <%= @user.email%></td>
-	</tr>
-	<tr>
-		<td class="label"> StudentID </td>
-		<td class="text"> <%= @user.student_id%></td>
-	</tr>
-	<tr>
-		<td class="label"> Class: </td>
-		<td class="text"> <%= @user.class_name%></td>
-	</tr>
-	<tr>
-		<td class="label"> Group: </td>
-		<td class="text"> <%= @user.group%></td>
-	</tr>
-	<tr>
-		<td class="label"> Address: </td>
-		<td class="text"> <%= @user.home_address%></td>
-	</tr>
-	<tr>
-		<td class="label"> Phone: </td>
-		<td class="text"> <%= @user.phone_number%></td>
-	</tr>
-	<tr>
-		<td class="label"> Register day: </td>
-		<td class="text"> <%= @user.register_date%></td>
-	</tr>
-	<tr>
-		<td class="label"> End day: </td>
-		<td class="text"> <%= @user.end_date%></td>
-	</tr>
-	<tr>
-		<td class="label"> Phone: </td>
-		<td class="text"> <%= @user.phone_number%></td>
-	</tr>
-	<% else %>
-	<tr class="text">
-		Invalid User.
-	</tr>
-	<% end %>
-</table>
+<div class="span10 offset1">
+	<p id="notice">
+		<%= notice %>
+	</p>
+
+	<table class="table table-bordered " border="0">
+		<thead>
+			<th class=" label-success span3"> Thông tin thành viên </th>
+			<th class=" label-success span9"></th>
+		</thead>
+		<% if @user%>
+		<tr>
+			<td class="label"> Nickname: </td>
+			<td class="text"> <%= @user.nickname%></td>
+		</tr>
+		<tr>
+			<td class="label"> Email: </td>
+			<td class="text"> <%= @user.email%></td>
+		</tr>
+		<tr>
+			<td class="label"> StudentID </td>
+			<td class="text"> <%= @user.student_id%></td>
+		</tr>
+		<tr>
+			<td class="label"> Class: </td>
+			<td class="text"> <%= @user.class_name%></td>
+		</tr>
+		<tr>
+			<td class="label"> Group: </td>
+			<td class="text"> <%= @user.group%></td>
+		</tr>
+		<tr>
+			<td class="label"> Address: </td>
+			<td class="text"> <%= @user.home_address%></td>
+		</tr>
+		<tr>
+			<td class="label"> Phone: </td>
+			<td class="text"> <%= @user.phone_number%></td>
+		</tr>
+		<tr>
+			<td class="label"> Register day: </td>
+			<td class="text"> <%= @user.register_date%></td>
+		</tr>
+		<tr>
+			<td class="label"> End day: </td>
+			<td class="text"> <%= @user.end_date%></td>
+		</tr>
+		<tr>
+			<td class="label"> Phone: </td>
+			<td class="text"> <%= @user.phone_number%></td>
+		</tr>
+		<% else %>
+		<tr class="text">
+			Invalid User.
+		</tr>
+		<% end %>
+	</table>
+</div>
