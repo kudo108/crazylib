@@ -49,11 +49,15 @@ $(document).ready(function(){
 		var sciences = $('#science li a');
 		if(toogle_science%2==0)
 		{
+		$('.books-content').fadeOut();
+		$('#sciences-books').fadeIn();
 		$('[id^="science-"]').fadeOut();
 		$('[id^="science-"]').fadeIn();
+		
 		}
 		else
 		{
+		$('.books-content').fadeIn();
 		$('[id^="science-"]').fadeOut();
 		$('#science-1').fadeIn();
 		}
