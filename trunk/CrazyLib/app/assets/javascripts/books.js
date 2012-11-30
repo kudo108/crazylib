@@ -8,7 +8,8 @@ function moveCloud(){
 //setTimeout(moveCloud,100)
 //page-----------------------------------------------
 $(document).ready(function(){
-	$('#science li a').bind("click",function(e){
+	var toogle_science = 0;
+	$('#science li a').bind("click",function(event){
 		event.preventDefault();
 		var page = $(this).text();
 		var active = 0;
@@ -42,6 +43,24 @@ $(document).ready(function(){
 			}
 		}
 	})
+	//view all book of one topic
+	$("#all-sciences").bind("click",function(event){
+		event.preventDefault();
+		var sciences = $('#science li a');
+		if(toogle_science%2==0)
+		{
+		$('[id^="science-"]').fadeOut();
+		$('[id^="science-"]').fadeIn();
+		}
+		else
+		{
+		$('[id^="science-"]').fadeOut();
+		$('#science-1').fadeIn();
+		}
+		toogle_science++;
+	})
+	
+	
 })
 
 
