@@ -1,3 +1,5 @@
+MAILER_CONFIG = YAML.load_file("#{Rails.root}/config/mail_config.yml")[Rails.env]
+
 CrazyLib::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -64,4 +66,23 @@ CrazyLib::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'crazylib.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  # change to false to prevent email from being sent during development
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    :address => MAILER_CONFIG['address'],
+    :port => MAILER_CONFIG['port'],
+    :domain => MAILER_CONFIG['domain'],
+    :authentication => MAILER_CONFIG['authentication'],
+    :enable_starttls_auto => MAILER_CONFIG['enable_starttls_auto'],
+    :user_name => MAILER_CONFIG['user_name'],
+    :password => MAILER_CONFIG['password']
+  }
+
 end
