@@ -6,7 +6,7 @@
 			<div class="btn-group">
 				<a class="btn" href="viewbytype?type=1">Sách khoa học</a>
 			</div></h3>
-			<% l = (@sciences.length/8)+1;%>
+			<% l = (@sciences.length/9)+1;%>
 			<ul id="science" class="pull-right">
 				<li>
 					<a href="#" id="science-prev">Prev</a>
@@ -29,19 +29,25 @@
 			</ul>
 		</div>
 	</div>
-	<div class="row-fluid" id="science-content">
-		<% i = 0;%>
-		<% @sciences.each do |science| %>
+	<% i = 0;%>
+	<% @sciences.each do |science| %>
+	<% if i%8==0%>
+		<% if i == 0%>
+		<div class="row-fluid science-content" id="science-<%=i%>">
+		<% else %>
+		<div class="row-fluid science-content hide" id="science-<%=i%>">
+		<% end %>	
+	<%end%>
 		<%if(i%4==0)%>
 		<ul class="thumbnails">
-			<%end%>
+		<%end%>
 			<li class="span3" >
 				<div class="thumbnail">
 					<a href="viewbyid?id=<%= science.id%>&type=1" ><img src="../assets/<%= science.image_url%>" alt=""></a>
 					<div class="caption">
 						<!--<h3 style="font-size:20px;"> <%= science.title%></h3>-->
-						<h6>
-							<a href="#" class="text-error"><%=truncate(science.title,:length=>50)%></a>
+						<h6 class="text-error">
+							<%=truncate(science.title,:length=>50)%>
 						</h6>
 						<p>
 							<%= truncate(science.brief_content,:length=>80)%>
@@ -51,11 +57,12 @@
 			</li>
 			<%if(i%4==3)%>
 		</ul>
-		<%end%>
-		<% i=i+1%>
-
-		<% end %>
+		<%end%>		
+	<%if i%8==7||i==(@sciences.length-1) %>
 	</div>
+	<%end%>
+	<% i=i+1%>
+	<% end %>
 </div>
 <!--end-->
 <!--one type of book-->

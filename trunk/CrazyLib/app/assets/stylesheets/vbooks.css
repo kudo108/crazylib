@@ -56,3 +56,7 @@
 	margin-bottom:15px;
 	border-radius: 10px;
 }
+.science-content{
+	max-height:828px;
+	overflow:hidden;
+}
