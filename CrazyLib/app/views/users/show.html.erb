@@ -49,6 +49,13 @@
 			<td class="label"> Phone: </td>
 			<td class="text"> <%= @user.phone_number%></td>
 		</tr>
+		<tr>
+			<td class="label"> Books borrowed </td>
+			<td class="text"> <%= @user.books_borrow%></td>
+		</tr>
+		<tr>
+			<a href="/users/history">Transactions History</a>
+		</tr>
 		<% else %>
 		<tr class="text">
 			Invalid User.

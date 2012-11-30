@@ -28,7 +28,9 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     @book = Book.find(params[:id])
-
+    if (!@book.current_quantity)
+      @book.update_attributes(:current_quantity=>:quantity)
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @book }
