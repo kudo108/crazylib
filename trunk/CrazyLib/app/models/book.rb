@@ -7,7 +7,18 @@ class Book < ActiveRecord::Base
     #find(:all)
     end
   end
-
+  def bookTopic(topic)
+    case topic
+      when 1
+        return "Web development"
+      when 2
+        return "Database"
+      else
+        return "Others"
+    end
+  end
+     
+    
   def self.search(filter,keyword)
     puts "searching"
     if keyword
