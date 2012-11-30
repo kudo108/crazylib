@@ -2,7 +2,7 @@ CrazyLib::Application.routes.draw do
 
   match "admin/show_transactions" => 'admin#show_transactions'
   match "admin/send_email" => 'admin#send_email'
-
+  match "admin" => 'admin#index'
   devise_for :add_column_to_users
 
   devise_for :users

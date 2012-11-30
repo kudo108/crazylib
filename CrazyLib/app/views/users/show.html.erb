@@ -5,8 +5,8 @@
 
 	<table class="table table-bordered " border="0">
 		<thead>
-			<th class=" label-success span3"> Thông tin thành viên </th>
-			<th class=" label-success span9"></th>
+			<th class=" label-inverse span3 text-info"> Thông tin thành viên </th>
+			<th class=" label-inverse span9"></th>
 		</thead>
 		<% if @user%>
 		<tr>
@@ -55,7 +55,7 @@
 		</tr>
 		<tr>
 			<td>
-			<a href="/transactions/userhistory?userid=<%=@user.id%>">Transactions History</a>
+			<a href="/transactions/userhistory?userid=<%=@user.id%>"><div class="text-error">Transactions History</div></a>
 			</td>
 		</tr>
 		<% else %>
