@@ -10,6 +10,7 @@ CrazyLib::Application.routes.draw do
   #resources :transactions
   get "transactions/destroy"
   get "transactions/new"
+  get "transactions/userhistory"
   #resources :books
 
   resources :usergroups

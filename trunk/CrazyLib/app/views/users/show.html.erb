@@ -54,7 +54,9 @@
 			<td class="text"> <%= @user.books_borrow%></td>
 		</tr>
 		<tr>
-			<a href="/users/history">Transactions History</a>
+			<td>
+			<a href="/transactions/userhistory?userid=<%=@user.id%>">Transactions History</a>
+			</td>
 		</tr>
 		<% else %>
 		<tr class="text">
