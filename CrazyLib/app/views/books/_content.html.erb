@@ -33,9 +33,9 @@
 	<% @sciences.each do |science| %>
 	<% if i%8==0%>
 		<% if i == 0%>
-		<div class="row-fluid science-content" id="science-<%=i%>">
+		<div class="row-fluid science-content" id="science-1">
 		<% else %>
-		<div class="row-fluid science-content hide" id="science-<%=i%>">
+		<div class="row-fluid science-content hide" id="science-<%=(i/8)+1%>">
 		<% end %>	
 	<%end%>
 		<%if(i%4==0)%>

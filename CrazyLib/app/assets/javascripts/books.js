@@ -8,7 +8,40 @@ function moveCloud(){
 //setTimeout(moveCloud,100)
 //page-----------------------------------------------
 $(document).ready(function(){
-	
+	$('#science li a').bind("click",function(e){
+		event.preventDefault();
+		var page = $(this).text();
+		var active = 0;
+		var sciences = $('#science li a');
+		//check button active
+		for(var i=0;i<sciences.length;i++){
+			if($('#science li:nth-child('+i+')').attr('class')=="active") active = i-1;
+			}
+		//when click button, that isn't Next or prev  	
+		if(page!="Prev"&&page!="Next"){
+			$('#science li:nth-child('+(active+1)+')').attr('class','');
+			$('#science li:nth-child('+(parseInt(page)+1)+')').attr('class','active');
+			$('#science-'+active).fadeOut();
+			$('#science-'+page).fadeIn();
+		}
+		//whien click prev button
+		if(page=="Prev"){
+		if(active >1 ){
+			$('#science li:nth-child('+(active+1)+')').attr('class','');
+			$('#science li:nth-child('+active+')').attr('class','active');
+			$('#science-'+ active).fadeOut();
+			$('#science-'+(active-1)).fadeIn();
+		}
+		}
+		if(page=="Next"){
+			if(active<sciences.length-2){
+				$('#science li:nth-child('+(active+2)+')').attr('class','active');
+				$('#science li:nth-child('+(active+1)+')').attr('class','');
+				$('#science-'+ active).fadeOut();
+				$('#science-'+(active+1)).fadeIn();
+			}
+		}
+	})
 })
 
 
