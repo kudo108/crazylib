@@ -42134,3 +42134,4650 @@ Served asset /flag_en.gif - 304 Not Modified (1ms)
 
 Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 10:40:49 +0700
 Served asset /bg.jpg - 304 Not Modified (2ms)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (3.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsergroups (20121112160843)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "usergroups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "group_name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121112160843')
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateBooks (20121112161117)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "books" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "publisher" varchar(255), "total_page" integer, "topic" varchar(255), "brief_content" text, "type" integer, "date_of_storing" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121112161117')
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateTransactions (20121112161402)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "transactions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "book_id" integer, "user_id" integer, "day_borrow" date, "day_return" varchar(255), "date" varchar(255), "status" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121112161402')
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Migrating to DeviseCreateUsers (20121114150217)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (44.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "nickname" varchar(255), "register_date" datetime, "end_date" date, "group" integer, "student_id" varchar(255) NOT NULL, "class_name" varchar(255) NOT NULL, "home_address" varchar(255) NOT NULL, "phone_number" integer NOT NULL, "locale" varchar(255) DEFAULT 'en' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121114150217')[0m
+  [1m[35m (3.0ms)[0m  commit transaction
+Migrating to AddDetailsToBooks (20121129091132)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "books" ADD "quantity" integer
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "books" ADD "image_url" varchar(255)[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "books" ADD "location" varchar(255)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121129091132')[0m
+  [1m[35m (2.0ms)[0m  commit transaction
+Migrating to AddCurrentQuantityToBooks (20121130074133)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "books" ADD "current_quantity" integer
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121130074133')[0m
+  [1m[35m (2.0ms)[0m  commit transaction
+Migrating to AddBooksBorrowToUsers (20121130085527)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "users" ADD "books_borrow" integer
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121130085527')[0m
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (1.0ms)[0m  [1mPRAGMA index_list("books")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("transactions")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("usergroups")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:21:20 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Compiled vbooks.css  (1ms)  (pid 5628)
+Compiled application.css  (335ms)  (pid 5628)
+Compiled books.js  (0ms)  (pid 5628)
+Compiled application.js  (458ms)  (pid 5628)
+Completed 200 OK in 1212ms (Views: 1211.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:21 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /application.css - 304 Not Modified (18ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /admin.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /books.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /bootstrap-responsive.min.css - 200 OK (5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /bootstrap.min.css - 200 OK (6ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /scaffolds.css - 200 OK (24ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /transactions.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /usergroups.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /vbooks.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (29ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /admin.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /books.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /home.js - 304 Not Modified (25ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /transactions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /usergroups.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 21:21:22 +0700
+Served asset /application.js - 304 Not Modified (48ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 21:21:23 +0700
+Served asset /flag_vn.gif - 304 Not Modified (36ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 21:21:23 +0700
+Served asset /bg.jpg - 200 OK (28ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 21:21:23 +0700
+Served asset /flag_en.gif - 304 Not Modified (23ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-11-30 21:21:28 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (205.0ms)
+Completed 500 Internal Server Error in 334ms
+
+ActionController::RoutingError (No route matches {:controller=>"devise/locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb__952347270_31890600'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-11-30 21:21:32 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 60ms
+
+ActionController::RoutingError (No route matches {:controller=>"devise/locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb__952347270_31890600'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:27:09 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 207ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___580530797_31990632'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:27:11 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 51ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___580530797_31990632'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:27:12 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 37ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___580530797_31990632'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:27:12 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 62ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___580530797_31990632'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:27:13 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 45ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___580530797_31990632'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:27:13 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 28ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___580530797_31990632'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:27:13 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 27ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___580530797_31990632'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:27:13 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 27ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___580530797_31990632'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:27:13 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 46ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___580530797_31990632'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:27:13 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 27ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___580530797_31990632'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:27:13 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 49ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___580530797_31990632'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:48:48 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 230ms
+
+ActionController::RoutingError (No route matches {:controller=>"locale", :action=>"set", :id=>"vi"}):
+  app/views/layouts/application.html.erb:84:in `_app_views_layouts_application_html_erb___651694164_32666364'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:50:03 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 227ms (Views: 219.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:03 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:03 +0700
+Served asset /application.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:03 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (45ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /admin.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /books.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /usergroups.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /admin.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /books.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (31ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /home.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /transactions.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /usergroups.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:04 +0700
+Served asset /application.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 21:50:05 +0700
+Served asset /flag_vn.gif - 304 Not Modified (8ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 21:50:05 +0700
+Served asset /flag_en.gif - 304 Not Modified (23ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 21:50:05 +0700
+Served asset /bg.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2012-11-30 21:50:26 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 26ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:26 +0700
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:26 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:26 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /books.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /usergroups.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:27 +0700
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 21:50:28 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 21:50:28 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 21:50:28 +0700
+Served asset /flag_vn.gif - 304 Not Modified (1ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2012-11-30 21:50:30 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 31ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:30 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:30 +0700
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:30 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:30 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:30 +0700
+Served asset /admin.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:30 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:30 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /usergroups.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 21:50:31 +0700
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 21:50:32 +0700
+Served asset /flag_vn.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 21:50:32 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 21:50:32 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:54:11 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 211ms (Views: 203.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (37ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /application.css - 304 Not Modified (17ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /books.css - 304 Not Modified (23ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /usergroups.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /vbooks.css - 304 Not Modified (23ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /books.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (24ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 21:54:12 +0700
+Served asset /transactions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 21:54:13 +0700
+Served asset /usergroups.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 21:54:13 +0700
+Served asset /application.js - 304 Not Modified (21ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 21:54:13 +0700
+Served asset /flag_vn.gif - 304 Not Modified (9ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 21:54:13 +0700
+Served asset /flag_en.gif - 304 Not Modified (30ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 21:54:13 +0700
+Served asset /bg.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 21:56:09 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 213ms (Views: 213.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /application.css - 304 Not Modified (38ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (26ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /books.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /transactions.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /usergroups.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 21:56:10 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 21:56:11 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 21:56:11 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 21:56:11 +0700
+Served asset /books.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 21:56:11 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (27ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 21:56:11 +0700
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 21:56:11 +0700
+Served asset /transactions.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 21:56:11 +0700
+Served asset /usergroups.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 21:56:11 +0700
+Served asset /application.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 21:56:11 +0700
+Served asset /flag_vn.gif - 304 Not Modified (8ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 21:56:11 +0700
+Served asset /flag_en.gif - 304 Not Modified (36ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 21:56:11 +0700
+Served asset /bg.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:05:24 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 209ms (Views: 209.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:05:24 +0700
+Served asset /application.css - 304 Not Modified (41ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:05:24 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:05:24 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (30ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:05:24 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:05:24 +0700
+Served asset /books.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:05:24 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /usergroups.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /jquery.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (24ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /home.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /transactions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /usergroups.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:05:25 +0700
+Served asset /application.js - 304 Not Modified (19ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:05:26 +0700
+Served asset /flag_vn.gif - 304 Not Modified (12ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:05:26 +0700
+Served asset /flag_en.gif - 304 Not Modified (26ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:05:26 +0700
+Served asset /bg.jpg - 304 Not Modified (2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:07:05 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 215ms (Views: 215.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:07:05 +0700
+Served asset /application.css - 304 Not Modified (46ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:07:05 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:07:05 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:07:05 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (27ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:07:05 +0700
+Served asset /books.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:07:05 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /transactions.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /usergroups.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (25ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /transactions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /usergroups.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:07:06 +0700
+Served asset /application.js - 304 Not Modified (22ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:07:07 +0700
+Served asset /flag_vn.gif - 304 Not Modified (5ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:07:07 +0700
+Served asset /flag_en.gif - 304 Not Modified (26ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:07:07 +0700
+Served asset /bg.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 212ms (Views: 211.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Served asset /application.css - 304 Not Modified (39ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Served asset /books.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (28ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Served asset /transactions.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Served asset /usergroups.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:10:52 +0700
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:10:53 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:10:53 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:10:53 +0700
+Served asset /admin.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:10:53 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:10:53 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (25ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:10:53 +0700
+Served asset /home.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:10:53 +0700
+Served asset /transactions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:10:53 +0700
+Served asset /usergroups.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:10:53 +0700
+Served asset /application.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:10:54 +0700
+Served asset /flag_vn.gif - 304 Not Modified (3ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:10:54 +0700
+Served asset /flag_en.gif - 304 Not Modified (23ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:10:54 +0700
+Served asset /bg.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 208ms (Views: 199.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (38ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /application.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (28ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /books.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (16ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /transactions.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /usergroups.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /vbooks.css - 304 Not Modified (24ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:11:47 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:11:48 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:11:48 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:11:48 +0700
+Served asset /books.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:11:48 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (23ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:11:48 +0700
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:11:48 +0700
+Served asset /transactions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:11:48 +0700
+Served asset /usergroups.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:11:48 +0700
+Served asset /application.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:11:48 +0700
+Served asset /flag_vn.gif - 304 Not Modified (9ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:11:48 +0700
+Served asset /flag_en.gif - 304 Not Modified (23ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:11:49 +0700
+Served asset /bg.jpg - 304 Not Modified (2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:18:13 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 212ms (Views: 212.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (34ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /application.css - 304 Not Modified (18ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /books.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /admin.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /usergroups.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /vbooks.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:14 +0700
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:15 +0700
+Served asset /transactions.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:15 +0700
+Served asset /usergroups.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:15 +0700
+Served asset /application.js - 304 Not Modified (19ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:18:15 +0700
+Served asset /flag_vn.gif - 304 Not Modified (4ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:18:15 +0700
+Served asset /flag_en.gif - 304 Not Modified (23ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:18:15 +0700
+Served asset /bg.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/books/" for 127.0.0.1 at 2012-11-30 22:18:22 +0700
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (11.0ms)[0m  [1mSELECT DISTINCT topic FROM "books" [0m
+  [1m[35mBook Load (0.0ms)[0m  SELECT "books".* FROM "books" WHERE "books"."topic" = 1
+  Rendered books/_topbar.html.erb (0.0ms)
+  Rendered books/_content.html.erb (1.0ms)
+  Rendered books/_rightbar.html.erb (0.0ms)
+  Rendered books/index.html.erb within layouts/application (74.0ms)
+Completed 200 OK in 165ms (Views: 119.0ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:22 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /usergroups.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /admin.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /home.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /transactions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:23 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:24 +0700
+Served asset /application.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:18:24 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:18:24 +0700
+Served asset /flag_vn.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:18:24 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 50ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /books.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:28 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:29 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:29 +0700
+Served asset /admin.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:29 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:29 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:29 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:29 +0700
+Served asset /transactions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:29 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:18:29 +0700
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:18:29 +0700
+Served asset /flag_vn.gif - 304 Not Modified (3ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:18:29 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:18:29 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:20:08 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 220ms (Views: 220.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:20:08 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (35ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:20:08 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:20:08 +0700
+Served asset /books.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:20:08 +0700
+Served asset /application.css - 304 Not Modified (36ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:20:08 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /usergroups.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /vbooks.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /admin.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /books.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /transactions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:20:09 +0700
+Served asset /usergroups.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:20:10 +0700
+Served asset /application.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:20:10 +0700
+Served asset /flag_vn.gif - 304 Not Modified (4ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:20:10 +0700
+Served asset /flag_en.gif - 304 Not Modified (23ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:20:10 +0700
+Served asset /bg.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:22:00 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 214ms (Views: 214.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:22:00 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (35ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:22:00 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:22:00 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:22:00 +0700
+Served asset /application.css - 304 Not Modified (19ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:22:00 +0700
+Served asset /books.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:22:00 +0700
+Served asset /admin.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /usergroups.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (26ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /transactions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /usergroups.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:22:01 +0700
+Served asset /application.js - 304 Not Modified (20ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:22:02 +0700
+Served asset /flag_en.gif - 304 Not Modified (3ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:22:02 +0700
+Served asset /flag_vn.gif - 304 Not Modified (22ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:22:02 +0700
+Served asset /bg.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:24:14 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 214ms (Views: 214.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:14 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (33ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:14 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:14 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:14 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (27ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:14 +0700
+Served asset /application.css - 304 Not Modified (19ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:14 +0700
+Served asset /books.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:14 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /transactions.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /usergroups.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (19ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /books.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /transactions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /usergroups.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:15 +0700
+Served asset /application.js - 304 Not Modified (19ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:24:16 +0700
+Served asset /flag_vn.gif - 304 Not Modified (8ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:24:16 +0700
+Served asset /flag_en.gif - 304 Not Modified (23ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:24:16 +0700
+Served asset /bg.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/books/" for 127.0.0.1 at 2012-11-30 22:24:25 +0700
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (1.0ms)[0m  [1mSELECT DISTINCT topic FROM "books" [0m
+  [1m[35mBook Load (1.0ms)[0m  SELECT "books".* FROM "books" WHERE "books"."topic" = 1
+  Rendered books/_topbar.html.erb (0.0ms)
+  Rendered books/_content.html.erb (1.0ms)
+  Rendered books/_rightbar.html.erb (0.0ms)
+  Rendered books/index.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 114ms (Views: 87.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:25 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:25 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:25 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:25 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:25 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:25 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:25 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /transactions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /usergroups.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /transactions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:26 +0700
+Served asset /application.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:24:27 +0700
+Served asset /flag_vn.gif - 304 Not Modified (7ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:24:27 +0700
+Served asset /flag_en.gif - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:24:27 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:24:28 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 30ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /application.css - 304 Not Modified (39ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /admin.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /books.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /transactions.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:29 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:30 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:30 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:30 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:30 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:30 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-30 22:24:30 +0700
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-11-30 22:24:30 +0700
+Served asset /flag_vn.gif - 304 Not Modified (3ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-11-30 22:24:30 +0700
+Served asset /flag_en.gif - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-11-30 22:24:30 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-02 00:13:25 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 522ms (Views: 521.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:26 +0700
+Served asset /application.css - 304 Not Modified (51ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:26 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:26 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:26 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:26 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:26 +0700
+Served asset /books.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /transactions.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /usergroups.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /jquery.js - 304 Not Modified (34ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /home.js - 304 Not Modified (28ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /transactions.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /usergroups.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:27 +0700
+Served asset /application.js - 304 Not Modified (40ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:13:28 +0700
+Served asset /flag_vn.gif - 304 Not Modified (37ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:13:28 +0700
+Served asset /flag_en.gif - 304 Not Modified (48ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:13:28 +0700
+Served asset /bg.jpg - 304 Not Modified (41ms)
+
+
+Started GET "/?locale=en" for 127.0.0.1 at 2012-12-02 00:13:37 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /admin.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /transactions.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:38 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:39 +0700
+Served asset /transactions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:39 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:13:39 +0700
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:13:39 +0700
+Served asset /flag_vn.gif - 304 Not Modified (3ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:13:39 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:13:39 +0700
+Served asset /bg.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-02 00:27:22 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Compiled application.js  (9ms)  (pid 7752)
+Completed 200 OK in 352ms (Views: 352.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:22 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (30ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:22 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:22 +0700
+Served asset /books.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:22 +0700
+Served asset /application.css - 304 Not Modified (40ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:22 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:22 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (39ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /transactions.css - 304 Not Modified (23ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /usergroups.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /jquery.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /transactions.js - 304 Not Modified (25ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /usergroups.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:23 +0700
+Served asset /application.js - 200 OK (21ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:27:24 +0700
+Served asset /flag_vn.gif - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:27:24 +0700
+Served asset /bg.jpg - 304 Not Modified (6ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:27:24 +0700
+Served asset /flag_en.gif - 304 Not Modified (2ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2012-12-02 00:27:26 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 58ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:26 +0700
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:26 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:26 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:26 +0700
+Served asset /admin.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:26 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:26 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:26 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:26 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:26 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /transactions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:27 +0700
+Served asset /application.js - 304 Not Modified (31ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:27:28 +0700
+Served asset /flag_vn.gif - 304 Not Modified (5ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:27:28 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:27:28 +0700
+Served asset /bg.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2012-12-02 00:27:29 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 61ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:29 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:29 +0700
+Served asset /application.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:29 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:29 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:29 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:29 +0700
+Served asset /books.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:29 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:29 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /usergroups.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /transactions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:27:30 +0700
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:27:31 +0700
+Served asset /flag_vn.gif - 304 Not Modified (2ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:27:31 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:27:31 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-02 00:29:13 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 204ms (Views: 204.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /application.css - 304 Not Modified (43ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /books.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /usergroups.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /vbooks.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /jquery.js - 304 Not Modified (48ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /books.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:29:14 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:29:15 +0700
+Served asset /home.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:29:15 +0700
+Served asset /transactions.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:29:15 +0700
+Served asset /usergroups.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:29:15 +0700
+Served asset /application.js - 304 Not Modified (40ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:29:15 +0700
+Served asset /bg.jpg - 304 Not Modified (5ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:29:15 +0700
+Served asset /flag_en.gif - 304 Not Modified (5ms)
+
+
+Started GET "/&locale=vi" for 127.0.0.1 at 2012-12-02 00:29:17 +0700
+
+ActionController::RoutingError (No route matches [GET] "/&locale=vi"):
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/javascript:onChangeLocale('en')" for 127.0.0.1 at 2012-12-02 00:29:27 +0700
+
+ActionController::RoutingError (No route matches [GET] "/javascript:onChangeLocale('en')"):
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-02 00:30:56 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Compiled application.js  (10ms)  (pid 7220)
+Completed 200 OK in 603ms (Views: 603.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (31ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /admin.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /books.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /application.css - 304 Not Modified (19ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (41ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /transactions.css - 304 Not Modified (26ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /usergroups.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:30:57 +0700
+Served asset /vbooks.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /jquery.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /admin.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /transactions.js - 304 Not Modified (24ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /usergroups.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /application.js - 200 OK (21ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /flag_en.gif - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:30:58 +0700
+Served asset /bg.jpg - 304 Not Modified (5ms)
+
+
+Started GET "/?locale=vi" for 127.0.0.1 at 2012-12-02 00:31:00 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"vi"}
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:00 +0700
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:00 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /transactions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:01 +0700
+Served asset /transactions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:02 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:31:02 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:31:02 +0700
+Served asset /flag_en.gif - 304 Not Modified (22ms)
+
+
+Started GET "/?locale=en" for 127.0.0.1 at 2012-12-02 00:31:03 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 33ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:03 +0700
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:03 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:03 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:03 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:03 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:03 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:03 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /transactions.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /usergroups.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:31:04 +0700
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:31:05 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:31:05 +0700
+Served asset /bg.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-02 00:33:50 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 206ms (Views: 206.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /application.css - 304 Not Modified (19ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /admin.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /books.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /usergroups.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /vbooks.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /jquery.js - 304 Not Modified (48ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:33:51 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:33:52 +0700
+Served asset /home.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:33:52 +0700
+Served asset /transactions.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:33:52 +0700
+Served asset /usergroups.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:33:52 +0700
+Served asset /application.js - 304 Not Modified (40ms)
+
+
+Started GET "/assets/flag_vi.gif" for 127.0.0.1 at 2012-12-02 00:33:52 +0700
+Served asset /flag_vi.gif - 404 Not Found (22ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/flag_vi.gif"):
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:33:52 +0700
+Served asset /flag_en.gif - 304 Not Modified (23ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:33:52 +0700
+Served asset /bg.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-02 00:36:05 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 208ms (Views: 207.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (36ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /application.css - 304 Not Modified (19ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (27ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /books.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /scaffolds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /usergroups.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:06 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /jquery.js - 304 Not Modified (35ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /home.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /transactions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /usergroups.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /application.js - 304 Not Modified (38ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /flag_en.gif - 304 Not Modified (8ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /flag_vn.gif - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:36:07 +0700
+Served asset /bg.jpg - 304 Not Modified (4ms)
+
+
+Started GET "/?locale=vi" for 127.0.0.1 at 2012-12-02 00:36:09 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"vi"}
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 26ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:09 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:09 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:09 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:09 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:09 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:09 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:09 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /home.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /usergroups.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:10 +0700
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:36:11 +0700
+Served asset /flag_vn.gif - 304 Not Modified (6ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:36:11 +0700
+Served asset /flag_en.gif - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:36:11 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/?locale=en" for 127.0.0.1 at 2012-12-02 00:36:11 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 29ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:12 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:13 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:13 +0700
+Served asset /admin.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:13 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:13 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:13 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:13 +0700
+Served asset /transactions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:13 +0700
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:13 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:36:13 +0700
+Served asset /flag_vn.gif - 304 Not Modified (1ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:36:13 +0700
+Served asset /flag_en.gif - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:36:13 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/books/" for 127.0.0.1 at 2012-12-02 00:36:14 +0700
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.0ms)[0m  [1mSELECT DISTINCT topic FROM "books" [0m
+  [1m[35mBook Load (0.0ms)[0m  SELECT "books".* FROM "books" WHERE "books"."topic" = 1
+  Rendered books/_topbar.html.erb (0.0ms)
+  Rendered books/_content.html.erb (0.0ms)
+  Rendered books/_rightbar.html.erb (1.0ms)
+  Rendered books/index.html.erb within layouts/application (83.0ms)
+Completed 200 OK in 148ms (Views: 108.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:14 +0700
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:14 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /usergroups.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:15 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:16 +0700
+Served asset /transactions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:16 +0700
+Served asset /usergroups.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:16 +0700
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:36:16 +0700
+Served asset /flag_en.gif - 304 Not Modified (2ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:36:16 +0700
+Served asset /flag_vn.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:36:16 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/books/search" for 127.0.0.1 at 2012-12-02 00:36:18 +0700
+Processing by BooksController#search as HTML
+  [1m[36mBook Load (0.0ms)[0m  [1mSELECT "books".* FROM "books" [0m
+  Rendered books/_topbar.html.erb (0.0ms)
+  Rendered books/_search_results.html.erb (0.0ms)
+  Rendered books/_search.html.erb (10.0ms)
+  Rendered books/_rightbar.html.erb (0.0ms)
+  Rendered books/search.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 103ms (Views: 102.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:19 +0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /admin.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /books.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /home.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /usergroups.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /flag_vn.gif - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /bg.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:36:20 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/books/" for 127.0.0.1 at 2012-12-02 00:36:22 +0700
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.0ms)[0m  SELECT DISTINCT topic FROM "books" 
+  [1m[36mBook Load (0.0ms)[0m  [1mSELECT "books".* FROM "books" WHERE "books"."topic" = 1[0m
+  Rendered books/_topbar.html.erb (0.0ms)
+  Rendered books/_content.html.erb (0.0ms)
+  Rendered books/_rightbar.html.erb (0.0ms)
+  Rendered books/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:23 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:24 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:24 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:24 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:24 +0700
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:36:24 +0700
+Served asset /flag_vn.gif - 304 Not Modified (3ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:36:24 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:36:24 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/books/?locale=en" for 127.0.0.1 at 2012-12-02 00:36:27 +0700
+Processing by BooksController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mBook Load (1.0ms)[0m  SELECT DISTINCT topic FROM "books" 
+  [1m[36mBook Load (0.0ms)[0m  [1mSELECT "books".* FROM "books" WHERE "books"."topic" = 1[0m
+  Rendered books/_topbar.html.erb (1.0ms)
+  Rendered books/_content.html.erb (1.0ms)
+  Rendered books/_rightbar.html.erb (1.0ms)
+  Rendered books/index.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 64ms (Views: 63.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:27 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:27 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /usergroups.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /vbooks.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (33ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:28 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:29 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:29 +0700
+Served asset /usergroups.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:36:29 +0700
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:36:29 +0700
+Served asset /flag_vn.gif - 304 Not Modified (2ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:36:29 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:36:29 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-02 00:50:35 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 214ms (Views: 214.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /application.css - 304 Not Modified (46ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /books.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /transactions.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /usergroups.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:36 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /jquery.js - 304 Not Modified (59ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /home.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /transactions.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /usergroups.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /application.js - 304 Not Modified (38ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /flag_vn.gif - 304 Not Modified (10ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /flag_en.gif - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:50:37 +0700
+Served asset /bg.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/?locale=en" for 127.0.0.1 at 2012-12-02 00:50:39 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 29ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:39 +0700
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:39 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:39 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:39 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:39 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:39 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:39 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /transactions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:40 +0700
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:50:41 +0700
+Served asset /flag_vn.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:50:41 +0700
+Served asset /flag_en.gif - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:50:41 +0700
+Served asset /bg.jpg - 304 Not Modified (21ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2012-12-02 00:50:41 +0700
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.0ms)[0m  [1mSELECT DISTINCT topic FROM "books" [0m
+  [1m[35mBook Load (0.0ms)[0m  SELECT "books".* FROM "books" WHERE "books"."topic" = 1
+  Rendered books/_topbar.html.erb (0.0ms)
+  Rendered books/_content.html.erb (1.0ms)
+  Rendered books/_rightbar.html.erb (0.0ms)
+  Rendered books/index.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 90ms (Views: 64.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:41 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:42 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:43 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:43 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:43 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:43 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:43 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:50:43 +0700
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:50:43 +0700
+Served asset /flag_en.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:50:43 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:50:43 +0700
+Served asset /flag_vn.gif - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-02 00:57:54 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 204ms (Views: 203.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /application.css - 304 Not Modified (41ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /books.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /admin.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (29ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /transactions.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /usergroups.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:55 +0700
+Served asset /vbooks.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (31ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /admin.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /books.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /home.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /transactions.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /usergroups.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /application.js - 304 Not Modified (38ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /flag_vn.gif - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /bg.jpg - 304 Not Modified (2ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:57:56 +0700
+Served asset /flag_en.gif - 304 Not Modified (3ms)
+
+
+Started GET "/?locale=en" for 127.0.0.1 at 2012-12-02 00:57:58 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 36ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:58 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:58 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:58 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:58 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:58 +0700
+Served asset /admin.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:58 +0700
+Served asset /books.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:58 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /transactions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /usergroups.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /transactions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:57:59 +0700
+Served asset /application.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:58:00 +0700
+Served asset /flag_vn.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:58:00 +0700
+Served asset /flag_en.gif - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:58:00 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/books?locale" for 127.0.0.1 at 2012-12-02 00:58:01 +0700
+Processing by BooksController#index as HTML
+  Parameters: {"locale"=>nil}
+  [1m[36mBook Load (0.0ms)[0m  [1mSELECT DISTINCT topic FROM "books" [0m
+  [1m[35mBook Load (0.0ms)[0m  SELECT "books".* FROM "books" WHERE "books"."topic" = 1
+  [1m[36mBook Load (0.0ms)[0m  [1mSELECT "books".* FROM "books" WHERE "books"."topic" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "books".* FROM "books" WHERE "books"."topic" = 1
+  Rendered books/_topbar.html.erb (0.0ms)
+  Rendered books/_content.html.erb (88.0ms)
+  Rendered books/_rightbar.html.erb (0.0ms)
+  Rendered books/index.html.erb within layouts/application (148.0ms)
+Completed 200 OK in 215ms (Views: 175.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:01 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:01 +0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:01 +0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/src/demo_table_jui.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:01 +0700
+Served asset /dataTables/src/demo_table_jui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:01 +0700
+Served asset /admin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:01 +0700
+Served asset /books.css - 304 Not Modified (20ms)
+
+
+Started GET "/assets/bootstrap-responsive.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:01 +0700
+Served asset /bootstrap-responsive.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /bootstrap.min.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /transactions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usergroups.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /usergroups.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vbooks.css?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /vbooks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /admin.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transactions.js?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /transactions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/usergroups.js?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /usergroups.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-02 00:58:02 +0700
+Served asset /application.js - 304 Not Modified (31ms)
+
+
+Started GET "/assets/flag_en.gif" for 127.0.0.1 at 2012-12-02 00:58:03 +0700
+Served asset /flag_en.gif - 304 Not Modified (5ms)
+
+
+Started GET "/assets/51YjbeA1k-L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:03 +0700
+Served asset /51YjbeA1k-L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (74ms)
+
+
+Started GET "/assets/flag_vn.gif" for 127.0.0.1 at 2012-12-02 00:58:03 +0700
+Served asset /flag_vn.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/51yKOtotGWL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:03 +0700
+Served asset /51yKOtotGWL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (90ms)
+
+
+Started GET "/assets/bg.jpg" for 127.0.0.1 at 2012-12-02 00:58:03 +0700
+Served asset /bg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/51DP8l3ryJL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:03 +0700
+Served asset /51DP8l3ryJL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (66ms)
+
+
+Started GET "/assets/51MXlr6u4VL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:03 +0700
+Served asset /51MXlr6u4VL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (136ms)
+
+
+Started GET "/assets/51jG0SjlVnL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:03 +0700
+Served asset /51jG0SjlVnL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (55ms)
+
+
+Started GET "/assets/510pqvD2NIL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:03 +0700
+Served asset /510pqvD2NIL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (114ms)
+
+
+Started GET "/assets/511uGrsGmyL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:03 +0700
+Served asset /511uGrsGmyL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (122ms)
+
+
+Started GET "/assets/51I+zyeWzJL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:04 +0700
+Served asset /51I+zyeWzJL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (61ms)
+
+
+Started GET "/assets/51hrTA1ii8L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:04 +0700
+Served asset /51hrTA1ii8L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (73ms)
+
+
+Started GET "/assets/51tV0wXoPjL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:04 +0700
+Served asset /51tV0wXoPjL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (103ms)
+
+
+Started GET "/assets/51j+6vXRPJL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:04 +0700
+Served asset /51j+6vXRPJL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (75ms)
+
+
+Started GET "/assets/51lCVqI--bL._SL500_AA300_.jpg" for 127.0.0.1 at 2012-12-02 00:58:04 +0700
+Served asset /51lCVqI--bL._SL500_AA300_.jpg - 200 OK (102ms)
+
+
+Started GET "/assets/412ifURn95L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:04 +0700
+Served asset /412ifURn95L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (93ms)
+
+
+Started GET "/assets/51rbzAAWcBL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:04 +0700
+Served asset /51rbzAAWcBL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (109ms)
+
+
+Started GET "/assets/41ng8VBDCtL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:04 +0700
+Served asset /41ng8VBDCtL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (125ms)
+
+
+Started GET "/assets/41tOupaNC-L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:05 +0700
+Served asset /41tOupaNC-L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (109ms)
+
+
+Started GET "/assets/51w+78jBLoL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:05 +0700
+Served asset /51w+78jBLoL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (55ms)
+
+
+Started GET "/assets/51JyIdvDnyL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:05 +0700
+Served asset /51JyIdvDnyL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (74ms)
+
+
+Started GET "/assets/51J9EK5OrZL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:05 +0700
+Served asset /51J9EK5OrZL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (148ms)
+
+
+Started GET "/assets/51b4dlgRqZL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:05 +0700
+Served asset /51b4dlgRqZL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (161ms)
+
+
+Started GET "/assets/41voDxJS62L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:05 +0700
+Served asset /41voDxJS62L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (149ms)
+
+
+Started GET "/assets/51+fhSHISAL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:05 +0700
+Served asset /51+fhSHISAL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (103ms)
+
+
+Started GET "/assets/517m3bJ0AcL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:05 +0700
+Served asset /517m3bJ0AcL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (105ms)
+
+
+Started GET "/assets/511ppc7SP1L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:06 +0700
+Served asset /511ppc7SP1L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (94ms)
+
+
+Started GET "/assets/61PiRyd+tJL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" for 127.0.0.1 at 2012-12-02 00:58:06 +0700
+Served asset /61PiRyd+tJL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg - 200 OK (97ms)

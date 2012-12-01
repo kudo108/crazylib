@@ -2,6 +2,16 @@
 # vi translations for Devise 2.0
 
 vi:
+  home: "Trang chủ"
+  book: "Sách"
+  search: "Tìm kiếm"
+  faq: "Câu hỏi thường gặp"
+  rule: "Quy định"
+  contact: "Liên hệ"
+  about: "Về chúng tôi"
+  login: "Đăng nhập"
+  logout: "Đăng xuất"
+  register: "Đăng ký"
   errors:
     messages:
       expired: "đã hết hạn, vui lòng tạo yêu cầu mới"
@@ -11,7 +21,6 @@ vi:
       not_saved:
         one: "1 lỗi làm %{resource} này không lưu lại được:"
         other: "%{count} lỗi làm %{resource} này không lưu lại được:"
-
   devise:
     failure:
       already_authenticated: 'Bạn đã đăng nhập rồi.'

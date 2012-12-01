@@ -44,49 +44,48 @@
 						<div class="nav-collapse collapse" style="height: 0px; ">
 							<ul class="nav">
 								<li class="">
-									<a href="/">Home</a>
+									<a href="/" style="color: #FFFFFF"><%=t :home%></a>
 								</li>
 								<li class="">
-									<a href="/books/">Books</a>
+									<a href="/books?<%=:locale%>"><%=t :book%></a>
 								</li>
 								<li class="">
-									<a href="/books/search">Search</a>
+									<a href="/books/search"><%=t :search%></a>
 								</li>
 								<li class="">
-									<a href="/faq">FAQ</a>
+									<a href="/faq"><%=t :faq%></a>
 								</li>
 								<li class="">
-									<a href="/rule">Rule</a>
+									<a href="/rule"><%=t :rule%></a>
 								</li>
 								<li >
-									<a href="/contact">Contact</a>
+									<a href="/contact"><%=t :contact%></a>
 								</li>
 								<li >
-									<a href="/about">Abouts</a>
+									<a href="/about"><%=t :about%></a>
 								</li>
 							</ul>
 						</div>
-						<div class="nav pull-right">
-							<% if (!user_signed_in?)%>
-							<li class="">
-								<%= link_to "Log in", new_user_session_path %>
-							</li>
+					<div class="nav pull-right">
+						<% if (!user_signed_in?)%>
+						<li class="">
+							<%= link_to (t :login), new_user_session_path %>
+						</li>
 
-							<li class="">
-								<%= link_to "Register", new_user_registration_path %>
-							</li>
-							<%else%>
-							<li class="">
-								<%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-							</li>
-							<%end%>
-							<li>
-								<a href="/linkTiengViet"><img style="width: 30px; height: 20px" src="/assets/flag_vn.gif" alt="Vietnamese" /></a>
-							</li>
-							<li>
-								<a href="/linkTiengAnh"><img style="width: 30px; height: 20px" src="/assets/flag_en.gif" alt="English" /></a>
-							</li>
-						</div>
+						<li class="">
+							<%= link_to (t :register), new_user_registration_path %>
+						</li>
+						<%else%>
+						<li class="">
+							<%= link_to (t :logout), destroy_user_session_path, :method => :delete %>
+						</li>
+						<%end%>
+						<li>
+							<a href="javascript:onChangeLocale('vi')"><img style="width: 30px; height: 20px" src="/assets/flag_vn.gif" alt="Vietnamese" /></a>
+						</li>
+						<li>
+							<a href="javascript:onChangeLocale('en')"><img style="width: 30px; height: 20px" src="/assets/flag_en.gif" alt="English" /></a>
+						</li>
 					</div>
 				</div>
 			</div>

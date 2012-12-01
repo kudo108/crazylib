@@ -1,6 +1,16 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 en:
+  home: "Home"
+  book: "Books"
+  search: "Search"
+  faq: "FAQ"
+  rule: "Rule"
+  contact: "Contacts"
+  about: "About"
+  login: "Login"
+  logout: "Logout"
+  register: "Register"
   errors:
     messages:
       expired: "has expired, please request a new one"
