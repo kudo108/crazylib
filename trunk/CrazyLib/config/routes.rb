@@ -20,7 +20,8 @@ CrazyLib::Application.routes.draw do
   get "home/index"
   get "books/list_all_book"
   match "books/"=>"books#index"
-  match "/admin/add_book"=> "books#new"
+  match "admin/add_book"=> "books#new"
+  match "admin/show_user"=> "users#index"
   #search
   get "books/search"
   #static page
