@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  layout 'admin', :only => [:new]
   # GET /books
   # GET /books.json
   def index

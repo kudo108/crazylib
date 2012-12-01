@@ -12,7 +12,7 @@ CrazyLib::Application.routes.draw do
   get "transactions/new"
   get "transactions/userhistory"
   #resources :books
-
+  
   resources :usergroups
   get "books/index"
   get "books/view"
@@ -20,6 +20,7 @@ CrazyLib::Application.routes.draw do
   get "home/index"
   get "books/list_all_book"
   match "books/"=>"books#index"
+  match "/admin/add_book"=> "books#new"
   #search
   get "books/search"
   #static page

@@ -6,5 +6,5 @@ class AdminController < ApplicationController
 
   def send_email
     Mailer.demo("crazy team", "put_your_email_here@domain.com", "Demo subject", "Ya! It works!").deliver
-  end  
+  end
 end
