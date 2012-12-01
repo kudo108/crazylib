@@ -14,3 +14,18 @@
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
 //= require_tree .
+ 
+function onChangeLocale(lang) {
+    var newURL = "";
+    var questionMarkLocation = document.URL.indexOf("?");
+    if (questionMarkLocation != -1) {
+        newURL = document.URL.substring(0, questionMarkLocation); 
+    } else {
+        newURL = document.URL;
+    }
+    
+    newURL = newURL + "?locale=" + lang;
+    
+    document.location=newURL;
+}
+    

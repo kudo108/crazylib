@@ -16,6 +16,11 @@ CrazyLib::Application.routes.draw do
   devise_for :users
   #show user
   resources :users, :only => [:show]
+
+  # get "locale/set"
+
+  resources :usergroups
+
   #resources :transactions
   #transactions
   get "transactions/destroy"
