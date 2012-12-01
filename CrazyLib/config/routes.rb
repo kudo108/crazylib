@@ -1,29 +1,45 @@
 CrazyLib::Application.routes.draw do
+  resources :book_categories
 
+  #admin
   match "admin/show_transactions" => 'admin#show_transactions'
   match "admin/send_email" => 'admin#send_email'
   match "admin" => 'admin#index'
+  match "admin/add_book"=> "books#new"
+  match "admin/show_users"=> "users#index"
+  match "admin/show_books" => "books#show_all"
+  match "admin/edit_books" => "books#edit"
+  #what da hell is this ???
   devise_for :add_column_to_users
-
+  #user
+  #session
   devise_for :users
+  #show user
   resources :users, :only => [:show]
   #resources :transactions
+  #transactions
   get "transactions/destroy"
   get "transactions/new"
   get "transactions/userhistory"
-  #resources :books
-  
-  resources :usergroups
-  get "books/index"
+  #books
   get "books/view"
   get "books/search"
+  resources :books
+  
+  resources :usergroups
+  
+  
+  #get "books/index"
+  #match "view"=>"books#view"
+
+  #
+  #
   get "home/index"
-  get "books/list_all_book"
-  match "books/"=>"books#index"
-  match "admin/add_book"=> "books#new"
-  match "admin/show_user"=> "users#index"
+  #get "books/list_all_book"
+  #match "books/"=>"books#index"
+  
   #search
-  get "books/search"
+  #get "books/search"
   #static page
   match '/about' => 'pages#about'
   match '/contact' => 'pages#contact'

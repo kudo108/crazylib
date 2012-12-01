@@ -36,6 +36,10 @@
 		<div class="field">
 			<%= f.label :topic %>
 			<%= select_tag "topic","<option value='1'>Web Development</option><option value='2'>Database</option><option value='10'>Other</option>".html_safe,:class=>"span3" %>
+		</div>
+		<div class="field">
+			<%= f.label :quantity %>
+			<%= f.number_field :quantity ,:class=>"span3", :min=>1%>
 		</div></td>
 		<td>
 		<div class="field">
