@@ -1,0 +1,36 @@
+<p id="notice">
+	<%= notice %>
+</p>
+<table class="table table-bordered table-hover">
+	<thead class="label-info">
+		<th>ID</th>
+		<th>Nickname</th>
+		<th>Email</th>
+		<th>Register day</th>
+		<th>End date</th>
+		<th>Group</th>
+		<th>Student ID</th>
+		<th>Class Name</th>
+		<th>Address</th>
+		<th>Phone</th>
+		<th>Books Borow</th>
+		<th></th>
+	</thead>
+
+	<% @users.each do |user| %>
+	<tr>
+		<td><%= user.id %></td>
+		<td><%= user.nickname %></td>
+		<td><%= user.email %></td>
+		<td><%= user.register_date %></td>
+		<td><%= user.end_date %></td>
+		<td><%= user.group %></td>
+		<td><%= user.student_id %></td>
+		<td><%= user.class_name %></td>
+		<td><%= user.home_address %></td>
+		<td><%= user.phone_number %></td>
+		<td><%= user.books_borrow %></td>
+		<td><a href="/users/<%=user.id%>"><div class="text-warning"> Edit</div></a></td>
+	</tr>
+	<% end %>
+</table>
