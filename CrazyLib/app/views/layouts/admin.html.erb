@@ -1,0 +1,37 @@
+<table class="table">
+	<tr>
+		<td class="span2">
+		<ul class="nav nav-list">
+			<li>
+				<a href="/admin"><i class="icon-home"></i> Home</a>
+			</li>
+			<li>
+				<a href="/admin/show_transactions"><i class="icon-list"></i> View transaction</a>
+			</li>
+			<li>
+				<a href="/admin/show_user"><i class="icon-tasks"></i> View users</a>
+			</li>
+			<li>
+				<a href="/admin/show_stats"><i class="icon-signal"></i> View stats</a>
+			</li>
+			<li>
+				<a href="/admin/send_email"><i class="icon-envelope"></i> Send email</a>
+			</li>
+			<li>
+				<a href="/admin/add_book"><i class="icon-book"></i> Add book</a>
+			</li>
+			<li>
+				<a href="/admin/add_moderate"><i class="icon-user"></i> Add Moderate</a>
+			</li>
+			<li>
+				<a href="/admin/edit_faq"><i class="icon-question-sign"></i> Edit FAQ</a>
+			</li>
+			<li>
+				<a href="/admin/edit_rule"><i class="icon-wrench"></i> Config Rule</a>
+			</li>
+		</ul></td>
+		<td class="span10"> <%= yield %> </td>
+	</tr>
+</table>
+<%= parent_layout 'application' %>
+
