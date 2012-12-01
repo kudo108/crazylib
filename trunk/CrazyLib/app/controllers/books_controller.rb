@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  layout 'admin', :only => [:new]
+  layout 'admin', :only => [:new,:show_all,:edit]
   # GET /books
   # GET /books.json
   def index
@@ -49,7 +49,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @book }
+      #format.json { render json: @book }
     end
   end
   
@@ -68,14 +68,15 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     params[:book][:current_quantity]=params[:book][:quantity]
+    params[:book][:date_of_storing]=Date.today
     @book = Book.new(params[:book])
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        format.json { render json: @book, status: :created, location: @book }
+        format.html { redirect_to "/admin/show_books", notice: 'Book was successfully created.' }
+        #format.json { render json: @book, status: :created, location: @book }
       else
-        format.html { render action: "new" }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.html { redirect_to "/admin/add_book", notice: 'Failed'}
+        #format.json { render json: @book.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -84,11 +85,11 @@ class BooksController < ApplicationController
   # PUT /books/1.json
   def update
     @book = Book.find(params[:id])
-
+  #"/books/view?topic=<%=@book.topic%>&id=<%=@book.id%>"
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to "/admin/show_books", notice: 'Book was successfully updated.' }
+       format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @book.errors, status: :unprocessable_entity }
@@ -118,5 +119,8 @@ class BooksController < ApplicationController
     else
       @book = Book.find(:all)
     end
+  end
+  def show_all
+    @books=Book.all
   end
 end

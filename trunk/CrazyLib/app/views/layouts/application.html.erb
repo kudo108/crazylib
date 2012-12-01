@@ -7,17 +7,17 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<p class="notice">
-			<%= notice %>
-		</p>
-		<p class="alert">
-			<%= alert %>
-		</p>
-
+		<div class="span10 offset4" style="margin-top: 50px">
+			<h2 class="text-error">
+				<p>
+				 <%= notice %></p>
+				<p> <%= alert %></p>
+			</h2>
+		</div>
 		<% flash.each do |name, msg| %>
 
 		<!--  # New code (allow for flash elements to be arrays) -->
-		<% if msg.class == Array %>
+		<% if msg.class == Array%>
 		<% msg.each do |message| %>
 		<%= content_tag :div, message, :id => "flash_#{name}" %>
 		<% end %>
