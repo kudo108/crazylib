@@ -1,34 +1,35 @@
 <div class="span10 offset4">
 	<h2>Sign up</h2>
-	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	
+	<%= form_for(resource, :as => resource_name, :url => (registration_path(resource_name) + '?locale='+ params[:locale])) do |f| %>
 	<%= devise_error_messages! %>
 	<table>
 		<tr>
-			<td> <%= f.label :email %>
+			<td> <%= f.label (t :email) %>
 			<%= f.email_field :email,:class=>"span12" %> </td>
-			<td> <%= f.label "Student ID" %>
+			<td> <%= f.label (t :student_id) %>
 			<%= f.text_field :student_id , :class=>"span12"%> </td>
 		</tr>
 		<tr>
-			<td> <%= f.label :password %>
+			<td> <%= f.label (t :password) %>
 			<%= f.password_field :password, :class=>"span12" %> </td>
-			<td> <%= f.label :class_name %>
+			<td> <%= f.label (t :class) %>
 			<%= f.text_field :class_name, :class=>"span12"%> </td>
 		</tr>
 		<tr>
-			<td> <%= f.label :password_confirmation %>
+			<td> <%= f.label (t :password_confirmation) %>
 			<%= f.password_field :password_confirmation , :class=>"span12"%> </td>
-			<td> <%= f.label :home_address %>
+			<td> <%= f.label t :address %>
 			<%= f.text_field :home_address, :class=>"span12"%> </td>
 		</tr>
 		<tr>
-			<td> <%= f.label :nickname %>
+			<td> <%= f.label (t :nickname) %>
 			<%= f.text_field :nickname , :class=>"span12"%> </td>
-			<td> <%= f.label :phone_number %>
+			<td> <%= f.label (t :phone) %>
 			<%= f.text_field :phone_number, :class=>"span12" %> </td>
 		</tr>
 		<tr>
-			<td> <%= f.submit "Sign up", :class=>"btn" %> </td>
+			<td> <%= f.submit t :register, :class=>"btn" %> </td>
 			<td><%= render "devise/shared/links" %></td>
 		</tr>
 	</table>

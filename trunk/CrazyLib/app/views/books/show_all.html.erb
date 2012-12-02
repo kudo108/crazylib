@@ -3,15 +3,15 @@
 </p>
 <table class="table table-bordered table-hover">
 	<thead class="label-info">
-		<th>ID</th>
-		<th>Title</th>
-		<th>Author</th>
-		<th>Publisher</th>
-		<th>Content</th>
-		<th>Page</th>
-		<th>Topic</th>
-		<th>Quantity</th>
-		<th>Current Quantity</th>
+		<th><%=t :book_id%></th>
+		<th><%=t :book_title%></th>
+		<th><%=t :book_author%></th>
+		<th><%=t :book_publisher%></th>
+		<th><%=t :book_content%></th>
+		<th><%=t :book_page%></th>
+		<th><%=t :book_topic%></th>
+		<th><%=t :book_quantity%></th>
+		<th><%=t :book_current_quantity%></th>
 		<th></th>
 	</thead>
 
@@ -28,7 +28,7 @@
 		<td><%= book.current_quantity %></td>
 		<td><a href="/books/<%= book.id%>/edit">
 		<div class="text-warning">
-			Edit
+			<%=t :edit%>
 		</div></a></td>
 	</tr>
 	<% end %>

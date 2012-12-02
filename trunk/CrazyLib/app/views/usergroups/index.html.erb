@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Group name</th>
+    <th><%=t :group_name%></th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,9 +11,9 @@
 <% @usergroups.each do |usergroup| %>
   <tr>
     <td><%= usergroup.group_name %></td>
-    <td><%= link_to 'Show', usergroup %></td>
-    <td><%= link_to 'Edit', edit_usergroup_path(usergroup) %></td>
-    <td><%= link_to 'Destroy', usergroup, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to t :show, usergroup %></td>
+    <td><%= link_to t :edit, edit_usergroup_path(usergroup) %></td>
+    <td><%= link_to t :destroy, usergroup, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

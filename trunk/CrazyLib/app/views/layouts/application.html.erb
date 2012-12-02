@@ -46,45 +46,45 @@
 						<div class="nav-collapse collapse" style="height: 0px; ">
 							<ul class="nav">
 								<li class="">
-									<a href="/" style="color: #FFFFFF"><%= t :home%></a>
+									<a href="/?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>" style="color: #FFFFFF"><%= t :home%></a>
 								</li>
 								<li class="">
-									<a href="/books?<%= :locale%>"><%= t :book%></a>
+									<a href="/books?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>"><%= t :book%></a>
 								</li>
 								<li class="">
-									<a href="/books/search"><%= t :search%></a>
+									<a href="/books/search?<%= :locale%>=<%=params[:locale] %>"><%= t :search%></a>
 								</li>
 								<li class="">
-									<a href="/faq"><%= t :faq%></a>
+									<a href="/faq?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>"><%= t :faq%></a>
 								</li>
 								<li class="">
-									<a href="/rule"><%= t :rule%></a>
+									<a href="/rule?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>"><%= t :rule%></a>
 								</li>
 								<li >
-									<a href="/contact"><%= t :contact%></a>
+									<a href="/contact?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>"><%= t :contact%></a>
 								</li>
 								<li >
-									<a href="/about"><%= t :about%></a>
+									<a href="/about?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>"><%= t :about%></a>
 								</li>
 							</ul>
 						</div>
 						<div class="nav pull-right">
 							<% if (!user_signed_in?)%>
 							<li class="">
-								<%= link_to (t :login), new_user_session_path %>
+								<%= link_to (t :login), new_user_session_path(locale: I18n.locale.to_s) %>
 							</li>
 							<li class="">
-								<%= link_to (t :Register), new_user_registration_path %>
+								<%= link_to (t :register), new_user_registration_path(locale: I18n.locale.to_s) %>
 							</li>
 							<%else%>
 							<li>
 								<a href="/users/<%= current_user.id%>">
 								<div class="text-info">
-									Hello, <%= current_user.student_id%>
+									<%=t :hello%>, <%= current_user.student_id%>
 								</div></a>
 							</li>
 							<li class="">
-								<%= link_to (t :logout), destroy_user_session_path, :method => :delete %>
+								<%= link_to (t :logout), destroy_user_session_path(locale: I18n.locale.to_s), :method => :delete %>
 							</li>
 							<%end%>
 							<li>

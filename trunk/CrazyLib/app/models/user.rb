@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   validates :phone_number, :presence => true
   
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :student_id, :class_name, :home_address, :phone_number, :books_borrow
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :student_id, :class_name, :home_address, :phone_number, :books_borrow,
+                  :nickname
   
   def is_borrowed(bookid)
     old_transactions = Transaction.find(:all,:conditions => {:book_id => bookid, :user_id => self.id})
