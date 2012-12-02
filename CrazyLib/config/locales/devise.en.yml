@@ -8,9 +8,129 @@ en:
   rule: "Rule"
   contact: "Contacts"
   about: "About"
-  login: "Login"
-  logout: "Logout"
-  register: "Register"
+  login: "Sign in"
+  logout: "Sign out"
+  register: "Sign up"
+  forgot_pass: "Forgot your password?"
+  conf_instruction: "Didn't receive confirmation instructions?"
+  unlock_instruction: "Didn't receive unlock instructions?"
+  sign_in_with: "Sign in with "
+  
+  #about
+  member: "Members"
+  NVQ: "Quan Nguyen Van"
+  PMT: "Minh Thanh Pham"
+  NDT: "Duy Tai Nguyen"
+  DNV: "Ngoc Vu Dang"
+  DTTS: "Thai Son Dinh Tran"
+  
+  #contact
+  send_message: "Send a message"
+  name: "Name"
+  message: "Message"
+  call_me: "OR GIVE ME A RING"
+  send: "Send"
+  university: "University of Technology"
+  school_addr1: "268 Ly Thuong Kiet Street, District 10"
+  school_addr2: "Ho Chi Minh City, Viet Nam"
+  
+  #panel
+  top_user: "Top user"
+  new_user: "New user"
+  announce: "Announcement"
+  
+  #books
+  nominate: "Nominate"
+  new_book: "New books"
+  most_popular: "Most popuplar"
+  vietnamese: "Vietnamese"
+  english: "English"
+  book_id: "Book ID"
+  book_author: "Author"
+  book_publisher: "Publisher"
+  book_category: "Category"
+  book_rating: "Rating"
+  book_quantity: "Quantity"
+  book_current_quantity: "Current quantity"
+  book_content: "Content"
+  book_page: "Pages"
+  book_topic: "Topic"
+  book_require: "Requirements"
+  book_nosatisfied: "Not satisfied"
+  book_position: "Position on shelf"
+  book_notation: "Notation"
+  book_order: "Order book"
+  book_cancel_order: "Cancel ordered book"
+  book_check_later: "Check later"
+  book_summary: "Content summary"
+  book_comment: "Comments"
+  book_send: "Send"
+  
+  #search
+  all: "All"
+  title: "Title"
+  author: "Author"
+  description: "Description"
+  
+  #user
+  email: "Email"
+  student_id: "Student ID"
+  password: "Password"
+  password_confirmation: "Password confirmation"
+  class: "Class name"
+  address: "Address"
+  nickname: "Nickname"
+  phone: "Phone number"
+  end_date: "End date"
+  register_date: "Register date"
+  books_borrow: "Books borrowed"
+  user_information: "User Information"
+  group: "Group"
+  edit_myinfo: "Edit my info"
+  invalid_user: "Invalid user"
+  
+  #passwords
+  change_pass: "Change my password"
+  new_pass: "New password"
+  confirm_new_pass: "Confirm new password"
+  reset_instruction_link: "Send me reset password instructions"
+  
+  #mailer
+  welcome: "Welcome"
+  confirm_email: "You can confirm your account email through the link below:"
+  confirm_link: "Confirm my account"
+  hello: "Hello"
+  reset_instruction: "Someone has requested a link to change your password, and you can do this through the link below."
+  reset_instruction1: "If you didn't request this, please ignore this email."
+  reset_instruction2: "Your password won't change until you access the link above and create a new one."
+  unlock_instruction: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+  unlock_instruction1: "Click the link below to unlock your account:"
+  unlock_link: "Unlock my account"
+  
+  #confirmation
+  resend: "Resend confirmation instructions"
+  
+  #transaction
+  transaction: "Transaction"
+  book: "Book"
+  user: "User"
+  day_borrow: "Day borrow"
+  day_return: "Day return"
+  date: "Date"
+  status: "Status"
+  transaction_history: "Transaction history"
+  
+  #navigation
+  signup: "Sign up"
+  remember_me: "Remember me?"
+  show: "Show"
+  edit: "Edit"
+  destroy: "Destroy"
+  are_u_sure: "Are you sure?"
+  prev: "Previous"
+  next: "Next"
+  back: "Back"
+  
   errors:
     messages:
       expired: "has expired, please request a new one"

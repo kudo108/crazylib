@@ -37,7 +37,7 @@ CrazyLib::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  config.i18n.default_locale = 'vi'
+  config.i18n.default_locale = 'en'
   
   config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
 

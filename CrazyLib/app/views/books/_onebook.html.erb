@@ -31,23 +31,23 @@
 			<hr>
 			<table class="table table-bordered" >
 				<tr>
-					<td><span class="label ">Book ID </span></td>
+					<td><span class="label "><%=t :book_id%></span></td>
 					<td><span class="label label-important" style="cursor:pointer"><%= @book[0].id%></span></td>
 				</tr>
 				<tr>
-					<td><span class="label ">Author </span></td>
+					<td><span class="label "><%=t :book_author%></span></td>
 					<td><span class="label label-info"style="cursor:pointer"><%= @book[0].author%></span></td>
 				</tr>
 				<tr>
-					<td><span class="label ">Publisher </span></td>
+					<td><span class="label "><%=t :book_publisher%></span></td>
 					<td><span class="label label-info" style="cursor:pointer"><%= @book[0].publisher%></span></td>
 				</tr>
 				<tr>
-					<td><span class="label ">Category</span></td>
+					<td><span class="label "><%=t :book_category%></span></td>
 					<td><span class="label label-info" style="cursor:pointer"><%= @book[0].id%></span></td>
 				</tr>
 				<tr>
-					<td><span class="label ">Rating </span></td>
+					<td><span class="label "><%=t :book_rating%></span></td>
 					<td><span class="label label-info" style="cursor:pointer">5.0(static)</span></td>
 				</tr>
 			</table>
@@ -57,18 +57,18 @@
 			<hr>
 			<table class="table table-bordered">
 				<tr>
-					<td><span class="label label-inverse">Số lượng sách</span></td>
+					<td><span class="label label-inverse"><%=t :book_quantity%></span></td>
 					<td><span class="badge badge-warning" style="cursor:pointer"><%= @book[0].quantity%></span></td>
 				</tr>
 				<tr>
-					<td><span class="label label-inverse">Yêu cầu </span></td>
+					<td><span class="label label-inverse"><%=t :book_require%></span></td>
 					<td><span class="badge badge-warning" style="cursor:pointer"><%= @book[0].quantity-@book[0].current_quantity%></span></td>
 				</tr>
 				<tr>
 					<div class="hide">
-						<span class="label label-inverse">Không đáp ứng </span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">7(static)</span></br>
-						<span class="label label-inverse">Vị trí xếp giá</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">8(static)</span></br>
-						<span class="label label-inverse">Ký hiệu xếp giá</span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">9(static)</span></br>
+						<span class="label label-inverse"><%=t :book_nosatisfied%></span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">7(static)</span></br>
+						<span class="label label-inverse"><%=t :book_position%></span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">8(static)</span></br>
+						<span class="label label-inverse"><%=t :book_notation%></span><span class="badge badge-warning" style="margin-left:10px;cursor:pointer">9(static)</span></br>
 					</div>
 
 				</tr>
@@ -79,16 +79,16 @@
 			<% if !current_user.is_borrowed(@book[0].id )%>
 			<a href="/transactions/new?id=<%= @book[0].id%>">
 			<button class="btn btn-mini" type="button">
-				<span class="icon-refresh"> </span> Đặt sách
+				<span class="icon-refresh"> </span> <%=t :book_order%>
 			</button> </a>
 			<% else %>
 			<a href="/transactions/destroy?bookid=<%= @book[0].id%>">
 			<button class="btn btn-mini" type="button">
-				<span class="icon-refresh"> </span> Huỷ đặt sách
+				<span class="icon-refresh"> </span> <%=t :book_cancel_oder%>
 			</button> </a>
 			<% end %>
 			<button class="btn btn-mini" type="button">
-				<span class="icon-eye-open"> </span> Xem sau
+				<span class="icon-eye-open"> </span> <%=t :book_check_later%>
 			</button>
 			<% end %>
 		</li>
@@ -97,12 +97,12 @@
 <div class="books-one-details">
 	<div class="row-fluid">
 		<div class="span6">
-			<strong>Tóm Tắt Nội Dung</strong>
+			<strong><%=t :book_summary%></strong>
 			<hr>
 			<%= @book[0].brief_content%>
 		</div>
 		<div class="span6">
-			<strong>Comments</strong>
+			<strong><%=t :book_comment%></strong>
 			<hr>
 			<div >
 				<img src="http://placehold.it/50x50" class="pull-left img-rounded"></img>
@@ -125,7 +125,7 @@
 			<div>
 				<textarea class="span12" ></textarea>
 				<button class="btn">
-					Send
+					<%=t :book_send%>
 				</button>
 			</div>
 		</div>

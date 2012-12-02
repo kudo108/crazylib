@@ -6,13 +6,12 @@
 		<div class="pagination">
 			<h3 class="pull-left ">
 			<div class="btn-group">
-				
 				<a class="btn" id="all-auto-<%=book[0].topic%>"href="#"><%=book[0].bookTopic(book[0].topic.to_i)%></a>
 			</div></h3>
 			<% l = (book.length/9)+1;%>
 			<ul id="auto-<%=book[0].topic%>" class="pull-right">
 				<li>
-					<a href="#" id="sc-prev">Prev</a>
+					<a href="#" id="sc-prev"><%=t :prev%></a>
 				</li>
 				<%(1..l).each do |i|%>
 				<%if(i==1)%>
@@ -27,7 +26,7 @@
 				<%end%>
 				<%end%>
 				<li>
-					<a href="#" id="sc-next">Next</a>
+					<a href="#" id="sc-next"><%=t :next%></a>
 				</li>
 			</ul>
 		</div>

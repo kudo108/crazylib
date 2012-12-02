@@ -1,13 +1,13 @@
 <center>
-<h2>Forgot your password?</h2>
+<h2><%=t :forgot_pass%></h2>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => (password_path(resource_name)+"?locale="+params[:locale]), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.submit "Send me reset password instructions",:class=>"btn" %></div>
+  <div><%= f.submit t :reset_instruction_link,:class=>"btn" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>

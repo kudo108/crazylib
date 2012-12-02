@@ -6,19 +6,19 @@
 			<div class="nav-collapse collapse navbar-responsive-collapse">
 				<ul class="nav">
 					<li>
-						<a href="#">Đề cử</a>
+						<a href="#"><%=t :nominate%></a>
 					</li>
 					<li>
-						<a href="#">Sách mới</a>
+						<a href="#"><%=t :new_book%></a>
 					</li>
 					<li>
-						<a href="#">Xem nhiều</a>
+						<a href="#"><%=t :most_popular%></a>
 					</li>
 					<li>
-						<a href="#">Tiếng việt</a>
+						<a href="#"><%=t :vietnamese%></a>
 					</li>
 					<li>
-						<a href="#">Tiếng anh</a>
+						<a href="#"><%=t :english%></a>
 					</li>
 
 				</ul>
@@ -26,7 +26,7 @@
 					<!--
 					%= render :partial => 'books/search' %
 					/-->
-					<input type="text" class="search-query span12" placeholder="Search">
+					<input type="text" class="search-query span12" placeholder="<%=t :search%>">
 				</form>
 			</div><!-- /.nav-collapse -->
 		</div>

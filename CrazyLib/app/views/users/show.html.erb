@@ -5,68 +5,65 @@
 
 	<table class="table table-bordered " border="0">
 		<thead>
-			<th class=" label-inverse span3 text-info"> Thông tin thành viên </th>
+			<th class=" label-inverse span3 text-info"><%=t :user_information%></th>
 			<th class=" label-inverse span9"></th>
 		</thead>
 		<% if @user%>
 		<tr>
-			<td class="label"> Nickname: </td>
+			<td class="label"> <%=t :nickname%>: </td>
 			<td class="text"> <%= @user.nickname%></td>
 		</tr>
 		<tr>
-			<td class="label"> Email: </td>
+			<td class="label"> <%=t :email%>: </td>
 			<td class="text"> <%= @user.email%></td>
 		</tr>
 		<tr>
-			<td class="label"> StudentID </td>
+			<td class="label"> <%=t :student_id%> </td>
 			<td class="text"> <%= @user.student_id%></td>
 		</tr>
 		<tr>
-			<td class="label"> Class: </td>
+			<td class="label"> <%=t :class%> </td>
 			<td class="text"> <%= @user.class_name%></td>
 		</tr>
 		<tr>
-			<td class="label"> Group: </td>
+			<td class="label"> <%=t :group%> </td>
 			<td class="text"> <%= @user.group%></td>
 		</tr>
 		<tr>
-			<td class="label"> Address: </td>
+			<td class="label"> <%=t :address%> </td>
 			<td class="text"> <%= @user.home_address%></td>
 		</tr>
 		<tr>
-			<td class="label"> Phone: </td>
+			<td class="label"> <%=t :phone%> </td>
 			<td class="text"> <%= @user.phone_number%></td>
 		</tr>
 		<tr>
-			<td class="label"> Register day: </td>
+			<td class="label"> <%=t :register_date%> </td>
 			<td class="text"> <%= @user.register_date%></td>
 		</tr>
 		<tr>
-			<td class="label"> End day: </td>
+			<td class="label"> <%=t :end_date%> </td>
 			<td class="text"> <%= @user.end_date%></td>
 		</tr>
+		
 		<tr>
-			<td class="label"> Phone: </td>
-			<td class="text"> <%= @user.phone_number%></td>
-		</tr>
-		<tr>
-			<td class="label"> Books borrowed </td>
+			<td class="label"> <%=t :books_borrowed%> </td>
 			<td class="text"> <%= @user.books_borrow%></td>
 		</tr>
 		<% if (user_signed_in?)%>
 		<tr>
 			<td><a href="/transactions/userhistory?userid=<%= @user.id%>">
 			<div class="text-error">
-				Transactions History
+				<%=t :transaction_history%>
 			</div></a></td>
 		</tr>
 		<tr>
-			<td><a href="/users/edit"><div class="text-error">Edit My Info</div</a></td>
+			<td><a href="/users/edit"><div class="text-error"><%=t :edit_myinfo%></div</a></td>
 		</tr>
 		<% end %>
 		<% else %>
 		<tr class="text">
-			Invalid User.
+			<%=t :invalid_user%>
 		</tr>
 		<% end %>
 	</table>

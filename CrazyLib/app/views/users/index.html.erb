@@ -3,23 +3,23 @@
 </p>
 <table class="table table-bordered table-hover">
 	<thead class="label-info">
-		<th>ID</th>
-		<th>Nickname</th>
-		<th>Email</th>
-		<th>Register day</th>
-		<th>End date</th>
-		<th>Group</th>
-		<th>Student ID</th>
-		<th>Class Name</th>
-		<th>Address</th>
-		<th>Phone</th>
-		<th>Books Borow</th>
+		<!-- <th>ID</th> -->
+		<th><%=t :nickname%></th>
+		<th><%=t :email%></th>
+		<th><%=t :register_date%></th>
+		<th><%=t :end_date%></th>
+		<th><%=t :group%></th>
+		<th><%=t :student_id%></th>
+		<th><%=t :class_name%></th>
+		<th><%=t :address%></th>
+		<th><%=t :phone%></th>
+		<th><%=t :books_borrow%></th>
 		<th></th>
 	</thead>
 
 	<% @users.each do |user| %>
 	<tr>
-		<td><%= user.id %></td>
+		
 		<td><%= user.nickname %></td>
 		<td><%= user.email %></td>
 		<td><%= user.register_date %></td>
@@ -30,7 +30,7 @@
 		<td><%= user.home_address %></td>
 		<td><%= user.phone_number %></td>
 		<td><%= user.books_borrow %></td>
-		<td><a href="/users/<%=user.id%>"><div class="text-warning"> Edit</div></a></td>
+		<td><a href="/users/<%=user.id%>"><div class="text-warning"><%=t :edit%></div></a></td>
 	</tr>
 	<% end %>
 </table>

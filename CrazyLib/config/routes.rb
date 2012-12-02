@@ -14,6 +14,7 @@ CrazyLib::Application.routes.draw do
   #user
   #session
   devise_for :users
+  match "/users" => "registrations#new"
   #show user
   resources :users, :only => [:show]
 

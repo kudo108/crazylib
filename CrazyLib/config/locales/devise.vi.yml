@@ -2,6 +2,9 @@
 # vi translations for Devise 2.0
 
 vi:
+  
+  email: "ÁĐÂS"
+  
   home: "Trang chủ"
   book: "Sách"
   search: "Tìm kiếm"
@@ -12,15 +15,139 @@ vi:
   login: "Đăng nhập"
   logout: "Đăng xuất"
   register: "Đăng ký"
+  forgot_pass: "Quên mật khẩu?"
+  conf_instruction: "Chưa nhận được hướng dẫn xác nhận?"
+  unlock_instruction: "Chưa nhận được hướng dẫn mở khoá?"
+  sign_in_with: "Đăng nhập với "
+  
+  
+  #about
+  member: "Thành viên"
+  NVQ: "Nguyễn Văn Quân"
+  PMT: "Phạm Minh Thành"
+  NDT: "Nguyễn Duy Tài"
+  DNV: "Đặng Ngọc Vũ"
+  DTTS: "Đinh Trần Thái Sơn"
+  
+  #contact
+  send_message: "Gửi tin nhắn"
+  name: "Tên"
+  message: "Nội dung tin nhắn"
+  call_me: "HOẶC LIÊN HỆ"
+  send: "Gửi"
+  university: "Trường Đại học Bách Khoa TPHCM"
+  school_addr1: "268 Lý Thường Kiệt, Quận 10"
+  school_addr2: "Thành phố Hồ Chí Minh, Việt Nam"
+  
+  #panel
+  top_user: "Người dùng top"
+  new_user: "Người dùng mới"
+  announce: "Thông báo"
+  
+  #books
+  nominate: "Đề cử"
+  new_book: "Sách mới"
+  most_popular: "Xem nhiều"
+  vietnamese: "Tiếng Việt"
+  english: "Tiếng Anh"
+  book_id: "Mã sách"
+  book_author: "Tác giả"
+  book_publisher: "Nhà xuất bản"
+  book_category: "Phân loại"
+  book_rating: "Xếp hạng"
+  book_quantity: "Số lượng sách"
+  book_current_quantity: "Số lượng sách hiện có"
+  book_content: "Nội dung"
+  book_page: "Số trang"
+  book_topic: "Chủ đề"
+  book_require: "Yêu cầu"
+  book_nosatisfied: "Không đáp ứng"
+  book_position: "Vị trí xếp giá"
+  book_notation: "Ký hiệu xếp giá"
+  book_order: "Đặt sách"
+  book_cancel_order: "Huỷ đặt sách"
+  book_check_later: "Xem sau"
+  book_summary: "Tóm tắt nội dung"
+  book_comment: "Bình luận"
+  book_send: "Gửi"
+  
+  #search
+  all: "Tất cả"
+  title: "Tiêu đề"
+  author: "Tác giả"
+  description: "Mô tả"
+  
+  #user
+  email: "Email"
+  student_id: "Mã số sinh viên"
+  password: "Mật khẩu"
+  password_confirmation: "Nhập lại mật khẩu"
+  class: "Lớp"
+  address: "Địa chỉ"
+  nickname: "Nickname"
+  phone: "Điện thoại"
+  end_date: "Ngày kết thúc"
+  register_date: "Ngày đăng ký"
+  books_borrow: "Sách đã mượn"
+  user_information: "Thông tin thành viên"
+  group: "Nhóm"
+  edit_myinfo: "Chỉnh sửa thông tin của tôi"
+  invalid_user: "Người dùng không hợp lệ"
+  
+  #passwords
+  change_pass: "Thay đổi mật khẩu"
+  new_pass: "Mật khẩu mới"
+  confirm_new_pass: "Xác nhận mật khẩu mới"
+  reset_instruction_link: "Gửi tôi hướng dẫn thiết lập lại mật khẩu"
+  
+  #mailer
+  welcome: "Chào mừng"
+  confirm_email: "Bạn có thể xác nhận tài khoản email qua đường dẫn dưới đây"
+  confirm_link: "Xác nhận tài khoản của tôi"
+  hello: "Xin chào"
+  reset_instruction: "Một ai đó đã yêu cầu 1 đường link để thiết lập lại mật khẩu của bạn, bạn có thể nhấp vào link dưới đây để thực hiện"
+  reset_instruction1: "Nếu bạn không có yêu cầu nào như trên, vui lòng bỏ qua email này."
+  reset_instruction2: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào đường link trên và tạo mật khẩu mới."
+  unlock_instruction: "Tài khoản của bạn đã bị khoá vì đã quá giới hạn số lần đăng nhập không thành công."
+  unlock_instruction1: "Nhấp vào đường link dưới đây để mở khoá tài khoản của bạn:"
+  unlock_link: "Mở khoá tài khoản của tôi"
+  
+  #confirmation
+  resend: "Gửi lại thông tin xác nhận"
+  
+  #transaction
+  transaction: "Giao dịch"
+  book: "Sách"
+  user: "Người dùng"
+  day_borrow: "Ngày mượn"
+  day_return: "Ngày trả"
+  date: "Ngày"
+  status: "Trạng thái"
+  transaction_history: "Lịch sử giao dịch"
+  
+  #navigation
+  signup: "Đăng ký"
+  remember_me: "Nhớ tôi?"
+  show: "Hiển thị"
+  edit: "Chỉnh sửa"
+  destroy: "Xoá"
+  are_u_sure: "Bạn đã chắc chắn chưa?"
+  prev: "Trước"
+  next: "Kế tiếp"
+  back: "Trở về"
+  
   errors:
     messages:
       expired: "đã hết hạn, vui lòng tạo yêu cầu mới"
       not_found: "không tìm thấy"
       already_confirmed: "đã được chứng thực rồi, mời bạn đăng nhập"
       not_locked: "đã bị khóa"
+      blank: "không được để trống"
+      confirmation: "không khớp"
       not_saved:
         one: "1 lỗi làm %{resource} này không lưu lại được:"
         other: "%{count} lỗi làm %{resource} này không lưu lại được:"
+      
   devise:
     failure:
       already_authenticated: 'Bạn đã đăng nhập rồi.'
