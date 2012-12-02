@@ -29,6 +29,7 @@ CrazyLib::Application.routes.draw do
   #books
   get "books/view"
   get "books/search"
+  match "view"=>"books#view"
   resources :books
   
   resources :usergroups
