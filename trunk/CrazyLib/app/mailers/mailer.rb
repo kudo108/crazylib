@@ -9,4 +9,13 @@ class Mailer < ActionMailer::Base
       :subject => subject
     )
   end
+
+  def welcome_email user_name, user_email
+    @name = user_name
+    mail(
+      :from => '"CrazyLib Team"',
+      :to => user_email,
+      :subject => 'Welcome to crazylib'
+    )
+  end
 end
