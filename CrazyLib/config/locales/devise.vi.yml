@@ -19,14 +19,14 @@ vi:
   
   #admin
   receive_return_book: "Nhận/Trả sách"
-  view_transaction: "Xem giao dịch"
-  view_user: "Xem người dùng"
-  view_book: "Xem sách"
-  view_stat: "Xem các thông số"
+  view_transaction: "Giao dịch"
+  view_user: "Người dùng"
+  view_book: "Sách"
+  view_stat: "Thống kê"
   send_email: "Gửi email"
   add_book: "Thêm sách"
-  book_topic: "Chủ đề của sách"
-  add_moderate: "Thêm thủ thư"
+  book_topic: "Chủ đề sách"
+  add_moderate: "Thủ thư"
   edit_faq: "Sửa mục Câu hỏi thường gặp"
   edit_rule: "Sửa quy định"
   
