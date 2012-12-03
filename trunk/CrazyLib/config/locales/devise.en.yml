@@ -18,14 +18,14 @@ en:
   
   #admin
   receive_return_book: "Receive/Return books"
-  view_transaction: "View transactions"
-  view_user: "View users"
-  view_book: "View books"
-  view_stat: "View stats"
+  view_transaction: "Transactions"
+  view_user: "Users"
+  view_book: "Books"
+  view_stat: "Stats"
   send_email: "Send emal"
   add_book: "Add book"
-  book_topic: "Book topic"
-  add_moderate: "Add moderate"
+  book_topic: "Book topics"
+  add_moderate: "Moderates"
   edit_faq: "Edit FAQ"
   edit_rule: "Edit rule"
   
