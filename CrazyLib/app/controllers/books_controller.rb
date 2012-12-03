@@ -7,10 +7,10 @@ class BooksController < ApplicationController
     @books = Array.new
     topics.each do |topic|
       @book = Array.new
-      @book = Book.find(:all,:conditions=>{:topic=>topic.topic.to_i}) 
+      @book = Book.find(:all,:conditions=>{:topic=>topic.topic})
       @books.push(@book)
     end
-    @sciences = Book.find(:all,:conditions=>{:topic=>1});
+    @sciences = Book.find(:all,:conditions=>{:topic=>"1"});
     respond_to do |format|
       format.html # view.html
       format.json { render json: @sciences }
@@ -19,7 +19,7 @@ class BooksController < ApplicationController
   
   def view
   
-  
+
   end
   #
   def viewbytype
