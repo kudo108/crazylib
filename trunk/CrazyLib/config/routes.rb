@@ -9,6 +9,7 @@ CrazyLib::Application.routes.draw do
   match "admin/show_users"=> "users#index"
   match "admin/show_books" => "books#show_all"
   match "admin/edit_books" => "books#edit"
+  match "admin/return_book" => "transactions#search"
   #what da hell is this ???
   devise_for :add_column_to_users
   #user
@@ -27,6 +28,10 @@ CrazyLib::Application.routes.draw do
   get "transactions/destroy"
   get "transactions/new"
   get "transactions/userhistory"
+  #get "transactions/search"
+  get "transactions/return"
+  get "transactions/receive"
+  #resources :transactions
   #books
   get "books/view"
   get "books/search"

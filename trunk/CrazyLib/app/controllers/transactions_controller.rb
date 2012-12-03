@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  layout 'admin'
   # GET /transactions
   # GET /transactions.json
   def index
@@ -178,5 +179,20 @@ class TransactionsController < ApplicationController
       if ()
       end
     end
+  end
+  def search
+      @transaction = Transaction.find(:first, :conditions => {:id=>params[:transactionid]})
+  end
+  def return
+    @transaction = Transaction.find(:first, :conditions => {:id=>params[:transactionid]})
+    @transaction.update_attributes(:status=>3)
+    redirect_to "/admin/return_book?transactionid=#{params[:transactionid]}";
+    return;
+  end
+  def receive
+    @transaction = Transaction.find(:first, :conditions => {:id=>params[:transactionid]})
+    @transaction.update_attributes(:status=>2)
+    redirect_to "/admin/return_book?transactionid=#{params[:transactionid]}";
+    return;
   end
 end
