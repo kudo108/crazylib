@@ -1,11 +1,11 @@
-%h1 Listing book_categories
+%h1 Listing book topic
 
-%table
+%table(class="table table-bordered")
   %tr
-    %th Name
-    %th
-    %th
-    %th
+    %th(class="label-success") Name
+    %th(class="label-success")
+    %th(class="label-success")
+    %th(class="label-success")
 
   - @book_categories.each do |book_category|
     %tr

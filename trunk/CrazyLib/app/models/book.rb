@@ -11,13 +11,19 @@ class Book < ActiveRecord::Base
     end
   end
   def bookTopic(topic)
-    case topic
-      when 1
-        return "Web development"
-      when 2
-        return "Database"
-      else
-        return "Others"
+    #case topic
+     # when 1
+      #  return "Web development"
+      #when 2
+      #  return "Database"
+      #else
+      #  return "Others"
+    #end
+    category = BookCategory.find(:first,:conditions=>{:id=>topic.to_i})
+    if (category)
+      return category.name
+    else 
+       return "Other"
     end
   end
      

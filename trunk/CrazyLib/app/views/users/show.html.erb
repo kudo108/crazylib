@@ -57,9 +57,11 @@
 				<%=t :transaction_history%>
 			</div></a></td>
 		</tr>
+		<% if (current_user.id==@user.id)%>
 		<tr>
 			<td><a href="/users/edit"><div class="text-error"><%=t :edit_myinfo%></div</a></td>
 		</tr>
+		<%end%>
 		<% end %>
 		<% else %>
 		<tr class="text">
