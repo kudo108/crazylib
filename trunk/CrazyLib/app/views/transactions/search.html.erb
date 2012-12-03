@@ -1,0 +1,59 @@
+<h2>Return book</h2>
+<div class="">
+	<div class="form-search">
+		<p>
+			<div class="text-info">
+				Find transaction by ID
+			</div>
+		</p>
+		<form class="form-search">
+			<div class="input-append">
+				<input type="number" class="span4 search-query" min="1" id="transactionid" name="transactionid">
+				<button type="submit" class="btn">
+					Search
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+<% if params[:transactionid]%>
+<% @transaction = Transaction.find(:first, :conditions => {:id=>params[:transactionid]}) %>
+<%if @transaction%>
+<table class="table table-bordered">
+	<tr>
+		<td> Books </td>
+		<td> <% if (book = @transaction.getBook)%> <a href="/view?topic=<%= book.topic%>&id=<%= book.id%>"> <%= book.title%> </a> <%end%> </td>
+	</tr>
+	<tr>
+		<td>User</td>
+		<td><% if (user = @transaction.getUser)%><a href="/users/<%= user.id%>"><%= user.email%><%end%></td>
+	</tr>
+	<tr>
+		<td>Day borrows</td>
+		<td><%= @transaction.day_borrow%></td>
+	</tr>
+	<tr>
+		<td>Day return</td>
+		<td> <%= @transaction.day_return%></td>
+	</tr>
+	<tr>
+		<td> Status </td>
+		<td> <%= @transaction.getStatus%></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td> <%if (@transaction.status ==1)%> <a href="/transactions/receive?transactionid=<%= @transaction.id%>">
+		<button type="submit" class="btn">
+			Received
+		</button> </a> <%else if (@transaction.status ==2)%> <a href="/transactions/return?transactionid=<%= @transaction.id%>">
+		<button type="submit" class="btn">
+			Return
+		</button> </a><%else%>
+		<% end%><% end%></td>
+	</tr>
+</table>
+<%else%>
+Result not found.
+<%end%>
+<%end%>
+
