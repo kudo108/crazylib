@@ -3,6 +3,16 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  $('#transactions').dataTable
+  $('#show_transactions').dataTable
+    sPaginationType: "full_numbers"
+    bJQueryUI: true
+
+jQuery ->
+  $('#show_books').dataTable
+    sPaginationType: "full_numbers"
+    bJQueryUI: true
+
+jQuery ->
+  $('#show_users').dataTable
     sPaginationType: "full_numbers"
     bJQueryUI: true
