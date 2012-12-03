@@ -1,0 +1,41 @@
+<%= form_for(@transaction) do |f| %>
+<% if @transaction.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+	<ul>
+		<% @transaction.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<table class="table">
+	<tr>
+		<td> Books </td>
+		<td> <% if (book = @transaction.getBook)%> <a href="/view?topic=<%= book.topic%>&id=<%= book.id%>"> <%= book.title%> </a> <%end%> </td>
+	</tr>
+	<tr>
+		<td>User</td>
+		<td><% if (user = @transaction.getUser)%><a href="/users/<%= user.id%>"><%= user.email%><%end%></td>
+	</tr>
+	<tr>
+		<td>Day borrows</td>
+		<td><%= @transaction.day_borrow%></td>
+	</tr>
+	<tr>
+		<td>Day return</td>
+		<td> <%if @transation.day_return%>
+		<%= @transaction.day_return%>
+		<%else%>
+		draw button return
+		<%end%> </td>
+	</tr>
+	<tr>
+		<td> Status </td>
+		<td> <%= @transaction.getStatus%></td>
+	</tr>
+</table>
+<% end %>
