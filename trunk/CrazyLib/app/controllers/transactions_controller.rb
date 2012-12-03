@@ -186,13 +186,13 @@ class TransactionsController < ApplicationController
   def return
     @transaction = Transaction.find(:first, :conditions => {:id=>params[:transactionid]})
     @transaction.update_attributes(:status=>3)
-    redirect_to "/admin/return_book?transactionid=#{params[:transactionid]}";
+    redirect_to "/admin/show_transactions";
     return;
   end
   def receive
     @transaction = Transaction.find(:first, :conditions => {:id=>params[:transactionid]})
     @transaction.update_attributes(:status=>2)
-    redirect_to "/admin/return_book?transactionid=#{params[:transactionid]}";
+    redirect_to "/admin/show_transactions";
     return;
   end
 end

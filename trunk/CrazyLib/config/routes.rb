@@ -1,16 +1,19 @@
 CrazyLib::Application.routes.draw do
   resources :book_categories
-  match "admin/book_topic"=> "book_categories#index"
+  
   
   #admin
+  match "admin/book_topic"=> "book_categories#index"
   match "admin/show_transactions" => 'admin#show_transactions'
   match "admin/send_email" => 'admin#send_email'
   match "admin" => 'admin#index'
   match "admin/add_book"=> "books#new"
   match "admin/show_users"=> "admin#show_users"
   match "admin/show_books" => "admin#show_books"
+  match "admin/show_moderates" => "admin#show_moderates"
   match "admin/edit_books" => "books#edit"
   match "admin/return_book" => "transactions#search"
+  #match "admin/add_moderate" => "users#add_to_moderate"
   #what da hell is this ???
   devise_for :add_column_to_users
   #user
@@ -18,11 +21,13 @@ CrazyLib::Application.routes.draw do
   devise_for :users
   match "/users" => "registrations#new"
   #show user
+  get "/users/add_to_moderate"
+  get "/users/remove_from_moderate"
   resources :users, :only => [:show]
 
   # get "locale/set"
-
-  resources :usergroups
+  #don't use resource user group
+  #resources :usergroups
 
   #resources :transactions
   #transactions
@@ -39,15 +44,16 @@ CrazyLib::Application.routes.draw do
   match "view"=>"books#view"
   resources :books
   
-  resources :usergroups
+  #resources :usergroups
   
-  
+ 
   #get "books/index"
   #match "view"=>"books#view"
 
   #
   #
-  get "home/index"
+  #get "home/index"
+  # match "home/index"=>"books#index"
   #get "books/list_all_book"
   #match "books/"=>"books#index"
   
@@ -59,7 +65,7 @@ CrazyLib::Application.routes.draw do
   match '/faq' => 'pages#faq'
   match 'rule' => 'pages#rule'
 
-  root :to=>"home#index"
+  root :to=>"books#index"
   # match 'locale/set(/:id)'=>'locale#set'
   # The priority is based upon order of creation:
   # first created -> highest priority.

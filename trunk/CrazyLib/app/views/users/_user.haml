@@ -3,10 +3,14 @@
   %td= user.email
   %td= user.register_date
   %td= user.end_date
-  %td= user.group
+  %td= user.get_group_name
   %td= user.student_id
   %td= user.class_name
   %td= user.home_address
   %td= user.phone_number
   %td= user.books_borrow
   %td= button_to 'View',"/users/#{user.id}", :class=>"btn", :method=>:get
+  -if user.group !=3
+    %td= link_to 'Set Moderate',  {:controller=>"users", :action=>"add_to_moderate", :id=>user.id}, :class=>"btn", :method=>:get
+  -else
+    %td= link_to 'Unset Moderate', {:controller=>"users", :action=>"remove_from_moderate", :id=>user.id}, :class=>"btn", :method=>:get
