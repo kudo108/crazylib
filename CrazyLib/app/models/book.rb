@@ -39,7 +39,7 @@ class Book < ActiveRecord::Base
       when 2 #author
         find(:all, :conditions => ['author LIKE ?', "%#{keyword}%"])
       when 3 #desciption
-        find(:all, :conditions => ['description LIKE ?', "%#{keyword}%"])
+        find(:all, :conditions => ['brief_content LIKE ?', "%#{keyword}%"])
       else 
         find(:all)
       end

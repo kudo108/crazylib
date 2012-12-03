@@ -115,7 +115,7 @@ class BooksController < ApplicationController
 
   def search
     if params[:keyword]
-      @books = Book.search(params[:filter] ,params[:keyword])
+      @books = Book.search(params[:filter].to_i ,params[:keyword])
     else
       @book = Book.find(:all)
     end

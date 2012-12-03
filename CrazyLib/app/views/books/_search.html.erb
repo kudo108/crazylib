@@ -2,11 +2,53 @@
 	<div class="form-search">
 		<%= form_tag books_search_path + "?locale=" + I18n.locale.to_s, method: :get do %>
 		<div class="input-append controls controls-row">
-			<%= select_tag "filter","<option value='0'>All</option><option value='1'>Tittle</option><option value='2'>Author</option><option value='3'>Description</option>".html_safe,:style=>"width:25%" %>
+			<%= select_tag "filter","<option value='0'>All</option><option value='1' >Tittle</option><option value='2'>Author</option><option value='3'>Description</option>".html_safe,:style=>"width:25%" %>
 			<%= text_field_tag :keyword, params[:keyword] %>
 			<button "Search" class="btn"><%=t :search%></button>
 		</div>
 	</div>
+	<i class="hide" id="filter-selected"><%= params[:filter]%></i>
+	<i class="hide" id="keyword-find"><%=params[:keyword]%></i>
 	<% end %>
+	
 </div>
 <%= render 'search_results'%>
+<script>
+	$(document).ready(function(){
+		var index = $('#filter-selected').text()
+		$('#filter option:eq('+index+')').attr("selected","selected");
+		if(parseInt(index)==1){
+			var len = $('table tbody td').length;
+			for(var i=0;i<len;i++){
+				if(i%2==0){
+					var keyword = $('#keyword-find').text();
+					var title_elem = $('table tbody td:eq('+i+')');
+					var title_name = title_elem.text();
+					var upper_name = title_name.toLocaleUpperCase(); 
+					var title_length = title_name.length;
+					var txt = title_name.slice(0,upper_name.indexOf(keyword.toLocaleUpperCase()))+'<span class="alert alert-error">'+keyword+'</span>'+title_name.slice(upper_name.indexOf(keyword.toLocaleUpperCase())+keyword.length,title_length);
+					$('table tbody td:eq('+i+') a').html(txt);
+					//title_elem.html(txt);
+				}
+			}
+		}
+		if(parseInt(index)==2){
+			var len = $('table tbody td').length;
+			for(var i=0;i<len;i++){
+				if(i%2==1){
+					var keyword = $('#keyword-find').text();
+					var author_elem = $('table tbody td:eq('+i+')');
+					var author_name = author_elem.text();
+					var upper_author = author_name.toLocaleUpperCase(); 
+					var author_length = author_name.length;
+					var txt = author_name.slice(0,upper_author.indexOf(keyword.toLocaleUpperCase()))+'<span class="alert alert-error">'+keyword+'</span>'+author_name.slice(upper_author.indexOf(keyword.toLocaleUpperCase())+keyword.length,author_length);
+					author_elem.html(txt);
+				}
+			}
+		}
+		$(".tooltip-target").ezpz_tooltip();
+		
+		
+				
+	})
+</script>

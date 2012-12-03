@@ -2,11 +2,26 @@
  <div class="text-info">
  	Found <%=@books.length%> results.
  </div>
-  <ul>
-    <% @books.each do |book| %>
-  <li><%= link_to book.title, 
-    :action => 'show', :id => book.id  %></li>
-  <% end %>
-  </ul>
+  <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Author</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% @books.each do |book| %>          
+                <tr>  
+                  <td class="tooltip-target" id="example-target-<%=book.id%>" ><%= link_to book.title, 
+                      :action => 'view',:topic=>book.topic ,:id => book.id  %>
+                      <img class="tooltip-content" id='example-content-<%=book.id%>' style="display:none;position:absolute;"src="../assets/<%=book.image_url%>" width="150" height="150"></img>
+                      </td>
+                  
+                  <td><%=book.author%>
+                  </td>
+                </tr>
+              <% end %>              
+              </tbody>
+            </table>
   <% else %>
 <% end%>
