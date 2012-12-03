@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  layout 'admin'
+  layout 'admin',:only=>[:search, :show,:new,:index,:edit]
   # GET /transactions
   # GET /transactions.json
   def index

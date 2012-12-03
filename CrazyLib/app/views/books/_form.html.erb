@@ -35,7 +35,7 @@
 		</div>
 		<div class="field">
 			<%= f.label :topic %>
-			<%= select_tag "topic","<option value='1'>Web Development</option><option value='2'>Database</option><option value='10'>Other</option>".html_safe,:class=>"span3" %>
+			<%= f.collection_select :topic, BookCategory.find(:all), :id, :name%>
 		</div>
 		<div class="field">
 			<%= f.label :quantity %>
@@ -52,7 +52,7 @@
 		<td>
 		<div class="actions">
 			<center>
-			<%= f.submit :class=>"btn "%>
+				<%= f.submit :class=>"btn "%>
 			</center>
 		</div></td>
 		<td></td>

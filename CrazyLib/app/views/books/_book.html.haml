@@ -8,3 +8,4 @@
   %td= book.bookTopic(book.topic.to_i)
   %td= book.quantity
   %td= book.current_quantity
+  %td= button_to 'Edit', "/books/#{book.id}/edit",:class=>"btn",:method=>:get

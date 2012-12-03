@@ -9,3 +9,4 @@
   %td= user.home_address
   %td= user.phone_number
   %td= user.books_borrow
+  %td= button_to 'View',"/users/#{user.id}", :class=>"btn", :method=>:get

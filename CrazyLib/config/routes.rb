@@ -1,6 +1,7 @@
 CrazyLib::Application.routes.draw do
   resources :book_categories
-
+  match "admin/book_topic"=> "book_categories#index"
+  
   #admin
   match "admin/show_transactions" => 'admin#show_transactions'
   match "admin/send_email" => 'admin#send_email'

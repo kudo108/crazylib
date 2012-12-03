@@ -1,4 +1,5 @@
 class BookCategoriesController < ApplicationController
+  layout 'admin'
   # GET /book_categories
   # GET /book_categories.json
   def index
