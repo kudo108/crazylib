@@ -6,8 +6,8 @@ CrazyLib::Application.routes.draw do
   match "admin/send_email" => 'admin#send_email'
   match "admin" => 'admin#index'
   match "admin/add_book"=> "books#new"
-  match "admin/show_users"=> "users#index"
-  match "admin/show_books" => "books#show_all"
+  match "admin/show_users"=> "admin#show_users"
+  match "admin/show_books" => "admin#show_books"
   match "admin/edit_books" => "books#edit"
   match "admin/return_book" => "transactions#search"
   #what da hell is this ???

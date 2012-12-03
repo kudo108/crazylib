@@ -1,9 +1,8 @@
-%table#transactions.display
+%table#show_transactions.display
   %thead
     %tr
-      %th ID Sách
-      %th ID Người Mượn
-      %th Ngày Mượn
-      %th Ngày Trả
-      %th Ngày
+      %th Book
+      %th Day borrow
+      %th Day return
+      %th Status
   %tbody= render @transactions
