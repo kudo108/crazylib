@@ -9,11 +9,25 @@ class User < ActiveRecord::Base
   validates :class_name, :presence => true
   validates :home_address, :presence => true
   validates :phone_number, :presence => true
-  
+  validates :nickname, :presence => true
+  validates :email, :presence =>true
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :student_id, :class_name, :home_address, :phone_number, :books_borrow,
                   :nickname
   after_create :send_welcome_mail
+  after_create  :set_group
+  after_create  :set_book_borrow
+  after_create  :set_date
+  def set_date
+    self.register_date = Date.today
+    self.end_date = Date.today+1825
+  end
+  def set_group
+    self.group=1
+  end
+  def set_book_borrow
+    self.books_borrow =0
+  end
   def send_welcome_mail
      Mailer.welcome_email(self.student_id, self.email).deliver
   end
@@ -37,5 +51,12 @@ class User < ActiveRecord::Base
     else
       return false;
     end
+  end
+  def get_group_name
+    group = Usergroup.find(:first,:conditions=>{:id=>self.group.to_i})
+    if(group)
+      return group.group_name
+    end
+    return "Unknown"
   end
 end
