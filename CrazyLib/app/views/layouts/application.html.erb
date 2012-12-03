@@ -46,25 +46,25 @@
 						<div class="nav-collapse collapse" style="height: 0px; ">
 							<ul class="nav">
 								<li class="">
-									<a href="/?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>" style="color: #FFFFFF"><%= t :home%></a>
+									<a href="/?<%= :locale%>=<%=I18n.locale%>" style="color: #FFFFFF"><%= t :home%></a>
 								</li>
 								<li class="">
-									<a href="/books?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>"><%= t :book%></a>
+									<a href="/books?<%= :locale%>=<%=I18n.locale%>"><%= t :book%></a>
 								</li>
 								<li class="">
-									<a href="/books/search?<%= :locale%>=<%=params[:locale] %>"><%= t :search%></a>
+									<a href="/books/search?<%= :locale%>=<%=I18n.locale%>"><%= t :search%></a>
 								</li>
 								<li class="">
-									<a href="/faq?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>"><%= t :faq%></a>
+									<a href="/faq?<%= :locale%>=<%=I18n.locale%>"><%= t :faq%></a>
 								</li>
 								<li class="">
-									<a href="/rule?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>"><%= t :rule%></a>
+									<a href="/rule?<%= :locale%>=<%=I18n.locale%>"><%= t :rule%></a>
 								</li>
 								<li >
-									<a href="/contact?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>"><%= t :contact%></a>
+									<a href="/contact?<%= :locale%>=<%=I18n.locale%>"><%= t :contact%></a>
 								</li>
 								<li >
-									<a href="/about?<%= :locale%>=<%=params[:locale] || I18n.default_locale%>"><%= t :about%></a>
+									<a href="/about?<%= :locale%>=<%=I18n.locale%>"><%= t :about%></a>
 								</li>
 							</ul>
 						</div>

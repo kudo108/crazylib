@@ -2,9 +2,6 @@
 # vi translations for Devise 2.0
 
 vi:
-  
-  email: "ÁĐÂS"
-  
   home: "Trang chủ"
   book: "Sách"
   search: "Tìm kiếm"
@@ -20,6 +17,18 @@ vi:
   unlock_instruction: "Chưa nhận được hướng dẫn mở khoá?"
   sign_in_with: "Đăng nhập với "
   
+  #admin
+  receive_return_book: "Nhận/Trả sách"
+  view_transaction: "Xem giao dịch"
+  view_user: "Xem người dùng"
+  view_book: "Xem sách"
+  view_stat: "Xem các thông số"
+  send_email: "Gửi email"
+  add_book: "Thêm sách"
+  book_topic: "Chủ đề của sách"
+  add_moderate: "Thêm thủ thư"
+  edit_faq: "Sửa mục Câu hỏi thường gặp"
+  edit_rule: "Sửa quy định"
   
   #about
   member: "Thành viên"
