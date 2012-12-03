@@ -16,6 +16,19 @@ en:
   unlock_instruction: "Didn't receive unlock instructions?"
   sign_in_with: "Sign in with "
   
+  #admin
+  receive_return_book: "Receive/Return books"
+  view_transaction: "View transactions"
+  view_user: "View users"
+  view_book: "View books"
+  view_stat: "View stats"
+  send_email: "Send emal"
+  add_book: "Add book"
+  book_topic: "Book topic"
+  add_moderate: "Add moderate"
+  edit_faq: "Edit FAQ"
+  edit_rule: "Edit rule"
+  
   #about
   member: "Members"
   NVQ: "Quan Nguyen Van"
