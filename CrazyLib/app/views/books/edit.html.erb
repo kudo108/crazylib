@@ -1,4 +1,8 @@
+<%if user_signed_in?%>
+  <%if current_user.group ==3%>
 <h1>Editing book</h1>
 
 <%= render 'form' %>
 
+<%end%>
+<%end%>

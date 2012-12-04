@@ -1,9 +1,11 @@
-%table#show_transactions.display
-  %thead
-    %tr
-      %th Book
-      %th Day borrow
-      %th Day return
-      %th Status
-      %th Action
-  %tbody= render @transactions
+=if user_signed_in?
+  =if current_user.group ==3
+    %table#show_transactions.display
+      %thead
+        %tr
+          %th Book
+          %th Day borrow
+          %th Day return
+          %th Status
+          %th Action
+      %tbody= render @transactions

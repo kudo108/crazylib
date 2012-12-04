@@ -1,3 +1,5 @@
+<% if (!user_signed_in?)%>
+<%if current_user.group==3%>
 <table class="table">
 	<tr>
 		<td class="span3">
@@ -12,7 +14,7 @@
 				<a href="/admin/show_users"><i class="icon-tasks"></i><%= t :view_user%></a>
 			</li>
 			<li>
-				<a href="/admin/add_moderate"><i class="icon-user"></i><%= t :add_moderate%></a>
+				<a href="/admin/show_moderates"><i class="icon-user"></i><%= t :add_moderate%></a>
 			</li>
 			<li>
 				<a href="/admin/show_books"><i class="icon-tasks"></i><%= t :view_books%></a>
@@ -39,5 +41,8 @@
 		<td class="span9"> <%= yield %> </td>
 	</tr>
 </table>
+<%end%>
+<%end%>
 <%= parent_layout 'application' %>
+
 

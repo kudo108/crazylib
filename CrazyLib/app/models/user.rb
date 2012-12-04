@@ -21,12 +21,15 @@ class User < ActiveRecord::Base
   def set_date
     self.register_date = Date.today
     self.end_date = Date.today+1825
+    self.save
   end
   def set_group
     self.group=1
+    self.save
   end
   def set_book_borrow
     self.books_borrow =0
+    self.save
   end
   def send_welcome_mail
      Mailer.welcome_email(self.student_id, self.email).deliver

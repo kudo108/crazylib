@@ -1,1 +1,6 @@
-Welcome to Librarians Panel.
+<%if user_signed_in?%>
+<%if current_user.group ==3%>
+Welcome to Librarian!
+<%end%>
+<%end%>
+You went to wrong place!

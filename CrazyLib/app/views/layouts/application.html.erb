@@ -46,22 +46,22 @@
 						<div class="nav-collapse collapse" style="height: 0px; ">
 							<ul class="nav">
 								<li class="">
-									<a href="/?<%= :locale%>=<%=I18n.locale%>" style="color: #FFFFFF"><%= t :home%></a>
+									<a href="/?<%= :locale%>=<%= I18n.locale%>" style="color: #FFFFFF"><%= t :home%></a>
 								</li>
 								<li class="">
-									<a href="/books/search?<%= :locale%>=<%=I18n.locale%>"><%= t :search%></a>
+									<a href="/books/search?<%= :locale%>=<%= I18n.locale%>"><%= t :search%></a>
 								</li>
 								<li class="">
-									<a href="/faq?<%= :locale%>=<%=I18n.locale%>"><%= t :faq%></a>
+									<a href="/faq?<%= :locale%>=<%= I18n.locale%>"><%= t :faq%></a>
 								</li>
 								<li class="">
-									<a href="/rule?<%= :locale%>=<%=I18n.locale%>"><%= t :rule%></a>
+									<a href="/rule?<%= :locale%>=<%= I18n.locale%>"><%= t :rule%></a>
 								</li>
 								<li >
-									<a href="/contact?<%= :locale%>=<%=I18n.locale%>"><%= t :contact%></a>
+									<a href="/contact?<%= :locale%>=<%= I18n.locale%>"><%= t :contact%></a>
 								</li>
 								<li >
-									<a href="/about?<%= :locale%>=<%=I18n.locale%>"><%= t :about%></a>
+									<a href="/about?<%= :locale%>=<%= I18n.locale%>"><%= t :about%></a>
 								</li>
 							</ul>
 						</div>
@@ -77,9 +77,17 @@
 							<li>
 								<a href="/users/<%= current_user.id%>">
 								<div class="text-info">
-									<%=t :hello%>, <%= current_user.email%>
+									<%= t :hello%>, <%= current_user.email%>
 								</div></a>
 							</li>
+							<%if current_user.group==3%>
+							<li>
+								<a href="/admin">
+								<div class="text-info">
+									<%= t :admin_panel%>
+								</div></a>
+							</li>
+							<%end%>
 							<li class="">
 								<%= link_to (t :logout), destroy_user_session_path(locale: I18n.locale.to_s), :method => :delete %>
 							</li>

@@ -1,5 +1,7 @@
-%h1 New book topic
-
-= render 'form'
-
-= link_to 'Back', book_categories_path
+=if user_signed_in?
+  =if current_user.group ==3
+    %h1 New book topic
+    
+    = render 'form'
+    
+    = link_to 'Back', book_categories_path

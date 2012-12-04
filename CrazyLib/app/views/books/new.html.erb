@@ -1,2 +1,5 @@
+<%if user_signed_in?%>
+<%if current_user.group ==3%>
 <%= render 'form' %>
-
+<%end%>
+<%end%>
