@@ -26,6 +26,10 @@ class BooksController < ApplicationController
   def newbook
   @books = Book.find(:all,:order=>"created_at DESC",:limit=>20);
   end
+  
+  def popular
+  @books = Book.find(:all,:order=>"seen_by DESC",:limit=>20);
+  end
   # GET /books/1
   # GET /books/1.json
   def show

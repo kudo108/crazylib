@@ -39,6 +39,7 @@ CrazyLib::Application.routes.draw do
   get "transactions/receive"
   #resources :transactions
   #books
+  get "books/popular"
   get "books/newbook"
   get "books/view"
   get "books/search"
