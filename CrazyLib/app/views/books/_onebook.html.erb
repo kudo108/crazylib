@@ -10,7 +10,7 @@
 			<div class="slide" >
 				<%end%>
 				<li class="span2">
-					<a href="view?topic=<%= slide.topic%>&id=<%= slide.id%>" class="thumbnail" style="margin-bottom:5px;"> <img src="../assets/<%= slide.image_url%>" alt=""></img> </a>
+					<a href="view?topic=<%= slide.topic%>&id=<%= slide.id%>&locale=<%=I18n.locale%>" class="thumbnail" style="margin-bottom:5px;"> <img src="../assets/<%= slide.image_url%>" alt=""></img> </a>
 				</li>
 				<%if(i%6==5)%>
 			</div>

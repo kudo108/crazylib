@@ -18,12 +18,13 @@ class BooksController < ApplicationController
   end
   
   def view
-  
-
+  book =  Book.find(params[:id]);
+  views = book.seen_by.to_i+1; 
+  book.update_attributes(:seen_by=>views);
   end
   #
-  def viewbytype
-  
+  def newbook
+  @books = Book.find(:all,:order=>"created_at DESC",:limit=>20);
   end
   # GET /books/1
   # GET /books/1.json

@@ -45,9 +45,12 @@
 		<%end%>
 			<li class="span3" >
 				<div class="thumbnail">
-					<a href="view?topic=<%=b.topic%>&id=<%= b.id%>" ><img src="../assets/<%= b.image_url%>" alt=""></a>
+					<a href="view?topic=<%=b.topic%>&id=<%= b.id%>&locale=<%=I18n.locale%>" ><img src="../assets/<%= b.image_url%>" alt=""></a>
 					<div class="caption">
 						
+						
+						<p class="text-success"><i class="icon-eye-open"></i>   Book views : <%=b.seen_by%> views</p>
+						<p class="text-success"><i class="icon-th-large"></i>   Public : <%=b.created_at.strftime("%d-%m-%Y")%> </p>
 						<h6 class="text-error">
 							<%=truncate(b.title,:length=>50)%>
 						</h6>
