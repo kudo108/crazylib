@@ -4,6 +4,7 @@
 		<div class="input-append controls controls-row">
 			<%= select_tag "filter","<option value='0'>All</option><option value='1' >Tittle</option><option value='2'>Author</option><option value='3'>Description</option>".html_safe,:style=>"width:25%" %>
 			<%= text_field_tag :keyword, params[:keyword] %>
+			<%= text_field_tag :locale,params[:locale],:value=>I18n.locale,:class=>"hide"%>
 			<button "Search" class="btn"><%=t :search%></button>
 		</div>
 	</div>
