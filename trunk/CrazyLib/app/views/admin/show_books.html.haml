@@ -1,14 +1,16 @@
-%table#show_books.display
-  %thead
-    %tr
-      %th Book ID
-      %th Book Title
-      %th Author
-      %th Publisher
-      %th Content
-      %th Pages
-      %th Topic
-      %th Quantity
-      %th Current Quantity
-      %th Edit
-  %tbody= render @books
+=if user_signed_in?
+  =if current_user.group ==3
+    %table#show_books.display
+      %thead
+        %tr
+          %th Book ID
+          %th Book Title
+          %th Author
+          %th Publisher
+          %th Content
+          %th Pages
+          %th Topic
+          %th Quantity
+          %th Current Quantity
+          %th Edit
+      %tbody= render @books

@@ -1,2 +1,4 @@
-Email sent ;)
-Check your inbox, spam box, ...
+=if user_signed_in?
+  =if current_user.group ==3
+    Email sent ;)
+    Check your inbox, spam box, ...

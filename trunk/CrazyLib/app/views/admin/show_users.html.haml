@@ -1,16 +1,18 @@
-%table#show_users.display
-  %thead
-    %tr
-      %th Nickname
-      %th Email
-      %th Register date
-      %th End date
-      %th Group
-      %th Student ID
-      %th Class Name
-      %th Address
-      %th Phone number
-      %th Books borrowed
-      %th View
-      %th Set/Unset
-  %tbody= render @users
+=if user_signed_in?
+  =if current_user.group ==3
+    %table#show_users.display
+      %thead
+        %tr
+          %th Nickname
+          %th Email
+          %th Register date
+          %th End date
+          %th Group
+          %th Student ID
+          %th Class Name
+          %th Address
+          %th Phone number
+          %th Books borrowed
+          %th View
+          %th Set/Unset
+      %tbody= render @users

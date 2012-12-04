@@ -1,19 +1,21 @@
-%h1 Listing book topic
-
-%table(class="table table-bordered")
-  %tr
-    %th(class="label-success") Name
-    %th(class="label-success")
-    %th(class="label-success")
-    %th(class="label-success")
-
-  - @book_categories.each do |book_category|
-    %tr
-      %td= book_category.name
-      %td= link_to 'Show', book_category
-      %td= link_to 'Edit', edit_book_category_path(book_category)
-      %td= link_to 'Destroy', book_category, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Book topic', new_book_category_path
+=if user_signed_in?
+  =if current_user.group ==3
+    %h1 Listing book topic
+    
+    %table(class="table table-bordered")
+      %tr
+        %th(class="label-success") Name
+        %th(class="label-success")
+        %th(class="label-success")
+        %th(class="label-success")
+    
+      - @book_categories.each do |book_category|
+        %tr
+          %td= book_category.name
+          %td= link_to 'Show', book_category
+          %td= link_to 'Edit', edit_book_category_path(book_category)
+          %td= link_to 'Destroy', book_category, :confirm => 'Are you sure?', :method => :delete
+    
+    %br
+    
+    = link_to 'New Book topic', new_book_category_path
