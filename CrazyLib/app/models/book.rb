@@ -33,7 +33,7 @@ class Book < ActiveRecord::Base
     if keyword
       case filter
       when 0 #all
-        find(:all)
+        find(:all,:conditions=>['title LIKE ? or author LIKE ? or brief_content LIKE ?',"%#{keyword}%","%#{keyword}%","%#{keyword}%"])
       when 1 #title
         find(:all, :conditions => ['title LIKE ?', "%#{keyword}%"])
       when 2 #author

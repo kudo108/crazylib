@@ -18,6 +18,25 @@
 	$(document).ready(function(){
 		var index = $('#filter-selected').text()
 		$('#filter option:eq('+index+')').attr("selected","selected");
+		if(parseInt(index)==0){
+			var len = $('table tbody td').length;
+			for(var i=0;i<len;i++){
+				var keyword = $('#keyword-find').text();
+				var elem = $('table tbody td:eq('+i+')');
+				var name = elem.text();
+				var upper = name.toLocaleUpperCase();
+				var length = name.length;
+				if(upper.indexOf(keyword.toLocaleUpperCase())!=-1){
+					var txt = name.slice(0,upper.indexOf(keyword.toLocaleUpperCase()))+'<span class="alert alert-error">'+keyword+'</span>'+name.slice(upper.indexOf(keyword.toLocaleUpperCase())+keyword.length,length);
+					if(i%2==0)
+					$('table tbody td:eq('+i+') a').html(txt);
+					else 
+					elem.html(txt);
+				}
+			}
+		}
+		
+		
 		if(parseInt(index)==1){
 			var len = $('table tbody td').length;
 			for(var i=0;i<len;i++){
