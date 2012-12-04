@@ -51,7 +51,8 @@ en:
   top_user: "Top user"
   new_user: "New user"
   announce: "Announcement"
-  
+  info: "My info" 
+    
   #books
   nominate: "Nominate"
   new_book: "New books"
