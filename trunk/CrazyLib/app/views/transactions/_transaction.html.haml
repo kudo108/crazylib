@@ -3,8 +3,11 @@
   %td= transaction.day_borrow
   %td= transaction.day_return
   %td= transaction.getStatus
-  -if (transaction.status==1)
-    %td= link_to "Received", "/transactions/receive?transactionid=#{transaction.id}", :class=>"btn"
-  -if (transaction.status==2)
-    %td= link_to "Returned", "/transactions/return?transactionid=#{transaction.id}", :class=>"btn"
-
+  - if transaction.status == 1
+    %td
+      %a.btn{href: "/transactions/receive?transactionid=#{transaction.id}"} Received
+  - elsif transaction.status == 2
+    %td
+      %a.btn{href: "/transactions/return?transactionid=#{transaction.id}"} Returned
+  - else
+    %td
