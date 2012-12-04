@@ -57,6 +57,7 @@
 	border-radius: 10px;
 }
 .auto-content{
-	max-height:828px;
+	max-height:890px;
+	margin-bottom:30px;
 	overflow:hidden;
 }
