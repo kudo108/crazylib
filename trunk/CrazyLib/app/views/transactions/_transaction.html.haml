@@ -1,5 +1,8 @@
 %tr
-  %td= transaction.getBook.title
+  %td
+    %a{:href=>"/books/view?topic=#{transaction.getBook.topic}&id=#{transaction.getBook.id}"}= transaction.getBook.title
+  %td
+    %a{:href=>"/users/#{transaction.getUser.id}"}= transaction.getUser.email
   %td= transaction.day_borrow
   %td= transaction.day_return
   %td= transaction.getStatus

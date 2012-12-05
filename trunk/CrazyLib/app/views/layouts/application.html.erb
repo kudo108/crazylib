@@ -8,8 +8,8 @@
 	</head>
 	<body>
 		<div class="span10 offset4" style="margin-top: 80px">
-			<h2 class="text-error">
-			<p>
+			<h2 class=" text-error ">
+			<p class="hide">
 				<%= notice %>
 			</p>
 			<p>
@@ -41,12 +41,12 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="brand" href="/">Crazy Lib</a>
+					<a class="brand" href="/" style="margin-left: -100px">Crazy Lib</a>
 					<div class="controls controls-row">
 						<div class="nav-collapse collapse" style="height: 0px; ">
 							<ul class="nav">
 								<li class="">
-									<a href="/?<%= :locale%>=<%= I18n.locale%>" style="color: #FFFFFF"><%= t :home%></a>
+									<a href="/?<%= :locale%>=<%= I18n.locale%>" ><%= t :home%></a>
 								</li>
 								<li class="">
 									<a href="/books/search?<%= :locale%>=<%= I18n.locale%>"><%= t :search%></a>
@@ -65,7 +65,7 @@
 								</li>
 							</ul>
 						</div>
-						<div class="nav pull-right">
+						<div class="nav pull-right" style="margin-right: -200px">
 							<% if (!user_signed_in?)%>
 							<li class="">
 								<%= link_to (t :login), new_user_session_path(locale: I18n.locale.to_s) %>

@@ -23,6 +23,7 @@ CrazyLib::Application.routes.draw do
   #show user
   get "/users/add_to_moderate"
   get "/users/remove_from_moderate"
+  match "users/feed_back" => "users#feed_back"
   resources :users, :only => [:show]
 
   # get "locale/set"
