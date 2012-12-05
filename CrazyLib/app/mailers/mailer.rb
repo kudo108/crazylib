@@ -18,4 +18,15 @@ class Mailer < ActionMailer::Base
       :subject => 'Welcome to crazylib'
     )
   end
+  
+  def feed_back_email name, email, message
+    @name = name
+    @email = email
+    @message = message
+    mail(
+      :from => "\"#{@name}\"",
+      :to => "ahn.willta@yahoo.com",
+      :subject => "New feedback from crazylib"
+    )
+  end
 end

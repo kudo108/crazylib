@@ -186,6 +186,11 @@ class TransactionsController < ApplicationController
   def return
     @transaction = Transaction.find(:first, :conditions => {:id=>params[:transactionid]})
     @transaction.update_attributes(:status=>3)
+    #return book
+    book = Book.find(:first, :conditions=>{:id=>@transaction.getBook.id}) 
+    book.current_quantity +=1;
+    book.save;
+        
     redirect_to "/admin/show_transactions";
     return;
   end

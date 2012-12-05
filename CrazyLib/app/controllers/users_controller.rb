@@ -30,4 +30,11 @@ class UsersController < ApplicationController
     redirecto_to "/admin"
     return
   end
+  
+  def feed_back
+    name = params[:cname]
+    email = params[:cemail]
+    message = params[:cmessage]
+    (Mailer.feed_back_email name, email, message).deliver
+  end
 end
