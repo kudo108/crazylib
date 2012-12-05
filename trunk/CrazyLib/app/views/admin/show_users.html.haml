@@ -3,16 +3,16 @@
     %table#show_users.display
       %thead
         %tr
-          %th Nickname
-          %th Email
-          %th Register date
-          %th End date
-          %th Group
-          %th Student ID
-          %th Class Name
-          %th Address
-          %th Phone number
-          %th Books borrowed
-          %th View
-          %th Set/Unset
+          %th= t :nickname
+          %th= t :email
+          %th= t :register_date
+          %th= t :end_date
+          %th= t :group
+          %th= t :student_id
+          %th= t :class_name
+          %th= t :address
+          %th= t :phone_number
+          %th= t :books_borrow
+          %th= t :view
+          %th= t :set_unset
       %tbody= render @users

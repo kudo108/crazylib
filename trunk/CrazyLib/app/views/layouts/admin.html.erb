@@ -8,34 +8,34 @@
 				<a href="/admin"><i class="icon-home"></i><%= t :home%></a>
 			</li>
 			<li>
-				<a href="/admin/show_transactions"><i class="icon-list"></i><%= t :view_transaction%></a>
+				<a href="/admin/show_transactions?locale=<%=I18n.locale%>"><i class="icon-list"></i><%= t :view_transaction%></a>
 			</li>
 			<li>
-				<a href="/admin/show_users"><i class="icon-tasks"></i><%= t :view_user%></a>
+				<a href="/admin/show_users?locale=<%=I18n.locale%>"><i class="icon-tasks"></i><%= t :view_user%></a>
 			</li>
 			<li>
-				<a href="/admin/show_moderates"><i class="icon-user"></i><%= t :add_moderate%></a>
+				<a href="/admin/show_moderates?locale=<%=I18n.locale%>"><i class="icon-user"></i><%= t :add_moderate%></a>
 			</li>
 			<li>
-				<a href="/admin/show_books"><i class="icon-tasks"></i><%= t :view_books%></a>
+				<a href="/admin/show_books?locale=<%=I18n.locale%>"><i class="icon-tasks"></i><%= t :view_books%></a>
 			</li>
 			<li>
-				<a href="/admin/add_book"><i class="icon-book"></i><%= t :add_book%></a>
+				<a href="/admin/add_book?locale=<%=I18n.locale%>"><i class="icon-book"></i><%= t :add_book%></a>
 			</li>
 			<li>
-				<a href="/admin/book_topic"><i class="icon-book"></i><%= t :book_topic%></a>
+				<a href="/admin/book_topic?locale=<%=I18n.locale%>"><i class="icon-book"></i><%= t :book_topic%></a>
 			</li>
 			<li>
-				<a href="/admin/show_stats"><i class="icon-signal"></i><%= t :view_stats%></a>
+				<a href="/admin/show_stats?locale=<%=I18n.locale%>"><i class="icon-signal"></i><%= t :view_stats%></a>
 			</li>
 			<li>
-				<a href="/admin/send_email"><i class="icon-envelope"></i><%= t :send_email%></a>
+				<a href="/admin/send_email?locale=<%=I18n.locale%>"><i class="icon-envelope"></i><%= t :send_email%></a>
 			</li>
 			<li>
-				<a href="/admin/edit_faq"><i class="icon-question-sign"></i><%= t :edit_faq%></a>
+				<a href="/admin/edit_faq?locale=<%=I18n.locale%>"><i class="icon-question-sign"></i><%= t :edit_faq%></a>
 			</li>
 			<li>
-				<a href="/admin/edit_rule"><i class="icon-wrench"></i><%= t :edit_rule%></a>
+				<a href="/admin/edit_rule?locale=<%=I18n.locale%>"><i class="icon-wrench"></i><%= t :edit_rule%></a>
 			</li>
 		</ul></td>
 		<td class="span9"> <%= yield %> </td>

@@ -9,7 +9,7 @@
   %td= user.home_address
   %td= user.phone_number
   %td= user.books_borrow
-  %td= button_to 'View',"/users/#{user.id}", :class=>"btn", :method=>:get
+  %td= button_to (t :view),"/users/#{user.id}", :class=>"btn", :method=>:get
   -if user.group !=3
     %td= link_to 'Set Moderate',  {:controller=>"users", :action=>"add_to_moderate", :id=>user.id}, :class=>"btn", :method=>:get
   -else

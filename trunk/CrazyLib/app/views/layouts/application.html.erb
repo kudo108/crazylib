@@ -75,17 +75,18 @@
 							</li>
 							<%else%>
 							<li>
-								<a href="/users/<%= current_user.id%>">
+								<a href="/users/<%= current_user.id%>?locale=<%=I18n.locale.to_s%>">
 								<div class="text-info">
 									<%= t :info%>
 								</div></a>
 							</li>
 							<%if current_user.group==3%>
 							<li>
-								<a href="/admin">
+								<a href="/admin?locale=<%=I18n.locale%>">
 								<div class="text-info">
 									<%= t :admin_panel%>
 								</div></a>
+								
 							</li>
 							<%end%>
 							<li class="">

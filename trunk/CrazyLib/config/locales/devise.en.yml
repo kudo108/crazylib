@@ -19,9 +19,9 @@ en:
   #admin
   receive_return_book: "Receive/Return books"
   view_transaction: "Transactions"
-  view_user: "Users"
-  view_book: "Books"
-  view_stat: "Stats"
+  view_user: "View Users"
+  view_books: "View Books"
+  view_stats: "View Stats"
   send_email: "Send emal"
   add_book: "Add book"
   book_topic: "Book topics"
@@ -29,6 +29,15 @@ en:
   edit_faq: "Edit FAQ"
   edit_rule: "Edit rule"
   admin_panel: "Admin Panel"
+  received: "Received"
+  returned: "Returned"
+  view: "View"
+  save: "Save"
+  listing_book_topic: "Listing book topic"
+  editing_book_topic: "Editing book topic"
+  are_you_sure: "Are you sure?"
+  set_unset: "Set/Unset"
+  
   #about
   member: "Members"
   NVQ: "Quan Nguyen Van"
@@ -60,6 +69,7 @@ en:
   vietnamese: "Vietnamese"
   english: "English"
   book_id: "Book ID"
+  book_title: "Title"
   book_author: "Author"
   book_publisher: "Publisher"
   book_category: "Category"
@@ -85,22 +95,26 @@ en:
   title: "Title"
   author: "Author"
   description: "Description"
+  found: "Found"
+  result: 
+    one: "result"
+    other: "results"
   
   #user
   email: "Email"
   student_id: "Student ID"
   password: "Password"
   password_confirmation: "Password confirmation"
-  class: "Class name"
+  class_name: "Class name"
   address: "Address"
   nickname: "Nickname"
-  phone: "Phone number"
+  phone_number: "Phone number"
   end_date: "End date"
   register_date: "Register date"
   books_borrow: "Books borrowed"
   user_information: "User Information"
   group: "Group"
-  edit_myinfo: "Edit my info"
+  edit_myinfo: "Edit info"
   invalid_user: "Invalid user"
   
   #passwords
@@ -132,6 +146,7 @@ en:
   day_return: "Day return"
   date: "Date"
   status: "Status"
+  action: "Action"
   transaction_history: "Transaction history"
   
   #navigation

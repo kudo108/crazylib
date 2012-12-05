@@ -3,14 +3,14 @@
     %table#show_books.display
       %thead
         %tr
-          %th Book ID
-          %th Book Title
-          %th Author
-          %th Publisher
-          %th Content
-          %th Pages
-          %th Topic
-          %th Quantity
-          %th Current Quantity
-          %th Edit
+          %th= t :book_id
+          %th= t :book_title
+          %th= t :book_author
+          %th= t :book_publisher
+          %th= t :book_content
+          %th= t :book_page
+          %th= t :book_topic
+          %th= t :book_quantity
+          %th= t :book_current_quantity
+          %th= t :edit
       %tbody= render @books
