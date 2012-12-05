@@ -1,6 +1,6 @@
 -if user_signed_in?
   -if current_user.group ==3
-    %h1 Listing book topic
+    %h1= (t :listing_book_topic)
     
     %table(class="table table-bordered")
       %tr
@@ -12,9 +12,9 @@
       - @book_categories.each do |book_category|
         %tr
           %td= book_category.name
-          %td= link_to 'Show', book_category
-          %td= link_to 'Edit', edit_book_category_path(book_category)
-          %td= link_to 'Destroy', book_category, :confirm => 'Are you sure?', :method => :delete
+          %td= link_to (t :show), book_category
+          %td= link_to (t :edit), edit_book_category_path(book_category) + "?locale=" + I18n.locale.to_s
+          %td= link_to (t :destroy), book_category, :confirm => (t :are_you_sure), :method => :delete
     
     %br
     

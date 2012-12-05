@@ -18,7 +18,7 @@ class BookCategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @book_category }
+      format.json { render json: @book_category}
     end
   end
 

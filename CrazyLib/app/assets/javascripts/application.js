@@ -17,15 +17,23 @@
  
 function onChangeLocale(lang) {
     var newURL = "";
+    var andMarkLocation = document.URL.indexOf("&");
     var questionMarkLocation = document.URL.indexOf("?");
-    if (questionMarkLocation != -1) {
-        newURL = document.URL.substring(0, questionMarkLocation); 
-    } else {
-        newURL = document.URL;
+    if(andMarkLocation != -1){
+    	var localeMarkLocation = document.URL.indexOf("&locale")
+    	if(localeMarkLocation != -1){
+    		newURL = document.URL.substring(0, localeMarkLocation) + "&locale=" + lang;
+    	}else{
+    		newURL = document.URL + "&locale=" + lang;
+    	}
+    }else {
+    	if (questionMarkLocation != -1) {
+        	newURL = document.URL.substring(0, questionMarkLocation); 
+    	} else {
+        	newURL = document.URL;
+       	}
+       	newURL = newURL + "?locale=" + lang;
     }
-    
-    newURL = newURL + "?locale=" + lang;
-    
     document.location=newURL;
 }
     

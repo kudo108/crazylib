@@ -1,9 +1,9 @@
 -if user_signed_in?
   -if current_user.group ==3
-    %h1 Editing book topic
+    %h1= t :editing_book_topic
     
     = render 'form'
     
-    = link_to 'Show', @book_category
+    = link_to (t :show), @book_category
     \|
-    = link_to 'Back', book_categories_path
+    = link_to (t :back), book_categories_path

@@ -3,10 +3,10 @@
     %table#show_transactions.display
       %thead
         %tr
-          %th Book
-          %th User
-          %th Day borrow
-          %th Day return
-          %th Status
-          %th Action
+          %th= t :book
+          %th= t :user
+          %th= t :day_borrow
+          %th= t :day_return
+          %th= t :status
+          %th= t :action
       %tbody= render @transactions
