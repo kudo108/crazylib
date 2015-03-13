@@ -1,0 +1,1 @@
+Manager Library using RoR
